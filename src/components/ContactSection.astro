@@ -36,12 +36,12 @@ const {
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
         <div class="bg-white p-8 shadow-lg text-center">
           <span class="text-4xl mb-4 block">📞</span>
-          <h3 class="font-display text-xl font-bold text-primary mb-2">{phoneLabel}</h3>
+          <h3 class="font-display text-xl font-bold text-primary mb-2 break-words">{phoneLabel}</h3>
           <p class="font-body text-secondary text-lg">{phoneNumber}</p>
         </div>
         <div class="bg-white p-8 shadow-lg text-center">
           <span class="text-4xl mb-4 block">🕐</span>
-          <h3 class="font-display text-xl font-bold text-primary mb-2">{hoursLabel}</h3>
+          <h3 class="font-display text-xl font-bold text-primary mb-2 break-words">{hoursLabel}</h3>
           <p class="font-body text-secondary">
             {openingHours.map((line, index) => (
               <>

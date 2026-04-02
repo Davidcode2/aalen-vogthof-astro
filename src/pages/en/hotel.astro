@@ -1,11 +1,11 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Hero from '../components/Hero.astro';
-import Section from '../components/Section.astro';
-import Card from '../components/Card.astro';
-import { getTranslations } from '../i18n/translations';
+import Layout from '../../layouts/Layout.astro';
+import Hero from '../../components/Hero.astro';
+import Section from '../../components/Section.astro';
+import Card from '../../components/Card.astro';
+import { getTranslations } from '../../i18n/translations';
 
-const locale = 'de';
+const locale = 'en';
 const t = getTranslations(locale);
 
 const amenities = [
@@ -20,14 +20,14 @@ const amenities = [
 
 <Layout 
   title="Vogthof Landgasthof - Hotel"
-  description="Ihr ruhiger Rückzugsort auf dem Land. Erleben Sie traditionelle Gastfreundschaft mit modernem Komfort."
+  description="Your peaceful retreat in the countryside. Experience traditional hospitality with modern comfort."
   locale={locale}
 >
   <Hero
     headline={t.hotel.hero.headline}
     subheadline={t.hotel.hero.subheadline}
     ctaText={t.hotel.hero.ctaPrimary}
-    ctaLink="/rooms"
+    ctaLink="/en/rooms"
     ctaSecondaryText={t.hotel.hero.ctaSecondary}
     ctaSecondaryLink="#contact"
     height="large"
@@ -43,7 +43,7 @@ const amenities = [
         {t.hotel.welcome.paragraph2}
       </p>
       <a
-        href="/rooms"
+        href="/en/rooms"
         class="inline-block px-8 py-4 bg-[#8B4513] hover:bg-[#2D5A27] text-white font-semibold rounded-lg transition-colors duration-300 text-lg"
       >
         {t.hotel.welcome.cta}
@@ -113,17 +113,17 @@ const amenities = [
           <span class="text-4xl mb-4 block">🕐</span>
           <h3 class="font-['Playfair_Display',Georgia,serif] text-xl font-bold text-[#2C1810] mb-2">{t.hotel.contact.openingHours}</h3>
           <p class="font-['Open_Sans',Arial,sans-serif] text-[#5C4033]">
-            Mo-Do: 11:30-14:00 & 18:00-22:00<br />
-            Fr: Ruhetag<br />
-            Sa: 18:00-22:00<br />
-            So: 11:30-14:00
+            Mon-Thu: 11:30-14:00 & 18:00-22:00<br />
+            Fri: Closed<br />
+            Sat: 18:00-22:00<br />
+            Sun: 11:30-14:00
           </p>
         </div>
       </div>
       
       <div class="text-center">
         <a
-          href="/rooms"
+          href="/en/rooms"
           class="inline-block px-8 py-4 bg-[#2D5A27] hover:bg-[#8B4513] text-white font-semibold rounded-lg transition-colors duration-300 text-lg"
         >
           {t.hotel.contact.cta}

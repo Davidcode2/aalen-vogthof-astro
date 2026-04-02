@@ -1,18 +1,18 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Hero from '../components/Hero.astro';
-import Section from '../components/Section.astro';
-import RoomCard from '../components/RoomCard.astro';
-import { getTranslations } from '../i18n/translations';
+import Layout from '../../layouts/Layout.astro';
+import Hero from '../../components/Hero.astro';
+import Section from '../../components/Section.astro';
+import RoomCard from '../../components/RoomCard.astro';
+import { getTranslations } from '../../i18n/translations';
 
-const locale = 'de';
+const locale = 'en';
 const t = getTranslations(locale);
 
 const rooms = [
   { key: 'single', image: '/images/rooms/z1.jpg', price: '82€', capacity: 1 },
   { key: 'double', image: '/images/rooms/z2.jpg', price: '92€', capacity: 2 },
   { key: 'double2', image: '/images/rooms/z4.jpg', price: '130€', capacity: 2 },
-  { key: 'family', image: '/images/rooms/z5.jpg', price: 'ab 130€', capacity: 4 },
+  { key: 'family', image: '/images/rooms/z5.jpg', price: 'From 130€', capacity: 4 },
 ] as const;
 
 const childrenAges = [
@@ -23,8 +23,8 @@ const childrenAges = [
 ---
 
 <Layout 
-  title="Unsere Zimmer - Vogthof Landgasthof"
-  description="Komfortable Unterkünfte in ruhiger Lage. Zimmer renoviert 2014 mit modernem Landhaus-Charme."
+  title="Our Rooms - Vogthof Landgasthof"
+  description="Comfortable accommodation in a peaceful setting. Rooms renovated in 2014 with modern country-style charm."
   locale={locale}
 >
   <Hero
@@ -144,7 +144,7 @@ const childrenAges = [
           {t.rooms.booking.ctaCall}
         </a>
         <a
-          href="/"
+          href="/en"
           class="inline-block px-8 py-4 border-2 border-[#8B4513] text-[#8B4513] hover:bg-[#8B4513] hover:text-white font-semibold rounded-lg transition-colors duration-300"
         >
           {t.rooms.booking.ctaBack}

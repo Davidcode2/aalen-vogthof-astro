@@ -1,10 +1,10 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Section from '../components/Section.astro';
-import ContactForm from '../components/ContactForm.astro';
-import { getTranslations } from '../i18n/translations';
+import Layout from '../../layouts/Layout.astro';
+import Section from '../../components/Section.astro';
+import ContactForm from '../../components/ContactForm.astro';
+import { getTranslations } from '../../i18n/translations';
 
-const locale = 'de';
+const locale = 'en';
 const t = getTranslations(locale);
 
 const contactInfo = {
@@ -27,17 +27,17 @@ const structuredData = {
   },
   telephone: '+49-7361-73688',
   openingHours: [
-    'Mo-Do 11:30-14:00',
-    'Mo-Mi 18:00-21:30',
+    'Mo-Th 11:30-14:00',
+    'Mo-We 18:00-21:30',
     'Sa 18:00-22:00',
-    'So 11:30-14:00'
+    'Su 11:30-14:00'
   ]
 };
 ---
 
 <Layout 
-  title="Kontakt | Vogthof Landgasthof"
-  description="Kontaktieren Sie den Vogthof Landgasthof. Telefon, E-Mail, Öffnungszeiten und Adresse in Aalen-Röthardt."
+  title="Contact | Vogthof Landgasthof"
+  description="Contact Vogthof Landgasthof. Phone, email, opening hours and address in Aalen-Röthardt."
   locale={locale}
 >
   <!-- Hero Section -->
@@ -213,13 +213,13 @@ const structuredData = {
       </p>
       <div class="flex flex-wrap justify-center gap-4">
         <a
-          href="/menus"
+          href="/en/menus"
           class="inline-flex items-center gap-2 px-6 py-3 border-2 border-[#8B4513] text-[#8B4513] hover:bg-[#8B4513] hover:text-white font-semibold rounded-lg transition-all duration-300"
         >
           {t.contact.events.ctaMenu}
         </a>
         <a
-          href="/tagesessen"
+          href="/en/tagesessen"
           class="inline-flex items-center gap-2 px-6 py-3 border-2 border-[#8B4513] text-[#8B4513] hover:bg-[#8B4513] hover:text-white font-semibold rounded-lg transition-all duration-300"
         >
           {t.contact.events.ctaDaily}

@@ -1,19 +1,18 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Hero from '../components/Hero.astro';
-import Section from '../components/Section.astro';
-import { getTranslations } from '../i18n/translations';
+import Layout from '../../layouts/Layout.astro';
+import Hero from '../../components/Hero.astro';
+import Section from '../../components/Section.astro';
+import { getTranslations } from '../../i18n/translations';
 
-const locale = 'de';
+const locale = 'en';
 const t = getTranslations(locale);
 ---
 
 <Layout 
-  title="Tagesessen | Vogthof Landgasthof"
-  description="Frische Tagesgerichte im Vogthof Landgasthof"
+  title="Daily Specials | Vogthof Landgasthof"
+  description="Fresh daily specials at Vogthof Landgasthof"
   locale={locale}
 >
-  <!-- Hero Section -->
   <Hero
     backgroundImage="/images/Tagesessen.jpg"
     headline={t.tagesessen.hero.headline}
@@ -23,7 +22,6 @@ const t = getTranslations(locale);
     height="medium"
   />
 
-  <!-- Daily Specials Image Section -->
   <Section background="cream" padding="medium">
     <div class="flex flex-col items-center">
       <a 
@@ -34,7 +32,7 @@ const t = getTranslations(locale);
       >
         <img 
           src="/images/Tagesessen.jpg" 
-          alt="Tagesessen Karte"
+          alt="Daily Specials Menu"
           class="w-full max-w-2xl rounded-lg shadow-xl transition-transform duration-300 group-hover:scale-[1.02]"
         />
       </a>
@@ -44,20 +42,14 @@ const t = getTranslations(locale);
     </div>
   </Section>
 
-  <!-- Opening Hours Section -->
-  <Section 
-    title={t.tagesessen.hours.title}
-    background="old-lace"
-    padding="medium"
-    id="hours"
-  >
+  <Section title={t.tagesessen.hours.title} background="old-lace" padding="medium" id="hours">
     <div class="max-w-3xl mx-auto">
       <div class="overflow-x-auto">
         <table class="w-full min-w-[300px] text-left">
           <thead>
             <tr class="border-b border-[#8B4513]/30">
-              <th class="py-4 px-4 font-['Playfair_Display',Georgia,serif] text-[#2C1810] text-lg">Tag</th>
-              <th class="py-4 px-4 font-['Playfair_Display',Georgia,serif] text-[#2C1810] text-lg">Zeit</th>
+              <th class="py-4 px-4 font-['Playfair_Display',Georgia,serif] text-[#2C1810] text-lg">Day</th>
+              <th class="py-4 px-4 font-['Playfair_Display',Georgia,serif] text-[#2C1810] text-lg">Time</th>
             </tr>
           </thead>
           <tbody class="font-['Open_Sans',Arial,sans-serif]">
@@ -70,20 +62,17 @@ const t = getTranslations(locale);
           </tbody>
         </table>
       </div>
-      
       <div class="mt-6 p-4 bg-[#8B4513]/10 rounded-lg">
         <p class="font-['Open_Sans',Arial,sans-serif] text-[#5C4033] text-center">
           <strong class="text-[#2C1810]">{t.tagesessen.hours.note}</strong>
         </p>
       </div>
-      
       <p class="mt-4 text-center font-['Open_Sans',Arial,sans-serif] text-[#8B4513] text-sm">
         {t.tagesessen.hours.subjectToChange}
       </p>
     </div>
   </Section>
 
-  <!-- Closed Dates Section -->
   <Section background="antique" padding="medium">
     <div class="max-w-2xl mx-auto text-center">
       <h3 class="font-['Playfair_Display',Georgia,serif] text-2xl font-bold text-[#2C1810] mb-4">
@@ -97,7 +86,6 @@ const t = getTranslations(locale);
     </div>
   </Section>
 
-  <!-- Contact Section -->
   <Section background="white" padding="large">
     <div class="text-center max-w-2xl mx-auto">
       <h3 class="font-['Playfair_Display',Georgia,serif] text-3xl font-bold text-[#2C1810] mb-6">
@@ -111,25 +99,15 @@ const t = getTranslations(locale);
     </div>
   </Section>
 
-  <!-- Quick Links Section -->
   <Section background="cream" padding="medium">
     <div class="flex flex-wrap justify-center gap-6">
-      <a 
-        href="/aktionskalender" 
-        class="inline-block px-6 py-3 bg-[#8B4513] hover:bg-[#A0522D] text-white font-semibold rounded-md transition-all duration-300 shadow-lg hover:shadow-xl"
-      >
+      <a href="/en/aktionskalender" class="inline-block px-6 py-3 bg-[#8B4513] hover:bg-[#A0522D] text-white font-semibold rounded-md transition-all duration-300 shadow-lg hover:shadow-xl">
         → {t.tagesessen.links.menu}
       </a>
-      <a 
-        href="/impressum" 
-        class="inline-block px-6 py-3 border-2 border-[#8B4513] hover:bg-[#8B4513] hover:text-white text-[#8B4513] font-semibold rounded-md transition-all duration-300"
-      >
+      <a href="/en/impressum" class="inline-block px-6 py-3 border-2 border-[#8B4513] hover:bg-[#8B4513] hover:text-white text-[#8B4513] font-semibold rounded-md transition-all duration-300">
         → {t.tagesessen.links.imprint}
       </a>
-      <a 
-        href="/datenschutz" 
-        class="inline-block px-6 py-3 border-2 border-[#8B4513] hover:bg-[#8B4513] hover:text-white text-[#8B4513] font-semibold rounded-md transition-all duration-300"
-      >
+      <a href="/en/datenschutz" class="inline-block px-6 py-3 border-2 border-[#8B4513] hover:bg-[#8B4513] hover:text-white text-[#8B4513] font-semibold rounded-md transition-all duration-300">
         → {t.tagesessen.links.privacy}
       </a>
     </div>

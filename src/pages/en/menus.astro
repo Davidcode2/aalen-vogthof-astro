@@ -1,11 +1,11 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Hero from '../components/Hero.astro';
-import Section from '../components/Section.astro';
-import Card from '../components/Card.astro';
-import { getTranslations } from '../i18n/translations';
+import Layout from '../../layouts/Layout.astro';
+import Hero from '../../components/Hero.astro';
+import Section from '../../components/Section.astro';
+import Card from '../../components/Card.astro';
+import { getTranslations } from '../../i18n/translations';
 
-const locale = 'de';
+const locale = 'en';
 const t = getTranslations(locale);
 
 const heroImage = '/images/eat/k1.jpg';
@@ -19,8 +19,8 @@ const menuCategories = [
 ---
 
 <Layout 
-  title="Speisekarte | Vogthof Landgasthof"
-  description="Frische, saisonale Zutaten mit Leidenschaft zubereitet."
+  title="Menu | Vogthof Landgasthof"
+  description="Fresh, seasonal ingredients prepared with passion."
   locale={locale}
 >
   <!-- Hero Section -->
@@ -31,7 +31,7 @@ const menuCategories = [
     ctaText={t.menus.hero.ctaPrimary}
     ctaLink="#daily-specials"
     ctaSecondaryText={t.menus.hero.ctaSecondary}
-    ctaSecondaryLink="/restaurant"
+    ctaSecondaryLink="/en/restaurant"
     height="large"
   />
 
@@ -151,7 +151,7 @@ const menuCategories = [
     <div class="text-center">
       <div class="flex flex-wrap justify-center gap-4 mb-8">
         <a
-          href="/restaurant"
+          href="/en/restaurant"
           class="inline-block px-8 py-4 bg-[#8B4513] hover:bg-[#A0522D] text-white font-semibold rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl"
         >
           {t.menus.cta.ctaRestaurant}

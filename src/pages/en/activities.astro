@@ -1,11 +1,11 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Hero from '../components/Hero.astro';
-import Section from '../components/Section.astro';
-import Card from '../components/Card.astro';
-import { getTranslations } from '../i18n/translations';
+import Layout from '../../layouts/Layout.astro';
+import Hero from '../../components/Hero.astro';
+import Section from '../../components/Section.astro';
+import Card from '../../components/Card.astro';
+import { getTranslations } from '../../i18n/translations';
 
-const locale = 'de';
+const locale = 'en';
 const t = getTranslations(locale);
 
 const fitnessHighlights = [
@@ -31,8 +31,8 @@ const cultureHighlights = [
 ---
 
 <Layout 
-  title="Aktivitäten - Landgasthof Vogthof"
-  description="Entdecken Sie die perfekte Mischung aus Outdoor-Abenteuer, Wellness und Kultur rund um unseren historischen Landgasthof."
+  title="Activities - Landgasthof Vogthof"
+  description="Discover the perfect blend of outdoor adventure, wellness, and culture surrounding our historic Landgasthof."
   locale={locale}
 >
   <Hero
@@ -107,7 +107,7 @@ const cultureHighlights = [
   >
     <div class="flex flex-wrap justify-center gap-4">
       <a
-        href="/contact"
+        href="/en/contact"
         class="inline-block px-8 py-4 bg-[#8B4513] hover:bg-[#A0522D] text-white font-semibold rounded-md transition-all duration-300 shadow-lg hover:shadow-xl"
       >
         {t.activities.cta.button}

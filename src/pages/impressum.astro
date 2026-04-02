@@ -1,6 +1,10 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Section from '../components/Section.astro';
+import { getTranslations } from '../i18n/translations';
+
+const locale = 'de';
+const t = getTranslations(locale);
 
 const legalInfo = {
   owner: 'Reiner Ilg',
@@ -33,16 +37,16 @@ const structuredData = {
 <Layout 
   title="Impressum | Vogthof Landgasthof"
   description="Impressum und rechtliche Informationen des Vogthof Landgasthof in Aalen-Röthardt."
-  schema={structuredData}
+  locale={locale}
 >
   <!-- Hero Section -->
   <Section background="antique" padding="medium">
     <div class="text-center">
       <h1 class="font-['Playfair_Display',Georgia,serif] text-4xl md:text-5xl lg:text-6xl font-bold text-[#2C1810] mb-4">
-        Impressum
+        {t.impressum.hero.title}
       </h1>
       <p class="font-['Open_Sans',Arial,sans-serif] text-lg text-[#5C4033] max-w-2xl mx-auto">
-        Rechtliche Informationen und Angaben gemäß § 5 TMG
+        {t.impressum.hero.subtitle}
       </p>
     </div>
   </Section>
@@ -53,19 +57,19 @@ const structuredData = {
       <!-- Angaben gemäß § 5 TMG -->
       <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
         <h2 class="font-['Playfair_Display',Georgia,serif] text-2xl font-bold text-[#2C1810] mb-6">
-          Angaben gemäß § 5 TMG
+          {t.impressum.info.title}
         </h2>
         
         <div class="space-y-4">
           <div>
-            <p class="font-['Open_Sans',Arial,sans-serif] text-sm text-[#5C4033] mb-1">Verantwortlich für den Inhalt:</p>
+            <p class="font-['Open_Sans',Arial,sans-serif] text-sm text-[#5C4033] mb-1">{t.impressum.info.owner}:</p>
             <p class="font-['Open_Sans',Arial,sans-serif] text-lg text-[#2C1810] font-semibold">
               {legalInfo.owner}
             </p>
           </div>
           
           <div>
-            <p class="font-['Open_Sans',Arial,sans-serif] text-sm text-[#5C4033] mb-1">Adresse:</p>
+            <p class="font-['Open_Sans',Arial,sans-serif] text-sm text-[#5C4033] mb-1">{t.impressum.info.address}:</p>
             <p class="font-['Open_Sans',Arial,sans-serif] text-lg text-[#2C1810]">
               {legalInfo.address}
             </p>
@@ -73,13 +77,13 @@ const structuredData = {
           
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <p class="font-['Open_Sans',Arial,sans-serif] text-sm text-[#5C4033] mb-1">Telefon:</p>
-              <a href="tel:{legalInfo.phone.replace(/\D/g, '')}" class="font-['Open_Sans',Arial,sans-serif] text-lg text-[#8B4513] hover:text-[#2D5A27] transition-colors">
+              <p class="font-['Open_Sans',Arial,sans-serif] text-sm text-[#5C4033] mb-1">{t.impressum.info.phone}:</p>
+              <a href={`tel:${legalInfo.phone.replace(/\D/g, '')}`} class="font-['Open_Sans',Arial,sans-serif] text-lg text-[#8B4513] hover:text-[#2D5A27] transition-colors">
                 {legalInfo.phone}
               </a>
             </div>
             <div>
-              <p class="font-['Open_Sans',Arial,sans-serif] text-sm text-[#5C4033] mb-1">Fax:</p>
+              <p class="font-['Open_Sans',Arial,sans-serif] text-sm text-[#5C4033] mb-1">{t.impressum.info.fax}:</p>
               <p class="font-['Open_Sans',Arial,sans-serif] text-lg text-[#2C1810]">
                 {legalInfo.fax}
               </p>
@@ -87,21 +91,21 @@ const structuredData = {
           </div>
           
           <div>
-            <p class="font-['Open_Sans',Arial,sans-serif] text-sm text-[#5C4033] mb-1">E-Mail:</p>
-            <a href="mailto:{legalInfo.email}" class="font-['Open_Sans',Arial,sans-serif] text-lg text-[#8B4513] hover:text-[#2D5A27] transition-colors">
+            <p class="font-['Open_Sans',Arial,sans-serif] text-sm text-[#5C4033] mb-1">{t.impressum.info.email}:</p>
+            <a href={`mailto:${legalInfo.email}`} class="font-['Open_Sans',Arial,sans-serif] text-lg text-[#8B4513] hover:text-[#2D5A27] transition-colors">
               {legalInfo.email}
             </a>
           </div>
           
           <div>
-            <p class="font-['Open_Sans',Arial,sans-serif] text-sm text-[#5C4033] mb-1">Website:</p>
-            <a href="https://{legalInfo.website}" target="_blank" rel="noopener noreferrer" class="font-['Open_Sans',Arial,sans-serif] text-lg text-[#8B4513] hover:text-[#2D5A27] transition-colors">
+            <p class="font-['Open_Sans',Arial,sans-serif] text-sm text-[#5C4033] mb-1">{t.impressum.info.website}:</p>
+            <a href={`https://${legalInfo.website}`} target="_blank" rel="noopener noreferrer" class="font-['Open_Sans',Arial,sans-serif] text-lg text-[#8B4513] hover:text-[#2D5A27] transition-colors">
               {legalInfo.website}
             </a>
           </div>
           
           <div>
-            <p class="font-['Open_Sans',Arial,sans-serif] text-sm text-[#5C4033] mb-1">USt-IdNr.:</p>
+            <p class="font-['Open_Sans',Arial,sans-serif] text-sm text-[#5C4033] mb-1">{t.impressum.info.taxId}:</p>
             <p class="font-['Open_Sans',Arial,sans-serif] text-lg text-[#2C1810]">
               {legalInfo.taxId}
             </p>
@@ -112,24 +116,11 @@ const structuredData = {
       <!-- Haftung für Inhalte -->
       <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
         <h2 class="font-['Playfair_Display',Georgia,serif] text-2xl font-bold text-[#2C1810] mb-6">
-          Haftung für Inhalte
+          {t.impressum.content.title}
         </h2>
         <div class="prose prose-brown max-w-none">
           <p class="font-['Open_Sans',Arial,sans-serif] text-[#5C4033] leading-relaxed">
-            Die Inhalte unserer Seiten wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, 
-            Vollständigkeit und Aktualität der Inhalte können wir jedoch keine Gewähr übernehmen.
-          </p>
-          <p class="font-['Open_Sans',Arial,sans-serif] text-[#5C4033] leading-relaxed mt-4">
-            Als Diensteanbieter sind wir gemäß §§ 5 und 6 Telemediengesetz (TMG) für eigene Inhalte 
-            auf diesen Seite verantwortlich. Diensteanbieter sind nach § 8 Abs. 1 TMG jedoch nicht 
-            verpflichtet, die von ihnen übermittelten oder gespeicherten fremden Informationen zu 
-            überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.
-          </p>
-          <p class="font-['Open_Sans',Arial,sans-serif] text-[#5C4033] leading-relaxed mt-4">
-            Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den 
-            allgemeinen Gesetzen bleiben hiervon unberührt. Eine diesbezügliche Haftung ist jedoch 
-            erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung möglich. Bei 
-            Bekanntwerden von entsprechenden Rechtsverletzungen werden wir diese Inhalte umgehend entfernen.
+            {t.impressum.content.text}
           </p>
         </div>
       </div>
@@ -137,25 +128,11 @@ const structuredData = {
       <!-- Haftung für Links -->
       <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
         <h2 class="font-['Playfair_Display',Georgia,serif] text-2xl font-bold text-[#2C1810] mb-6">
-          Haftung für Links
+          {t.impressum.links.title}
         </h2>
         <div class="prose prose-brown max-w-none">
           <p class="font-['Open_Sans',Arial,sans-serif] text-[#5C4033] leading-relaxed">
-            Unser Angebot enthält Links zu externen Webseiten Dritter, auf deren Inhalte wir keinen 
-            Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen.
-          </p>
-          <p class="font-['Open_Sans',Arial,sans-serif] text-[#5C4033] leading-relaxed mt-4">
-            Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der 
-            Seiten verantwortlich. Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf 
-            mögliche Rechtsverstöße überprüft. Rechtswidrige Inhalte waren zum Zeitpunkt der 
-            Verlinkung nicht erkennbar.
-          </p>
-          <p class="font-['Open_Sans',Arial,sans-serif] text-[#5C4033] leading-relaxed mt-4">
-            Eine permanente inhaltliche Kontrolle der verlinkten Seiten ist jedoch ohne konkrete 
-            Anhaltspunkte einer Rechtsverletzung nicht zumutbar. Bei Bekanntwerden von 
-            Rechtsverletzungen werden wir derartige Links umgehend entfernen. Das Setzen von externen 
-            Links bedeutet nicht, dass sich der Anbieter die hinter dem Verweis oder Link liegenden 
-            Inhalte zu eigen macht.
+            {t.impressum.links.text}
           </p>
         </div>
       </div>
@@ -163,17 +140,11 @@ const structuredData = {
       <!-- Urheber- und Kennzeichenrecht -->
       <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
         <h2 class="font-['Playfair_Display',Georgia,serif] text-2xl font-bold text-[#2C1810] mb-6">
-          Urheber- und Kennzeichenrecht
+          {t.impressum.copyright.title}
         </h2>
         <div class="prose prose-brown max-w-none">
           <p class="font-['Open_Sans',Arial,sans-serif] text-[#5C4033] leading-relaxed">
-            Alle innerhalb des Internetangebotes genannten und ggf. durch Dritte geschützten 
-            Marken- und Warenzeichen unterliegen uneingeschränkt den Bestimmungen des jeweils 
-            gültigen Kennzeichenrechts und den Besitzrechten der jeweiligen eingetragenen Eigentümer.
-          </p>
-          <p class="font-['Open_Sans',Arial,sans-serif] text-[#5C4033] leading-relaxed mt-4">
-            Allein aufgrund der bloßen Nennung ist nicht der Schluss zu ziehen, dass Markenzeichen 
-            nicht durch Rechte Dritter geschützt sind!
+            {t.impressum.copyright.text}
           </p>
         </div>
       </div>
@@ -181,18 +152,11 @@ const structuredData = {
       <!-- Datenschutz -->
       <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
         <h2 class="font-['Playfair_Display',Georgia,serif] text-2xl font-bold text-[#2C1810] mb-6">
-          Datenschutz
+          {t.impressum.privacy.title}
         </h2>
         <div class="prose prose-brown max-w-none">
           <p class="font-['Open_Sans',Arial,sans-serif] text-[#5C4033] leading-relaxed">
-            Sofern innerhalb des Internetangebotes die Möglichkeit zur Eingabe persönlicher oder 
-            geschäftlicher Daten (Emailadressen, Namen, Anschriften) besteht, so erfolgt die 
-            Preisgabe dieser Daten seitens des Nutzers auf ausdrücklich freiwilliger Basis.
-          </p>
-          <p class="font-['Open_Sans',Arial,sans-serif] text-[#5C4033] leading-relaxed mt-4">
-            Die Inanspruchnahme und Bezahlung aller angebotenen Dienste ist - soweit technisch 
-            möglich und zumutbar - auch ohne Angabe solcher Daten bzw. unter Angabe anonymisierter 
-            Daten oder eines Pseudonyms gestattet.
+            {t.impressum.privacy.text}
           </p>
         </div>
       </div>
@@ -200,19 +164,19 @@ const structuredData = {
       <!-- Quick Links -->
       <div class="flex flex-wrap justify-center gap-4">
         <a
-          href="/privacy"
+          href="/datenschutz"
           class="inline-flex items-center gap-2 px-6 py-3 bg-[#8B4513] hover:bg-[#2D5A27] text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
         >
-          Datenschutz
+          {t.common.footer.privacy}
         </a>
         <a
-          href="/menu"
+          href="/menus"
           class="inline-flex items-center gap-2 px-6 py-3 border-2 border-[#8B4513] text-[#8B4513] hover:bg-[#8B4513] hover:text-white font-semibold rounded-lg transition-all duration-300"
         >
-          Speisekarte
+          {t.common.nav.menus}
         </a>
         <a
-          href="/daily-specials"
+          href="/tagesessen"
           class="inline-flex items-center gap-2 px-6 py-3 border-2 border-[#8B4513] text-[#8B4513] hover:bg-[#8B4513] hover:text-white font-semibold rounded-lg transition-all duration-300"
         >
           Tagesessen

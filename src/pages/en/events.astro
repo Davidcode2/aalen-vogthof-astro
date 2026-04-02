@@ -1,19 +1,19 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Hero from '../components/Hero.astro';
-import Section from '../components/Section.astro';
-import Card from '../components/Card.astro';
-import { getTranslations } from '../i18n/translations';
+import Layout from '../../layouts/Layout.astro';
+import Hero from '../../components/Hero.astro';
+import Section from '../../components/Section.astro';
+import Card from '../../components/Card.astro';
+import { getTranslations } from '../../i18n/translations';
 
-const locale = 'de';
+const locale = 'en';
 const t = getTranslations(locale);
 
 const venueImages = [
-  { src: '/images/f1.jpg', alt: 'Festliche Atmosphäre' },
-  { src: '/images/f2.jpg', alt: 'Feier-Aufbau' },
-  { src: '/images/f3.jpg', alt: 'Veranstaltung' },
-  { src: '/images/f4.jpg', alt: 'Festliche Dekoration' },
-  { src: '/images/f5.jpg', alt: 'Feier-Momente' },
+  { src: '/images/f1.jpg', alt: 'Festive atmosphere' },
+  { src: '/images/f2.jpg', alt: 'Celebration setup' },
+  { src: '/images/f3.jpg', alt: 'Event gathering' },
+  { src: '/images/f4.jpg', alt: 'Festive decorations' },
+  { src: '/images/f5.jpg', alt: 'Celebration moments' },
 ];
 
 const capacityOptions = [
@@ -30,8 +30,8 @@ const serviceFeatures = [
 ---
 
 <Layout 
-  title="Veranstaltungen & Feiern - Landgasthof Vogthof"
-  description="Feiern Sie bei uns! Ob Familienfest oder Betriebsfeier – der Vogthof ist immer eine gute Wahl!"
+  title="Events & Celebrations - Landgasthof Vogthof"
+  description="Celebrate with us! Whether family celebration or company party – the Vogthof is always a good choice!"
   locale={locale}
 >
   <Hero
@@ -125,7 +125,7 @@ const serviceFeatures = [
           {t.events.planning.title}
         </h3>
         <p class="text-[#5C4033] mb-6">
-          Haben Sie weitere Fragen? Zögern Sie nicht, uns zu kontaktieren.
+          Do you have more questions? Please don't hesitate to contact us.
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
           <a

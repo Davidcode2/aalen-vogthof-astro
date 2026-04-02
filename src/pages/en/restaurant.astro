@@ -1,11 +1,11 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Hero from '../components/Hero.astro';
-import Section from '../components/Section.astro';
-import Card from '../components/Card.astro';
-import { getTranslations } from '../i18n/translations';
+import Layout from '../../layouts/Layout.astro';
+import Hero from '../../components/Hero.astro';
+import Section from '../../components/Section.astro';
+import Card from '../../components/Card.astro';
+import { getTranslations } from '../../i18n/translations';
 
-const locale = 'de';
+const locale = 'en';
 const t = getTranslations(locale);
 
 const heroImage = '/images/restaurant/r1.jpg';
@@ -24,7 +24,7 @@ const privateRooms = [
 
 <Layout 
   title="Restaurant | Vogthof Landgasthof"
-  description="Traditionelle schwäbische Gastfreundschaft trifft auf elegante Küche."
+  description="Traditional Swabian hospitality meets elegant cuisine."
   locale={locale}
 >
   <!-- Hero Section -->
@@ -33,7 +33,7 @@ const privateRooms = [
     subheadline={t.restaurant.hero.subheadline}
     backgroundImage={heroImage}
     ctaText={t.restaurant.hero.ctaPrimary}
-    ctaLink="/menus"
+    ctaLink="/en/menus"
     ctaSecondaryText={t.restaurant.hero.ctaSecondary}
     ctaSecondaryLink="#contact"
     height="large"
@@ -126,7 +126,7 @@ const privateRooms = [
           title={t.restaurant.privateRooms[room.key].name}
           description={t.restaurant.privateRooms[room.key].description}
           image={room.image}
-          linkText={`Kapazität: ${t.restaurant.privateRooms[room.key].capacity}`}
+          linkText={`Capacity: ${t.restaurant.privateRooms[room.key].capacity}`}
           hoverEffect="lift"
         />
       ))}
@@ -167,7 +167,7 @@ const privateRooms = [
       <div class="relative">
         <img
           src="/images/rooms/z5.jpg"
-          alt="Biergarten"
+          alt="Beer garden"
           class="rounded-lg shadow-xl w-full"
         />
       </div>
@@ -190,15 +190,15 @@ const privateRooms = [
         <div class="bg-white p-6 rounded-lg shadow-md">
           <h3 class="font-bold text-[#2C1810] mb-2">{t.restaurant.reserve.hours}</h3>
           <p class="text-[#5C4033]">
-            Mo-Do: 11:30-14:00 & 18:00-22:00<br />
-            Fr: Ruhetag<br />
-            Sa: 18:00-22:00<br />
-            So: 11:30-14:00
+            Mon-Thu: 11:30-14:00 & 18:00-22:00<br />
+            Fri: Closed<br />
+            Sat: 18:00-22:00<br />
+            Sun: 11:30-14:00
           </p>
         </div>
       </div>
       <a
-        href="/menus"
+        href="/en/menus"
         class="inline-block px-8 py-4 bg-[#2D5A27] hover:bg-[#3D7A37] text-white font-semibold rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl"
       >
         {t.restaurant.reserve.cta}

@@ -1,0 +1,93 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Section from '../../components/Section.astro';
+import { getTranslations } from '../../i18n/translations';
+
+const locale = 'en';
+const t = getTranslations(locale);
+
+const legalInfo = {
+  owner: 'Reiner Ilg',
+  address: 'Bergbaustraße 28/1, 73433 Aalen-Röthardt',
+  phone: '+49(0)7361 73688',
+  fax: '+49(0)7361 77882',
+  email: 'info@aalen-vogthof.de',
+  website: 'www.aalen-vogthof.de',
+  taxId: 'DE14466139'
+};
+---
+
+<Layout 
+  title="Legal Notice | Vogthof Landgasthof"
+  description="Legal information of Vogthof Landgasthof in Aalen-Röthardt."
+  locale={locale}
+>
+  <Section background="antique" padding="medium">
+    <div class="text-center">
+      <h1 class="font-['Playfair_Display',Georgia,serif] text-4xl md:text-5xl lg:text-6xl font-bold text-[#2C1810] mb-4">
+        {t.impressum.hero.title}
+      </h1>
+      <p class="font-['Open_Sans',Arial,sans-serif] text-lg text-[#5C4033] max-w-2xl mx-auto">
+        {t.impressum.hero.subtitle}
+      </p>
+    </div>
+  </Section>
+
+  <Section background="cream" padding="large">
+    <div class="max-w-4xl mx-auto">
+      <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
+        <h2 class="font-['Playfair_Display',Georgia,serif] text-2xl font-bold text-[#2C1810] mb-6">
+          {t.impressum.info.title}
+        </h2>
+        <div class="space-y-4">
+          <div>
+            <p class="font-['Open_Sans',Arial,sans-serif] text-sm text-[#5C4033] mb-1">{t.impressum.info.owner}:</p>
+            <p class="font-['Open_Sans',Arial,sans-serif] text-lg text-[#2C1810] font-semibold">{legalInfo.owner}</p>
+          </div>
+          <div>
+            <p class="font-['Open_Sans',Arial,sans-serif] text-sm text-[#5C4033] mb-1">{t.impressum.info.address}:</p>
+            <p class="font-['Open_Sans',Arial,sans-serif] text-lg text-[#2C1810]">{legalInfo.address}</p>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <p class="font-['Open_Sans',Arial,sans-serif] text-sm text-[#5C4033] mb-1">{t.impressum.info.phone}:</p>
+              <a href={`tel:${legalInfo.phone.replace(/\D/g, '')}`} class="font-['Open_Sans',Arial,sans-serif] text-lg text-[#8B4513] hover:text-[#2D5A27] transition-colors">{legalInfo.phone}</a>
+            </div>
+            <div>
+              <p class="font-['Open_Sans',Arial,sans-serif] text-sm text-[#5C4033] mb-1">{t.impressum.info.fax}:</p>
+              <p class="font-['Open_Sans',Arial,sans-serif] text-lg text-[#2C1810]">{legalInfo.fax}</p>
+            </div>
+          </div>
+          <div>
+            <p class="font-['Open_Sans',Arial,sans-serif] text-sm text-[#5C4033] mb-1">{t.impressum.info.email}:</p>
+            <a href={`mailto:${legalInfo.email}`} class="font-['Open_Sans',Arial,sans-serif] text-lg text-[#8B4513] hover:text-[#2D5A27] transition-colors">{legalInfo.email}</a>
+          </div>
+          <div>
+            <p class="font-['Open_Sans',Arial,sans-serif] text-sm text-[#5C4033] mb-1">{t.impressum.info.taxId}:</p>
+            <p class="font-['Open_Sans',Arial,sans-serif] text-lg text-[#2C1810]">{legalInfo.taxId}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
+        <h2 class="font-['Playfair_Display',Georgia,serif] text-2xl font-bold text-[#2C1810] mb-6">{t.impressum.content.title}</h2>
+        <p class="font-['Open_Sans',Arial,sans-serif] text-[#5C4033] leading-relaxed">{t.impressum.content.text}</p>
+      </div>
+
+      <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
+        <h2 class="font-['Playfair_Display',Georgia,serif] text-2xl font-bold text-[#2C1810] mb-6">{t.impressum.links.title}</h2>
+        <p class="font-['Open_Sans',Arial,sans-serif] text-[#5C4033] leading-relaxed">{t.impressum.links.text}</p>
+      </div>
+
+      <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
+        <h2 class="font-['Playfair_Display',Georgia,serif] text-2xl font-bold text-[#2C1810] mb-6">{t.impressum.copyright.title}</h2>
+        <p class="font-['Open_Sans',Arial,sans-serif] text-[#5C4033] leading-relaxed">{t.impressum.copyright.text}</p>
+      </div>
+
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="/en/datenschutz" class="inline-flex items-center gap-2 px-6 py-3 bg-[#8B4513] hover:bg-[#2D5A27] text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">{t.common.footer.privacy}</a>
+        <a href="/en/menus" class="inline-flex items-center gap-2 px-6 py-3 border-2 border-[#8B4513] text-[#8B4513] hover:bg-[#8B4513] hover:text-white font-semibold rounded-lg transition-all duration-300">{t.common.nav.menus}</a>
+      </div>
+    </div>
+  </Section>
+</Layout>

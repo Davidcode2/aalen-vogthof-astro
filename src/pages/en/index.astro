@@ -1,17 +1,17 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Hero from '../components/Hero.astro';
-import Section from '../components/Section.astro';
-import Card from '../components/Card.astro';
-import { getTranslations } from '../i18n/translations';
+import Layout from '../../layouts/Layout.astro';
+import Hero from '../../components/Hero.astro';
+import Section from '../../components/Section.astro';
+import Card from '../../components/Card.astro';
+import { getTranslations } from '../../i18n/translations';
 
-const locale = 'de';
+const locale = 'en';
 const t = getTranslations(locale);
 ---
 
 <Layout 
   title="Landgasthof Vogthof - Hotel & Restaurant in Aalen"
-  description="Familiengeführtes Hotel und Restaurant in Aalen-Röthardt seit 1983. Genießen Sie traditionelle schwäbische Gastfreundschaft, komfortable Zimmer und hervorragende Küche."
+  description="Family-run hotel and restaurant in Aalen-Röthardt since 1983. Enjoy traditional Swabian hospitality, comfortable rooms, and excellent cuisine."
   locale={locale}
 >
   <!-- Hero Section -->
@@ -20,9 +20,9 @@ const t = getTranslations(locale);
     subheadline={t.home.hero.subheadline}
     backgroundImage="/images/hotel1.jpg"
     ctaText={t.home.hero.ctaPrimary}
-    ctaLink="/rooms"
+    ctaLink="/en/rooms"
     ctaSecondaryText={t.home.hero.ctaSecondary}
-    ctaSecondaryLink="/menus"
+    ctaSecondaryLink="/en/menus"
     height="large"
   />
 
@@ -53,7 +53,7 @@ const t = getTranslations(locale);
         title={t.home.offerings.rooms.title}
         description={t.home.offerings.rooms.description}
         image="/images/rooms/z1.jpg"
-        link="/rooms"
+        link="/en/rooms"
         linkText={t.home.offerings.rooms.linkText}
         hoverEffect="lift"
       />
@@ -61,7 +61,7 @@ const t = getTranslations(locale);
         title={t.home.offerings.cuisine.title}
         description={t.home.offerings.cuisine.description}
         image="/images/eat/k1.jpg"
-        link="/restaurant"
+        link="/en/restaurant"
         linkText={t.home.offerings.cuisine.linkText}
         hoverEffect="lift"
       />
@@ -69,7 +69,7 @@ const t = getTranslations(locale);
         title={t.home.offerings.events.title}
         description={t.home.offerings.events.description}
         image="/images/f1.jpg"
-        link="/events"
+        link="/en/events"
         linkText={t.home.offerings.events.linkText}
         hoverEffect="lift"
       />
@@ -99,13 +99,13 @@ const t = getTranslations(locale);
         </p>
         <div class="flex flex-wrap gap-4">
           <a
-            href="/menus"
+            href="/en/menus"
             class="inline-block px-6 py-3 bg-[#8B4513] hover:bg-[#A0522D] text-white font-semibold rounded-lg transition-all duration-300"
           >
             {t.home.culinary.ctaPrimary}
           </a>
           <a
-            href="/restaurant"
+            href="/en/restaurant"
             class="inline-block px-6 py-3 border-2 border-[#8B4513] text-[#8B4513] hover:bg-[#8B4513] hover:text-white font-semibold rounded-lg transition-all duration-300"
           >
             {t.home.culinary.ctaSecondary}
@@ -161,7 +161,7 @@ const t = getTranslations(locale);
     </div>
     <div class="text-center mt-8">
       <a
-        href="/activities"
+        href="/en/activities"
         class="inline-block px-8 py-4 bg-[#2D5A27] hover:bg-[#3D7A37] text-white font-semibold rounded-lg transition-all duration-300"
       >
         {t.home.activities.cta}
@@ -203,7 +203,7 @@ const t = getTranslations(locale);
       </div>
       <div class="text-center">
         <a
-          href="/contact"
+          href="/en/contact"
           class="inline-block px-8 py-4 bg-[#8B4513] hover:bg-[#A0522D] text-white font-semibold rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl"
         >
           {t.home.visit.cta}

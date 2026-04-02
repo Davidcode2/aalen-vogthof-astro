@@ -1,27 +1,54 @@
 ---
+import type { Locale } from '../i18n/types';
+import { getTranslations, getAlternatePath, getCurrentLocale } from '../i18n/translations';
+
+interface Props {
+  locale?: Locale;
+}
+
+const { locale = 'de' } = Astro.props;
+const t = getTranslations(locale);
+
+// Get current path for language switcher
+const currentPath = Astro.url.pathname;
+const currentLocale = getCurrentLocale(currentPath);
+const isGerman = currentLocale === 'de';
+
+// Calculate alternate path
+const alternatePath = isGerman 
+  ? '/en' + currentPath 
+  : currentPath.replace(/^\/en/, '') || '/';
+
+const alternateLocale = isGerman ? 'en' : 'de';
+const alternateLabel = isGerman ? 'Switch to English' : 'Zu Deutsch wechseln';
+
+// Navigation items using translations
 const navItems = [
-  { label: 'Home', href: '/' },
-  { label: 'Hotel & Rooms', href: '/hotel' },
-  { label: 'Restaurant', href: '/restaurant' },
-  { label: 'Menus', href: '/menus' },
-  { label: 'Events', href: '/events' },
-  { label: 'Activities', href: '/activities' },
-  { label: 'Contact', href: '/contact' },
+  { label: t.common.nav.hotel, href: locale === 'de' ? '/hotel' : '/en/hotel' },
+  { label: t.common.nav.rooms, href: locale === 'de' ? '/rooms' : '/en/rooms' },
+  { label: t.common.nav.restaurant, href: locale === 'de' ? '/restaurant' : '/en/restaurant' },
+  { label: t.common.nav.menus, href: locale === 'de' ? '/menus' : '/en/menus' },
+  { label: t.common.nav.events, href: locale === 'de' ? '/events' : '/en/events' },
+  { label: t.common.nav.activities, href: locale === 'de' ? '/activities' : '/en/activities' },
+  { label: t.common.nav.contact, href: locale === 'de' ? '/contact' : '/en/contact' },
 ];
+
+// Home link based on locale
+const homeHref = locale === 'de' ? '/' : '/en';
 ---
 
 <header class="sticky top-0 z-50 bg-[#2D5A27] shadow-lg">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex justify-between items-center h-16">
-      <!-- Logo -->
-      <a href="/" class="flex items-center">
+      <!-- Logo (links to home) -->
+      <a href={homeHref} class="flex items-center">
         <span class="font-['Playfair_Display',Georgia,serif] text-2xl font-bold text-[#F5DEB3]">
           Vogthof
         </span>
       </a>
 
       <!-- Desktop Navigation -->
-      <nav class="hidden md:flex space-x-1">
+      <nav class="hidden md:flex items-center space-x-1">
         {navItems.map((item) => (
           <a
             href={item.href}
@@ -30,6 +57,18 @@ const navItems = [
             {item.label}
           </a>
         ))}
+        
+        <!-- Language Toggle -->
+        <a 
+          href={alternatePath}
+          class="ml-4 flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-[#F5DEB3]/30 hover:bg-[#8B4513] transition-colors"
+          aria-label={alternateLabel}
+          title={alternateLabel}
+        >
+          <span class={isGerman ? 'text-[#F5DEB3] font-bold' : 'text-[#F5DEB3]/60'}>DE</span>
+          <span class="text-[#F5DEB3]/60">/</span>
+          <span class={!isGerman ? 'text-[#F5DEB3] font-bold' : 'text-[#F5DEB3]/60'}>EN</span>
+        </a>
       </nav>
 
       <!-- Mobile Menu Button -->
@@ -56,6 +95,21 @@ const navItems = [
           {item.label}
         </a>
       ))}
+      
+      <!-- Mobile Language Toggle -->
+      <div class="pt-4 mt-4 border-t border-[#8B4513]">
+        <a 
+          href={alternatePath}
+          class="flex items-center justify-between px-3 py-2 text-base font-medium text-[#F5DEB3] hover:text-white hover:bg-[#8B4513] rounded-md transition-colors"
+        >
+          <span>{alternateLabel}</span>
+          <span class="flex items-center gap-2">
+            <span class={isGerman ? 'text-[#F5DEB3] font-bold' : 'text-[#F5DEB3]/60'}>DE</span>
+            <span class="text-[#F5DEB3]/60">|</span>
+            <span class={!isGerman ? 'text-[#F5DEB3] font-bold' : 'text-[#F5DEB3]/60'}>EN</span>
+          </span>
+        </a>
+      </div>
     </div>
   </div>
 </header>

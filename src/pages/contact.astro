@@ -45,12 +45,12 @@ const structuredData = {
   schema={structuredData}
 >
   <!-- Hero Section -->
-  <Section background="antique" padding="medium">
+  <Section background="linen" padding="medium">
     <div class="text-center">
-      <h1 class="font-['Playfair_Display',Georgia,serif] text-4xl md:text-5xl lg:text-6xl font-bold text-[#2C1810] mb-4">
+      <h1 class="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-text-primary mb-4">
         Contact Us
       </h1>
-      <p class="font-['Open_Sans',Arial,sans-serif] text-lg text-[#5C4033] max-w-2xl mx-auto">
+      <p class="font-body text-lg text-text-secondary max-w-2xl mx-auto">
         Wir freuen uns auf Ihre Kontaktaufnahme. Rufen Sie an oder schreiben Sie uns!
       </p>
     </div>
@@ -62,21 +62,21 @@ const structuredData = {
       <!-- Contact Info -->
       <div class="space-y-8">
         <div class="bg-white rounded-xl shadow-lg p-8">
-          <h2 class="font-['Playfair_Display',Georgia,serif] text-2xl font-bold text-[#2C1810] mb-6">
+          <h2 class="font-display text-2xl font-bold text-text-primary mb-6">
             Contact Information
           </h2>
           
           <div class="space-y-4">
             <!-- Phone -->
             <div class="flex items-start gap-4">
-              <div class="w-12 h-12 bg-[#8B4513] rounded-full flex items-center justify-center flex-shrink-0">
+              <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center flex-shrink-0">
                 <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
                 </svg>
               </div>
               <div>
-                <p class="font-['Open_Sans',Arial,sans-serif] text-sm text-[#5C4033] mb-1">Phone</p>
-                <a href="tel:{contactInfo.phone}" class="font-['Open_Sans',Arial,sans-serif] text-lg text-[#8B4513] hover:text-[#2D5A27] font-semibold transition-colors">
+                <p class="font-body text-sm text-text-secondary mb-1">Phone</p>
+                <a href="tel:{contactInfo.phone}" class="font-body text-lg text-primary hover:text-secondary font-semibold transition-colors">
                   {contactInfo.phone}
                 </a>
               </div>
@@ -84,14 +84,14 @@ const structuredData = {
 
             <!-- Fax -->
             <div class="flex items-start gap-4">
-              <div class="w-12 h-12 bg-[#8B4513] rounded-full flex items-center justify-center flex-shrink-0">
+              <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center flex-shrink-0">
                 <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
                 </svg>
               </div>
               <div>
-                <p class="font-['Open_Sans',Arial,sans-serif] text-sm text-[#5C4033] mb-1">Fax</p>
-                <p class="font-['Open_Sans',Arial,sans-serif] text-lg text-[#2C1810]">
+                <p class="font-body text-sm text-text-secondary mb-1">Fax</p>
+                <p class="font-body text-lg text-text-primary">
                   {contactInfo.fax}
                 </p>
               </div>
@@ -99,14 +99,14 @@ const structuredData = {
 
             <!-- Email -->
             <div class="flex items-start gap-4">
-              <div class="w-12 h-12 bg-[#8B4513] rounded-full flex items-center justify-center flex-shrink-0">
+              <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center flex-shrink-0">
                 <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
                 </svg>
               </div>
               <div>
-                <p class="font-['Open_Sans',Arial,sans-serif] text-sm text-[#5C4033] mb-1">Email</p>
-                <a href="mailto:{contactInfo.email}" class="font-['Open_Sans',Arial,sans-serif] text-lg text-[#8B4513] hover:text-[#2D5A27] font-semibold transition-colors">
+                <p class="font-body text-sm text-text-secondary mb-1">Email</p>
+                <a href="mailto:{contactInfo.email}" class="font-body text-lg text-primary hover:text-secondary font-semibold transition-colors">
                   {contactInfo.email}
                 </a>
               </div>
@@ -114,15 +114,15 @@ const structuredData = {
 
             <!-- Address -->
             <div class="flex items-start gap-4">
-              <div class="w-12 h-12 bg-[#8B4513] rounded-full flex items-center justify-center flex-shrink-0">
+              <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center flex-shrink-0">
                 <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
                 </svg>
               </div>
               <div>
-                <p class="font-['Open_Sans',Arial,sans-serif] text-sm text-[#5C4033] mb-1">Address</p>
-                <p class="font-['Open_Sans',Arial,sans-serif] text-lg text-[#2C1810]">
+                <p class="font-body text-sm text-text-secondary mb-1">Address</p>
+                <p class="font-body text-lg text-text-primary">
                   {contactInfo.address}
                 </p>
               </div>
@@ -132,18 +132,18 @@ const structuredData = {
 
         <!-- Opening Hours -->
         <div class="bg-white rounded-xl shadow-lg p-8">
-          <h2 class="font-['Playfair_Display',Georgia,serif] text-2xl font-bold text-[#2C1810] mb-6">
+          <h2 class="font-display text-2xl font-bold text-text-primary mb-6">
             Opening Hours
           </h2>
           <div class="space-y-3">
             {contactInfo.openingHours.map((schedule) => (
-              <div class="flex justify-between items-center py-2 border-b border-[#D4A574] last:border-0">
-                <span class="font-['Open_Sans',Arial,sans-serif] text-[#2C1810]">{schedule.days}</span>
-                <span class="font-['Open_Sans',Arial,sans-serif] font-semibold text-[#8B4513]">{schedule.hours}</span>
+              <div class="flex justify-between items-center py-2 border-b border-gold last:border-0">
+                <span class="font-body text-text-primary">{schedule.days}</span>
+                <span class="font-body font-semibold text-primary">{schedule.hours}</span>
               </div>
             ))}
           </div>
-          <p class="font-['Open_Sans',Arial,sans-serif] text-sm text-[#5C4033] mt-4 italic">
+          <p class="font-body text-sm text-text-secondary mt-4 italic">
             {contactInfo.note}
           </p>
         </div>
@@ -151,7 +151,7 @@ const structuredData = {
 
       <!-- Contact Form -->
       <div>
-        <h2 class="font-['Playfair_Display',Georgia,serif] text-2xl font-bold text-[#2C1810] mb-6">
+        <h2 class="font-display text-2xl font-bold text-text-primary mb-6">
           Send us a Message
         </h2>
         <ContactForm />
@@ -160,12 +160,12 @@ const structuredData = {
   </Section>
 
   <!-- Map Section -->
-  <Section background="old-lace" padding="large">
+  <Section background="cream-dark" padding="large">
     <div class="text-center mb-8">
-      <h2 class="font-['Playfair_Display',Georgia,serif] text-3xl font-bold text-[#2C1810] mb-4">
+      <h2 class="font-display text-3xl font-bold text-text-primary mb-4">
         Find Us
       </h2>
-      <p class="font-['Open_Sans',Arial,sans-serif] text-lg text-[#5C4033]">
+      <p class="font-body text-lg text-text-secondary">
         Bergbaustraße 28/1, 73433 Aalen-Röthardt
       </p>
     </div>
@@ -187,7 +187,7 @@ const structuredData = {
         href="https://www.google.com/maps/dir/?api=1&destination=Bergbaustraße+28/1,+73433+Aalen-Röthardt"
         target="_blank"
         rel="noopener noreferrer"
-        class="inline-flex items-center gap-2 px-6 py-3 bg-[#8B4513] hover:bg-[#2D5A27] text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
+        class="inline-flex items-center gap-2 px-6 py-3 bg-primary hover:bg-secondary text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
       >
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"></path>
@@ -196,7 +196,7 @@ const structuredData = {
       </a>
       <a
         href="tel:{contactInfo.phone}"
-        class="inline-flex items-center gap-2 px-6 py-3 bg-[#5C4033] hover:bg-[#8B4513] text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
+        class="inline-flex items-center gap-2 px-6 py-3 bg-text-secondary hover:bg-primary text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
       >
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
@@ -209,23 +209,23 @@ const structuredData = {
   <!-- Additional Info Section -->
   <Section background="white" padding="large">
     <div class="max-w-3xl mx-auto text-center">
-      <h2 class="font-['Playfair_Display',Georgia,serif] text-3xl font-bold text-[#2C1810] mb-6">
+      <h2 class="font-display text-3xl font-bold text-text-primary mb-6">
         Events & Celebrations
       </h2>
-      <p class="font-['Open_Sans',Arial,sans-serif] text-lg text-[#5C4033] mb-6 leading-relaxed">
+      <p class="font-body text-lg text-text-secondary mb-6 leading-relaxed">
         Bei großen Gruppen und Feierlichkeiten bieten wir auch abweichende Öffnungszeiten an. 
         Bitte sprechen Sie uns an!
       </p>
       <div class="flex flex-wrap justify-center gap-4">
         <a
-          href="/menu"
-          class="inline-flex items-center gap-2 px-6 py-3 border-2 border-[#8B4513] text-[#8B4513] hover:bg-[#8B4513] hover:text-white font-semibold rounded-lg transition-all duration-300"
+          href="/menus"
+          class="inline-flex items-center gap-2 px-6 py-3 border-2 border-primary text-primary hover:bg-primary hover:text-white font-semibold rounded-lg transition-all duration-300"
         >
           View Menu
         </a>
         <a
-          href="/daily-specials"
-          class="inline-flex items-center gap-2 px-6 py-3 border-2 border-[#8B4513] text-[#8B4513] hover:bg-[#8B4513] hover:text-white font-semibold rounded-lg transition-all duration-300"
+          href="/tagesessen"
+          class="inline-flex items-center gap-2 px-6 py-3 border-2 border-primary text-primary hover:bg-primary hover:text-white font-semibold rounded-lg transition-all duration-300"
         >
           Daily Specials
         </a>

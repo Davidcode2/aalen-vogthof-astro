@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import Hero from '../../components/Hero.astro';
 import Section from '../../components/Section.astro';
 import ContactForm from '../../components/ContactForm.astro';
 import { getTranslations } from '../../i18n/translations';
@@ -35,22 +36,18 @@ const structuredData = {
 };
 ---
 
-<Layout 
+<Layout
   title="Contact | Vogthof Landgasthof"
   description="Contact Vogthof Landgasthof. Phone, email, opening hours and address in Aalen-Röthardt."
   locale={locale}
 >
   <!-- Hero Section -->
-  <Section background="surface" padding="medium">
-    <div class="text-center">
-      <h1 class="font-['Playfair_Display',Georgia,serif] text-4xl md:text-5xl lg:text-6xl font-bold text-[#2C1810] mb-4">
-        {t.contact.hero.title}
-      </h1>
-      <p class="font-['Open_Sans',Arial,sans-serif] text-lg text-[#5C4033] max-w-2xl mx-auto">
-        {t.contact.hero.subtitle}
-      </p>
-    </div>
-  </Section>
+  <Hero
+    headline={t.contact.hero.title}
+    subheadline={t.contact.hero.subtitle}
+    backgroundImage="/images/kontakt1.jpg"
+    height="medium"
+  />
 
   <!-- Contact Information & Form Section -->
   <Section background="background" padding="large">

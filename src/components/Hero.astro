@@ -1,24 +1,28 @@
 ---
 interface Props {
   backgroundImage?: string;
-  headline: string;
+  headline?: string;
+  showLogo?: boolean;
   subheadline?: string;
   ctaText?: string;
   ctaLink?: string;
   ctaSecondaryText?: string;
   ctaSecondaryLink?: string;
   height?: 'full' | 'large' | 'medium';
+  overlayType?: 'default' | 'radial' | 'dark';
 }
 
 const {
   backgroundImage = '/images/hero-default.jpg',
   headline,
+  showLogo = false,
   subheadline,
   ctaText,
   ctaLink,
   ctaSecondaryText,
   ctaSecondaryLink,
-  height = 'large'
+  height = 'large',
+  overlayType = 'default'
 } = Astro.props;
 
 const heightClasses = {
@@ -43,13 +47,29 @@ const heightClasses = {
   </div>
 
   <!-- Dark Overlay -->
-  <div class="absolute inset-0 z-10 bg-gradient-to-b from-black/50 via-black/40 to-black/60"></div>
+  {overlayType === 'radial' ? (
+    <div class="absolute inset-0 z-10 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.3)_50%,rgba(0,0,0,0.6)_100%)]"></div>
+  ) : overlayType === 'dark' ? (
+    <div class="absolute inset-0 z-10 bg-gradient-to-b from-black/60 via-black/50 to-black/70"></div>
+  ) : (
+    <div class="absolute inset-0 z-10 bg-gradient-to-b from-black/50 via-black/40 to-black/60"></div>
+  )}
 
   <!-- Content -->
   <div class="relative z-20 container mx-auto px-4 text-center text-white">
-    <h1 class="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight">
-      {headline}
-    </h1>
+    {showLogo ? (
+      <div class="mb-6">
+        <img
+          src="/images/logo.png"
+          alt="Landgasthof Vogthof"
+          class="w-48 md:w-64 lg:w-80 mx-auto drop-shadow-2xl"
+        />
+      </div>
+    ) : headline ? (
+      <h1 class="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight">
+        {headline}
+      </h1>
+    ) : null}
 
     {subheadline && (
       <p class="font-body text-lg md:text-xl mb-8 max-w-2xl mx-auto opacity-90">

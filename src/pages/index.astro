@@ -16,14 +16,15 @@ const t = getTranslations(locale);
 >
   <!-- Hero Section -->
   <Hero
-    headline={t.home.hero.headline}
+    showLogo={true}
     subheadline={t.home.hero.subheadline}
-    backgroundImage="/images/hotel1.jpg"
+      backgroundImage="/images/eat/desert_tray.jpg"
     ctaText={t.home.hero.ctaPrimary}
     ctaLink="/rooms"
     ctaSecondaryText={t.home.hero.ctaSecondary}
     ctaSecondaryLink="/menus"
     height="large"
+    overlayType="dark"
   />
 
   <!-- Introduction Section -->
@@ -60,7 +61,7 @@ const t = getTranslations(locale);
       <Card
         title={t.home.offerings.cuisine.title}
         description={t.home.offerings.cuisine.description}
-        image="/images/eat/k1.jpg"
+        image="/images/eat/mushroom_main_course.jpg"
         link="/restaurant"
         linkText={t.home.offerings.cuisine.linkText}
         hoverEffect="lift"
@@ -68,7 +69,7 @@ const t = getTranslations(locale);
       <Card
         title={t.home.offerings.events.title}
         description={t.home.offerings.events.description}
-        image="/images/wedding_preparations.jpg"
+        image="/images/eat/tray_donut_desert.jpg"
         link="/events"
         linkText={t.home.offerings.events.linkText}
         hoverEffect="lift"

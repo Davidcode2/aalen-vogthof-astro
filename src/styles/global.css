@@ -5,104 +5,106 @@
 @import "@fontsource/open-sans/600.css";
 @import "@fontsource/open-sans/700.css";
 @import "@fontsource/homemade-apple";
+@import '@fontsource/amiri';
+@import '@fontsource-variable/urbanist/wght.css';
 
 @theme {
   /* Typography */
-  --font-display: "Homemade Apple", cursive;
-  --font-body: "Open Sans", sans-serif;
+  --font-display: "Homemade Apple", serif;
+  --font-handwriting: "Homemade Apple", cursive;
+  --font-body: "Urbanist", sans-serif;
 
-  /* Primary Brand Colors - Rich, sophisticated browns */
-  --color-brand: #7A3B1A;
-  --color-brand-light: #9C5D3C;
-  --color-brand-dark: #5C2A0F;
+  /* Primary - Deep, muted Evergreen-Slate */
+  --color-primary-600: hsl(158 12% 18%);
+  --color-primary-500: hsl(158 12% 25%);
+  --color-primary-400: hsl(158 10% 35%);
 
-  /* Secondary - Elegant forest greens */
-  --color-forest: #2D4A32;
-  --color-forest-light: #4A6B4F;
-  --color-forest-dark: #1A2E1D;
+  /* Secondary - Warm Earth/Stone */
+  --color-secondary-600: hsl(28 15% 35%);
+  --color-secondary-500: hsl(28 12% 45%);
+  --color-secondary-400: hsl(28 10% 55%);
 
-  /* Accent - Premium golds */
-  --color-gold: #C9A962;
-  --color-gold-light: #DCCBA3;
-  --color-gold-dark: #A68B4B;
+  /* Accent - Antique Brass/Wheat */
+  --color-accent-600: hsl(35 35% 55%);
+  --color-accent-500: hsl(35 30% 65%);
+  --color-accent-400: hsl(35 25% 75%);
 
-  /* Surfaces - Refined neutrals */
-  --color-cream: #FDFBF7;
-  --color-cream-dark: #F5F0E8;
-  --color-linen: #EDE8E0;
-  --color-warm-gray: #F8F6F3;
+  /* Surfaces - Linen and Limestone */
+  --color-surface-50: hsl(40 20% 98%);   /* Main Background */
+  --color-surface-100: hsl(40 15% 95%);  /* Secondary Background */
+  --color-surface-200: hsl(40 10% 90%);  /* Borders/Dividers */
 
-  /* Text Colors */
-  --color-text-primary: #1F1612;
-  --color-text-secondary: #5A4A42;
-  --color-text-muted: #8B7D75;
+  /* Content - High-contrast legibility */
+  --color-content-primary: hsl(158 20% 10%);
+  --color-content-secondary: hsl(158 10% 30%);
+  --color-content-muted: hsl(158 5% 50%);
 
-  /* Semantic Aliases for Tailwind classes */
-  --color-primary: var(--color-brand);
-  --color-primary-light: var(--color-brand-light);
-  --color-primary-dark: var(--color-brand-dark);
-  --color-secondary: var(--color-forest);
-  --color-secondary-light: var(--color-forest-light);
-  --color-secondary-dark: var(--color-forest-dark);
-  --color-accent: var(--color-gold);
-  --color-accent-light: var(--color-gold-light);
-  --color-accent-dark: var(--color-gold-dark);
-  --color-background: var(--color-cream);
-  --color-background-secondary: var(--color-cream-dark);
-  --color-surface: var(--color-linen);
-  --color-text: var(--color-text-primary);
+  /* Semantic Mapping */
+  --color-primary: var(--color-primary-500);
+  --color-secondary: var(--color-secondary-500);
+  --color-accent: var(--color-accent-500);
+  --color-background: var(--color-surface-50);
 }
 
-/* CSS Variables for dynamic usage and opacity support */
 :root {
-  /* Backgrounds */
-  --bg-primary: var(--color-cream);
-  --bg-secondary: var(--color-cream-dark);
-  --bg-card: #FFFFFF;
-  --bg-elevated: var(--color-linen);
+  /* Dynamic Backgrounds */
+  --bg-base: var(--color-surface-50);
+  --bg-subtle: var(--color-surface-100);
+  --bg-card: hsl(0 0% 100%);
+  --bg-overlay: var(--color-surface-200);
 
   /* Text */
-  --text-primary: var(--color-text-primary);
-  --text-secondary: var(--color-text-secondary);
-  --text-muted: var(--color-text-muted);
+  --text-main: var(--color-content-primary);
+  --text-soft: var(--color-content-secondary);
+  --text-faded: var(--color-content-muted);
+
+  /* Interaction */
+  --action-primary: var(--color-primary-500);
+  --action-primary-hover: var(--color-primary-600);
+  --action-secondary: var(--color-secondary-500);
+  --action-secondary-hover: var(--color-secondary-600);
 
   /* Borders */
-  --border-subtle: rgba(122, 59, 26, 0.15);
-  --border-default: rgba(122, 59, 26, 0.30);
-
-  /* Interactive */
-  --accent-primary: var(--color-brand);
-  --accent-primary-hover: var(--color-brand-light);
-  --accent-secondary: var(--color-forest);
-  --accent-secondary-hover: var(--color-forest-light);
+  --border-dim: hsla(158, 12%, 18%, 0.1);
+  --border-standard: hsla(158, 12%, 18%, 0.25);
 }
 
-/* Base styles */
+/* Base resets */
 html {
   font-family: var(--font-body);
-  scroll-behavior: smooth;
+  color: var(--text-main);
+  background-color: var(--bg-base);
+  -webkit-font-smoothing: antialiased;
 }
 
-body {
-  background-color: var(--bg-primary);
-  color: var(--text-primary);
-}
-
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3 {
   font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.02em;
 }
 
-/* Utility classes for theme colors */
-.text-theme-primary { color: var(--text-primary); }
-.text-theme-secondary { color: var(--text-secondary); }
-.text-theme-muted { color: var(--text-muted); }
-.bg-theme-primary { background-color: var(--bg-primary); }
-.bg-theme-secondary { background-color: var(--bg-secondary); }
-.bg-theme-card { background-color: var(--bg-card); }
-.bg-theme-elevated { background-color: var(--bg-elevated); }
-.border-theme { border-color: var(--border-default); }
-.border-theme-subtle { border-color: var(--border-subtle); }
-.text-accent-primary { color: var(--accent-primary); }
-.text-accent-secondary { color: var(--accent-secondary); }
-.bg-accent-primary { background-color: var(--accent-primary); }
-.bg-accent-secondary { background-color: var(--accent-secondary); }
+.handwritten {
+  font-family: var(--font-handwriting);
+}
+
+/* Updated Utility Classes */
+.text-main { color: var(--text-main); }
+.text-soft { color: var(--text-soft); }
+.text-faded { color: var(--text-faded); }
+
+.bg-base { background-color: var(--bg-base); }
+.bg-subtle { background-color: var(--bg-subtle); }
+.bg-card { background-color: var(--bg-card); }
+
+.border-standard { border-color: var(--border-standard); }
+.border-dim { border-color: var(--border-dim); }
+
+.btn-primary {
+  background-color: var(--action-primary);
+  color: var(--color-surface-50);
+  transition: background-color 0.2s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--action-primary-hover);
+}

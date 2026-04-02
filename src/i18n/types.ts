@@ -201,6 +201,7 @@ export interface RoomsTranslations {
     ctaCall: string;
     ctaBack: string;
   };
+  cardButton: string;
 }
 
 export interface RestaurantTranslations {

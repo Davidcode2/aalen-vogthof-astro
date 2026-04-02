@@ -7,6 +7,7 @@ interface Props {
   amenities?: string[];
   description?: string;
   detailsLink?: string;
+  detailsText?: string;
 }
 
 const {
@@ -16,7 +17,8 @@ const {
   capacity,
   amenities = [],
   description,
-  detailsLink = '#'
+  detailsLink = '/contact',
+  detailsText = 'Book'
 } = Astro.props;
 
 const capacityLabels: Record<number, string> = {
@@ -78,7 +80,7 @@ const capacityLabels: Record<number, string> = {
       href={detailsLink}
       class="block w-full text-center py-3 bg-primary hover:bg-secondary text-white font-semibold transition-colors duration-300"
     >
-      View Details
+      {detailsText}
     </a>
   </div>
 </article>

@@ -103,4 +103,5 @@ export const rooms: RoomsTranslations = {
     ctaCall: '📞 Call: 07361-73688',
     ctaBack: 'Back to Home',
   },
+  cardButton: 'Book',
 };

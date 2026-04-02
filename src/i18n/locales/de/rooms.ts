@@ -103,4 +103,5 @@ export const rooms: RoomsTranslations = {
     ctaCall: '📞 Anrufen: 07361-73688',
     ctaBack: 'Zurück zur Startseite',
   },
+  cardButton: 'Reservieren',
 };

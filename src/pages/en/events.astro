@@ -3,6 +3,7 @@ import Layout from '../../layouts/Layout.astro';
 import Hero from '../../components/Hero.astro';
 import Section from '../../components/Section.astro';
 import Card from '../../components/Card.astro';
+import ContactSection from '../../components/ContactSection.astro';
 import { getTranslations } from '../../i18n/translations';
 
 const locale = 'en';
@@ -144,4 +145,13 @@ const serviceFeatures = [
       </div>
     </div>
   </Section>
+
+  <ContactSection
+    title={t.events.cta.title}
+    subtitle={t.events.cta.subtitle}
+    ctaText={t.events.cta.button}
+    ctaLink="/en/contact"
+    variant="button"
+    background="background"
+  />
 </Layout>

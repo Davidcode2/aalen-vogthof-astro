@@ -336,6 +336,11 @@ export interface EventsTranslations {
     ctaCall: string;
     ctaEmail: string;
   };
+  cta: {
+    title: string;
+    subtitle: string;
+    button: string;
+  };
 }
 
 export interface ActivitiesTranslations {

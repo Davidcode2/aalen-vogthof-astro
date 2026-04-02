@@ -54,6 +54,11 @@ export const events: EventsTranslations = {
     subtitle: 'Wir empfehlen Ihnen, sich vorab persönlich mit uns zusammenzusetzen.',
     text: 'Damit Ihr Fest gut gelingt, empfehlen wir Ihnen, sich vorab persönlich mit uns zusammen zu setzen und die wichtigsten Punkte zu klären: Menüauswahl, zeitlicher Rahmen, Dekoration und besondere Wünsche.',
     ctaCall: '📞 Anrufen: 07361-73688',
-    ctaEmail: '✉️ E-Mail senden',
+    ctaEmail: '✉️ Nachricht senden',
+  },
+  cta: {
+    title: 'Bereit für Ihre Feier?',
+    subtitle: 'Kontaktieren Sie uns und lassen Sie uns gemeinsam Ihr Fest planen.',
+    button: 'Jetzt Termin vereinbaren',
   },
 };

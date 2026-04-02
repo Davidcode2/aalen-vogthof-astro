@@ -3,6 +3,7 @@ import Layout from '../../layouts/Layout.astro';
 import Hero from '../../components/Hero.astro';
 import Section from '../../components/Section.astro';
 import Card from '../../components/Card.astro';
+import ContactSection from '../../components/ContactSection.astro';
 import { getTranslations } from '../../i18n/translations';
 
 const locale = 'en';
@@ -205,35 +206,20 @@ const privateRooms = [
     </div>
   </Section>
 
-  <!-- Contact/CTA Section -->
-  <Section
-    title={t.restaurant.reserve.title}
-    subtitle={t.restaurant.reserve.subtitle}
-    background="surface"
+  <ContactSection
     id="contact"
-  >
-    <div class="text-center max-w-2xl mx-auto">
-      <div class="grid md:grid-cols-2 gap-8 mb-8">
-        <div class="bg-white p-6 shadow-md">
-          <h3 class="font-bold text-[#2C1810] mb-2">{t.restaurant.reserve.phone}</h3>
-          <p class="text-[#5C4033]">07361-73688</p>
-        </div>
-        <div class="bg-white p-6 shadow-md">
-          <h3 class="font-bold text-[#2C1810] mb-2">{t.restaurant.reserve.hours}</h3>
-          <p class="text-[#5C4033]">
-            Mon-Thu: 11:30-14:00 & 18:00-22:00<br />
-            Fri: Closed<br />
-            Sat: 18:00-22:00<br />
-            Sun: 11:30-14:00
-          </p>
-        </div>
-      </div>
-      <a
-        href="/en/menus"
-        class="inline-block px-8 py-4 bg-[#2D5A27] hover:bg-[#3D7A37] text-white font-semibold transition-all duration-300 shadow-lg hover:shadow-xl"
-      >
-        {t.restaurant.reserve.cta}
-      </a>
-    </div>
-  </Section>
+    title={t.restaurant.reserve.title}
+    phoneLabel={t.restaurant.reserve.phone}
+    hoursLabel={t.restaurant.reserve.hours}
+    openingHours={[
+      'Mon-Thu: 11:30-14:00 & 18:00-22:00',
+      'Fri: Closed',
+      'Sat: 18:00-22:00',
+      'Sun: 11:30-14:00'
+    ]}
+    ctaText={t.restaurant.reserve.cta}
+    ctaLink="/en/menus"
+    variant="cards"
+    background="surface"
+  />
 </Layout>

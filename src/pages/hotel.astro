@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero.astro';
 import Section from '../components/Section.astro';
 import Card from '../components/Card.astro';
+import ContactSection from '../components/ContactSection.astro';
 import { getTranslations } from '../i18n/translations';
 
 const locale = 'de';
@@ -107,35 +108,20 @@ const amenities = [
     </div>
   </Section>
 
-  <!-- Contact Section -->
-  <Section id="contact" title={t.hotel.contact.title} background="background">
-    <div class="max-w-4xl mx-auto">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-        <div class="bg-white p-8 shadow-lg text-center">
-          <span class="text-4xl mb-4 block">📞</span>
-          <h3 class="font-display text-xl font-bold text-primary mb-2">{t.hotel.contact.phone}</h3>
-          <p class="font-body text-secondary text-lg">07361-73688</p>
-        </div>
-        <div class="bg-white p-8 shadow-lg text-center">
-          <span class="text-4xl mb-4 block">🕐</span>
-          <h3 class="font-display text-xl font-bold text-primary mb-2">{t.hotel.contact.openingHours}</h3>
-          <p class="font-body text-secondary">
-            Mo-Do: 11:30-14:00 & 18:00-22:00<br />
-            Fr: Ruhetag<br />
-            Sa: 18:00-22:00<br />
-            So: 11:30-14:00
-          </p>
-        </div>
-      </div>
-      
-      <div class="text-center">
-        <a
-          href="/rooms"
-          class="inline-block px-8 py-4 bg-secondary hover:bg-secondary-light text-white font-semibold  transition-colors duration-300 text-lg"
-        >
-          {t.hotel.contact.cta}
-        </a>
-      </div>
-    </div>
-  </Section>
+  <ContactSection
+    id="contact"
+    title={t.hotel.contact.title}
+    phoneLabel={t.hotel.contact.phone}
+    hoursLabel={t.hotel.contact.openingHours}
+    openingHours={[
+      'Mo-Do: 11:30-14:00 & 18:00-22:00',
+      'Fr: Ruhetag',
+      'Sa: 18:00-22:00',
+      'So: 11:30-14:00'
+    ]}
+    ctaText={t.hotel.contact.cta}
+    ctaLink="/rooms"
+    variant="cards"
+    background="background"
+  />
 </Layout>

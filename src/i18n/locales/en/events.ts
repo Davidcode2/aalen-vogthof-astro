@@ -56,4 +56,9 @@ export const events: EventsTranslations = {
     ctaCall: '📞 Call: 07361-73688',
     ctaEmail: '✉️ Email Us',
   },
+  cta: {
+    title: 'Ready to celebrate?',
+    subtitle: 'Contact us and let us plan your celebration together.',
+    button: 'Schedule an appointment',
+  },
 };

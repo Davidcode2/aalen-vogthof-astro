@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero.astro';
 import Section from '../components/Section.astro';
 import Card from '../components/Card.astro';
+import ContactSection from '../components/ContactSection.astro';
 import { getTranslations } from '../i18n/translations';
 
 const locale = 'de';
@@ -120,7 +121,7 @@ const serviceFeatures = [
         {t.events.planning.text}
       </p>
       
-      <div class="bg-white rounded-lg p-8 shadow-lg border-t-4 border-primary">
+      <div class="">
         <h3 class="font-display text-2xl font-bold text-primary mb-4">
           {t.events.planning.contactTitle}
         </h3>
@@ -135,7 +136,7 @@ const serviceFeatures = [
             {t.events.planning.ctaCall}
           </a>
           <a
-            href="mailto:info@aalen-vogthof.de"
+              href="/contact"
             class="inline-block px-6 py-3 border-2 border-primary text-primary hover:bg-primary hover:text-white font-semibold rounded-md transition-all duration-300"
           >
             {t.events.planning.ctaEmail}

@@ -40,19 +40,19 @@ const iconBgSizes = {
   {features.map((feature) => (
     <div class="flex flex-col items-center text-center group">
       <!-- Icon Container -->
-      <div class={`${iconBgSizes[iconSize]} flex items-center justify-center rounded-full bg-[#FAEBD7] text-[#2D5A27] mb-4 transition-all duration-300 group-hover:bg-[#2D5A27] group-hover:text-white`}>
+      <div class={`${iconBgSizes[iconSize]} flex items-center justify-center rounded-full bg-linen text-secondary mb-4 transition-all duration-300 group-hover:bg-secondary group-hover:text-white`}>
         <span class={`${iconSizes[iconSize]} flex items-center justify-center`}>
           {feature.icon}
         </span>
       </div>
 
       <!-- Content -->
-      <h3 class="font-['Playfair_Display',Georgia,serif] text-lg font-bold text-[#2C1810] mb-2">
+      <h3 class="font-display text-lg font-bold text-text-primary mb-2">
         {feature.title}
       </h3>
-      
+
       {feature.description && (
-        <p class="font-['Open_Sans',Arial,sans-serif] text-[#5C4033] text-sm leading-relaxed">
+        <p class="font-body text-text-secondary text-sm leading-relaxed">
           {feature.description}
         </p>
       )}

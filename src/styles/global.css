@@ -1,25 +1,99 @@
 @import "tailwindcss";
+@import "@fontsource/playfair-display/400.css";
+@import "@fontsource/playfair-display/700.css";
+@import "@fontsource/open-sans/400.css";
+@import "@fontsource/open-sans/600.css";
+@import "@fontsource/open-sans/700.css";
 
 @theme {
-  --color-primary: #8B4513;
-  --color-secondary: #2D5A27;
-  --color-background: #FFF8F0;
-  --color-text: #2C1810;
-  --color-accent: #B8860B;
-  
+  /* Typography */
   --font-display: "Playfair Display", serif;
   --font-body: "Open Sans", sans-serif;
+
+  /* Primary Brand Colors - Rich, sophisticated browns */
+  --color-brand: #7A3B1A;
+  --color-brand-light: #9C5D3C;
+  --color-brand-dark: #5C2A0F;
+
+  /* Secondary - Elegant forest greens */
+  --color-forest: #2D4A32;
+  --color-forest-light: #4A6B4F;
+  --color-forest-dark: #1A2E1D;
+
+  /* Accent - Premium golds */
+  --color-gold: #C9A962;
+  --color-gold-light: #DCCBA3;
+  --color-gold-dark: #A68B4B;
+
+  /* Surfaces - Refined neutrals */
+  --color-cream: #FDFBF7;
+  --color-cream-dark: #F5F0E8;
+  --color-linen: #EDE8E0;
+  --color-warm-gray: #F8F6F3;
+
+  /* Text Colors */
+  --color-text-primary: #1F1612;
+  --color-text-secondary: #5A4A42;
+  --color-text-muted: #8B7D75;
+
+  /* Semantic Aliases for Tailwind classes */
+  --color-primary: var(--color-brand);
+  --color-secondary: var(--color-forest);
+  --color-accent: var(--color-gold);
+  --color-background: var(--color-cream);
+  --color-text: var(--color-text-primary);
 }
 
-/* Google Fonts imports are handled in Layout.astro */
+/* CSS Variables for dynamic usage and opacity support */
+:root {
+  /* Backgrounds */
+  --bg-primary: var(--color-cream);
+  --bg-secondary: var(--color-cream-dark);
+  --bg-card: #FFFFFF;
+  --bg-elevated: var(--color-linen);
 
-/* Base styles using the theme variables */
-body {
-  background-color: var(--color-background);
-  color: var(--color-text);
+  /* Text */
+  --text-primary: var(--color-text-primary);
+  --text-secondary: var(--color-text-secondary);
+  --text-muted: var(--color-text-muted);
+
+  /* Borders */
+  --border-subtle: rgba(122, 59, 26, 0.15);
+  --border-default: rgba(122, 59, 26, 0.30);
+
+  /* Interactive */
+  --accent-primary: var(--color-brand);
+  --accent-primary-hover: var(--color-brand-light);
+  --accent-secondary: var(--color-forest);
+  --accent-secondary-hover: var(--color-forest-light);
+}
+
+/* Base styles */
+html {
   font-family: var(--font-body);
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
 }
+
+/* Utility classes for theme colors */
+.text-theme-primary { color: var(--text-primary); }
+.text-theme-secondary { color: var(--text-secondary); }
+.text-theme-muted { color: var(--text-muted); }
+.bg-theme-primary { background-color: var(--bg-primary); }
+.bg-theme-secondary { background-color: var(--bg-secondary); }
+.bg-theme-card { background-color: var(--bg-card); }
+.bg-theme-elevated { background-color: var(--bg-elevated); }
+.border-theme { border-color: var(--border-default); }
+.border-theme-subtle { border-color: var(--border-subtle); }
+.text-accent-primary { color: var(--accent-primary); }
+.text-accent-secondary { color: var(--accent-secondary); }
+.bg-accent-primary { background-color: var(--accent-primary); }
+.bg-accent-secondary { background-color: var(--accent-secondary); }

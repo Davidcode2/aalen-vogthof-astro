@@ -52,45 +52,45 @@ const childrenAges = [
   </Section>
 
   <!-- Pricing Information -->
-  <Section title={t.rooms.pricing.title} subtitle={t.rooms.pricing.subtitle} background="old-lace">
+  <Section title={t.rooms.pricing.title} subtitle={t.rooms.pricing.subtitle} background="cream-dark">
     <div class="max-w-4xl mx-auto">
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
         <div class="bg-white rounded-xl p-6 shadow-lg text-center">
-          <h3 class="font-['Playfair_Display',Georgia,serif] text-xl font-bold text-[#2C1810] mb-2">{t.rooms.pricing.single.label}</h3>
-          <p class="text-3xl font-bold text-[#8B4513] mb-2">{t.rooms.pricing.single.price}</p>
-          <p class="font-['Open_Sans',Arial,sans-serif] text-[#5C4033] text-sm whitespace-pre-line">{t.rooms.pricing.single.note}</p>
+          <h3 class="font-display text-xl font-bold text-text-primary mb-2">{t.rooms.pricing.single.label}</h3>
+          <p class="text-3xl font-bold text-primary mb-2">{t.rooms.pricing.single.price}</p>
+          <p class="font-body text-text-secondary text-sm whitespace-pre-line">{t.rooms.pricing.single.note}</p>
         </div>
         <div class="bg-white rounded-xl p-6 shadow-lg text-center">
-          <h3 class="font-['Playfair_Display',Georgia,serif] text-xl font-bold text-[#2C1810] mb-2">{t.rooms.pricing.double1.label}</h3>
-          <p class="text-3xl font-bold text-[#8B4513] mb-2">{t.rooms.pricing.double1.price}</p>
-          <p class="font-['Open_Sans',Arial,sans-serif] text-[#5C4033] text-sm whitespace-pre-line">{t.rooms.pricing.double1.note}</p>
+          <h3 class="font-display text-xl font-bold text-text-primary mb-2">{t.rooms.pricing.double1.label}</h3>
+          <p class="text-3xl font-bold text-primary mb-2">{t.rooms.pricing.double1.price}</p>
+          <p class="font-body text-text-secondary text-sm whitespace-pre-line">{t.rooms.pricing.double1.note}</p>
         </div>
         <div class="bg-white rounded-xl p-6 shadow-lg text-center">
-          <h3 class="font-['Playfair_Display',Georgia,serif] text-xl font-bold text-[#2C1810] mb-2">{t.rooms.pricing.double2.label}</h3>
-          <p class="text-3xl font-bold text-[#8B4513] mb-2">{t.rooms.pricing.double2.price}</p>
-          <p class="font-['Open_Sans',Arial,sans-serif] text-[#5C4033] text-sm whitespace-pre-line">{t.rooms.pricing.double2.note}</p>
+          <h3 class="font-display text-xl font-bold text-text-primary mb-2">{t.rooms.pricing.double2.label}</h3>
+          <p class="text-3xl font-bold text-primary mb-2">{t.rooms.pricing.double2.price}</p>
+          <p class="font-body text-text-secondary text-sm whitespace-pre-line">{t.rooms.pricing.double2.note}</p>
         </div>
         <div class="bg-white rounded-xl p-6 shadow-lg text-center">
-          <h3 class="font-['Playfair_Display',Georgia,serif] text-xl font-bold text-[#2C1810] mb-2">{t.rooms.pricing.family.label}</h3>
-          <p class="text-3xl font-bold text-[#8B4513] mb-2">{t.rooms.pricing.family.price}</p>
-          <p class="font-['Open_Sans',Arial,sans-serif] text-[#5C4033] text-sm whitespace-pre-line">{t.rooms.pricing.family.note}</p>
+          <h3 class="font-display text-xl font-bold text-text-primary mb-2">{t.rooms.pricing.family.label}</h3>
+          <p class="text-3xl font-bold text-primary mb-2">{t.rooms.pricing.family.price}</p>
+          <p class="font-body text-text-secondary text-sm whitespace-pre-line">{t.rooms.pricing.family.note}</p>
         </div>
       </div>
 
       <!-- Children Pricing -->
-      <div class="bg-[#FAEBD7] rounded-xl p-8">
-        <h3 class="font-['Playfair_Display',Georgia,serif] text-2xl font-bold text-[#2C1810] mb-6 text-center">
+      <div class="bg-cream-dark rounded-xl p-8">
+        <h3 class="font-display text-2xl font-bold text-text-primary mb-6 text-center">
           👶 {t.rooms.pricing.children.title}
         </h3>
-        <p class="font-['Open_Sans',Arial,sans-serif] text-[#5C4033] text-center mb-6">
+        <p class="font-body text-text-secondary text-center mb-6">
           {t.rooms.pricing.children.note}
         </p>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           {childrenAges.map((age) => (
             <div class="text-center">
-              <p class="font-['Open_Sans',Arial,sans-serif] text-[#5C4033] text-lg mb-1">{t.rooms.pricing.children[age.key].age}</p>
-              <p class="text-2xl font-bold text-[#2D5A27]">{t.rooms.pricing.children[age.key].price}</p>
-              <p class="font-['Open_Sans',Arial,sans-serif] text-[#8B4513] text-sm">{t.rooms.pricing.children[age.key].note}</p>
+              <p class="font-body text-text-secondary text-lg mb-1">{t.rooms.pricing.children[age.key].age}</p>
+              <p class="text-2xl font-bold text-secondary">{t.rooms.pricing.children[age.key].price}</p>
+              <p class="font-body text-primary text-sm">{t.rooms.pricing.children[age.key].note}</p>
             </div>
           ))}
         </div>
@@ -103,28 +103,28 @@ const childrenAges = [
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {t.rooms.amenities.items.map((amenity) => (
         <div class="flex items-center bg-white rounded-lg p-4 shadow-md">
-          <span class="text-[#2D5A27] mr-3 text-xl">✓</span>
-          <span class="font-['Open_Sans',Arial,sans-serif] text-[#5C4033]">{amenity}</span>
+          <span class="text-secondary mr-3 text-xl">✓</span>
+          <span class="font-body text-text-secondary">{amenity}</span>
         </div>
       ))}
     </div>
   </Section>
 
   <!-- Check-in/Check-out -->
-  <Section title={t.rooms.checkInOut.title} background="antique">
+  <Section title={t.rooms.checkInOut.title} background="linen">
     <div class="max-w-3xl mx-auto">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div class="bg-[#FAEBD7] rounded-xl p-8 text-center">
+        <div class="bg-cream-dark rounded-xl p-8 text-center">
           <span class="text-5xl mb-4 block">🗝️</span>
-          <h3 class="font-['Playfair_Display',Georgia,serif] text-2xl font-bold text-[#2C1810] mb-2">{t.rooms.checkInOut.checkIn.title}</h3>
-          <p class="text-xl font-bold text-[#8B4513]">{t.rooms.checkInOut.checkIn.time}</p>
-          <p class="font-['Open_Sans',Arial,sans-serif] text-[#5C4033] mt-2">{t.rooms.checkInOut.checkIn.note}</p>
+          <h3 class="font-display text-2xl font-bold text-text-primary mb-2">{t.rooms.checkInOut.checkIn.title}</h3>
+          <p class="text-xl font-bold text-primary">{t.rooms.checkInOut.checkIn.time}</p>
+          <p class="font-body text-text-secondary mt-2">{t.rooms.checkInOut.checkIn.note}</p>
         </div>
-        <div class="bg-[#FDF5E6] rounded-xl p-8 text-center">
+        <div class="bg-cream rounded-xl p-8 text-center">
           <span class="text-5xl mb-4 block">🚪</span>
-          <h3 class="font-['Playfair_Display',Georgia,serif] text-2xl font-bold text-[#2C1810] mb-2">{t.rooms.checkInOut.checkOut.title}</h3>
-          <p class="text-xl font-bold text-[#8B4513]">{t.rooms.checkInOut.checkOut.time}</p>
-          <p class="font-['Open_Sans',Arial,sans-serif] text-[#5C4033] mt-2">{t.rooms.checkInOut.checkOut.note}</p>
+          <h3 class="font-display text-2xl font-bold text-text-primary mb-2">{t.rooms.checkInOut.checkOut.title}</h3>
+          <p class="text-xl font-bold text-primary">{t.rooms.checkInOut.checkOut.time}</p>
+          <p class="font-body text-text-secondary mt-2">{t.rooms.checkInOut.checkOut.note}</p>
         </div>
       </div>
     </div>
@@ -133,19 +133,19 @@ const childrenAges = [
   <!-- Booking CTA -->
   <Section id="booking" title={t.rooms.booking.title} subtitle={t.rooms.booking.subtitle} background="cream">
     <div class="max-w-2xl mx-auto text-center">
-      <p class="font-['Open_Sans',Arial,sans-serif] text-[#5C4033] text-lg mb-8">
+      <p class="font-body text-text-secondary text-lg mb-8">
         {t.rooms.booking.description}
       </p>
       <div class="flex flex-wrap justify-center gap-4">
         <a
           href="tel:07361-73688"
-          class="inline-block px-8 py-4 bg-[#8B4513] hover:bg-[#2D5A27] text-white font-semibold rounded-lg transition-colors duration-300"
+          class="inline-block px-8 py-4 bg-primary hover:bg-secondary text-white font-semibold rounded-lg transition-colors duration-300"
         >
           {t.rooms.booking.ctaCall}
         </a>
         <a
           href="/"
-          class="inline-block px-8 py-4 border-2 border-[#8B4513] text-[#8B4513] hover:bg-[#8B4513] hover:text-white font-semibold rounded-lg transition-colors duration-300"
+          class="inline-block px-8 py-4 border-2 border-primary text-primary hover:bg-primary hover:text-white font-semibold rounded-lg transition-colors duration-300"
         >
           {t.rooms.booking.ctaBack}
         </a>

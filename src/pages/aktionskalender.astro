@@ -13,6 +13,14 @@ const seasons = [
   { key: 'autumn', icon: '🍂' },
   { key: 'winter', icon: '❄️' },
 ] as const;
+
+const openingHours = [
+  { day: 'Montag-Donnerstag', time: '11:30-14 Uhr' },
+  { day: 'Montag-Mittwoch', time: '18:00-22 Uhr' },
+  { day: 'Freitag', time: 'Ruhetag (Closed)' },
+  { day: 'Samstag', time: '18:00-22 Uhr' },
+  { day: 'Sonntag', time: '11:30-14 Uhr' },
+];
 ---
 
 <Layout 
@@ -45,7 +53,7 @@ const seasons = [
           class="w-full max-w-2xl rounded-lg shadow-xl transition-transform duration-300 group-hover:scale-[1.02]"
         />
       </a>
-      <p class="text-[#5C4033] font-['Open_Sans',Arial,sans-serif] text-center">
+      <p class="text-text-secondary font-body text-center">
         {t.aktionskalender.download.text}
       </p>
     </div>
@@ -54,20 +62,21 @@ const seasons = [
   <!-- Seasonal Information Section -->
   <Section 
     title={t.aktionskalender.seasonal.title}
-    background="old-lace"
+    subtitle={t.aktionskalender.seasonal.subtitle}
+    background="cream-dark"
     padding="medium"
   >
     <div class="max-w-4xl mx-auto">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
         {seasons.map((season) => (
-          <div class="p-6 bg-white rounded-xl shadow-lg border border-[#8B4513]/10">
+          <div class="p-6 bg-white rounded-xl shadow-lg border border-primary/10">
             <div class="flex items-center mb-4">
               <span class="text-3xl mr-3">{season.icon}</span>
-              <h4 class="font-['Playfair_Display',Georgia,serif] text-xl font-bold text-[#2C1810]">
+              <h4 class="font-display text-xl font-bold text-text-primary">
                 {t.aktionskalender.seasonal[season.key].title}
               </h4>
             </div>
-            <p class="font-['Open_Sans',Arial,sans-serif] text-[#5C4033]">
+            <p class="font-body text-text-secondary">
               {t.aktionskalender.seasonal[season.key].description}
             </p>
           </div>
@@ -79,7 +88,8 @@ const seasons = [
   <!-- Opening Hours Section -->
   <Section 
     title={t.aktionskalender.hours.title}
-    background="antique"
+    subtitle={t.aktionskalender.hours.subtitle}
+    background="linen"
     padding="medium"
     id="hours"
   >
@@ -87,29 +97,29 @@ const seasons = [
       <div class="overflow-x-auto">
         <table class="w-full min-w-[300px] text-left">
           <thead>
-            <tr class="border-b border-[#8B4513]/30">
-              <th class="py-4 px-4 font-['Playfair_Display',Georgia,serif] text-[#2C1810] text-lg">Tag</th>
-              <th class="py-4 px-4 font-['Playfair_Display',Georgia,serif] text-[#2C1810] text-lg">Zeit</th>
+            <tr class="border-b border-primary/30">
+              <th class="py-4 px-4 font-display text-text-primary text-lg">{t.aktionskalender.hours.dayLabel}</th>
+              <th class="py-4 px-4 font-display text-text-primary text-lg">{t.aktionskalender.hours.timeLabel}</th>
             </tr>
           </thead>
-          <tbody class="font-['Open_Sans',Arial,sans-serif]">
-            {t.aktionskalender.hours.days.map((day) => (
-              <tr class="border-b border-[#8B4513]/10">
-                <td class="py-3 px-4 text-[#2C1810]">{day.day}</td>
-                <td class="py-3 px-4 text-[#5C4033]">{day.time}</td>
+          <tbody class="font-body">
+            {openingHours.map((row) => (
+              <tr class="border-b border-primary/10">
+                <td class="py-3 px-4 text-text-primary">{row.day}</td>
+                <td class="py-3 px-4 text-text-secondary">{row.time}</td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
       
-      <div class="mt-6 p-4 bg-[#8B4513]/10 rounded-lg">
-        <p class="font-['Open_Sans',Arial,sans-serif] text-[#5C4033] text-center">
-          <strong class="text-[#2C1810]">{t.aktionskalender.hours.note}</strong>
+      <div class="mt-6 p-4 bg-primary/10 rounded-lg">
+        <p class="font-body text-text-secondary text-center">
+          <strong class="text-text-primary">{t.aktionskalender.hours.note}</strong>
         </p>
       </div>
       
-      <p class="mt-4 text-center font-['Open_Sans',Arial,sans-serif] text-[#8B4513] text-sm">
+      <p class="mt-4 text-center font-body text-primary text-sm">
         {t.aktionskalender.hours.subjectToChange}
       </p>
     </div>
@@ -118,11 +128,11 @@ const seasons = [
   <!-- Closed Dates Section -->
   <Section background="cream" padding="medium">
     <div class="max-w-2xl mx-auto text-center">
-      <h3 class="font-['Playfair_Display',Georgia,serif] text-2xl font-bold text-[#2C1810] mb-4">
+      <h3 class="font-display text-2xl font-bold text-text-primary mb-4">
         {t.aktionskalender.closed.title}
       </h3>
-      <div class="p-6 bg-[#8B4513]/15 rounded-lg">
-        <p class="font-['Open_Sans',Arial,sans-serif] text-[#2C1810] text-lg">
+      <div class="p-6 bg-primary/15 rounded-lg">
+        <p class="font-body text-text-primary text-lg">
           {t.aktionskalender.closed.text}
         </p>
       </div>
@@ -132,35 +142,35 @@ const seasons = [
   <!-- Contact Section -->
   <Section background="white" padding="large">
     <div class="text-center max-w-2xl mx-auto">
-      <h3 class="font-['Playfair_Display',Georgia,serif] text-3xl font-bold text-[#2C1810] mb-6">
+      <h3 class="font-display text-3xl font-bold text-text-primary mb-6">
         {t.aktionskalender.contact.title}
       </h3>
-      <div class="p-8 bg-[#FFF8F0] rounded-xl shadow-lg border border-[#8B4513]/20">
-        <p class="font-['Open_Sans',Arial,sans-serif] text-[#5C4033] text-xl">
-          <strong class="text-[#2C1810]">{t.aktionskalender.contact.phone}</strong>
+      <div class="p-8 bg-cream rounded-xl shadow-lg border border-primary/20">
+        <p class="font-body text-text-secondary text-xl">
+          <strong class="text-text-primary">{t.aktionskalender.contact.phone}</strong>
         </p>
       </div>
     </div>
   </Section>
 
   <!-- Quick Links Section -->
-  <Section background="old-lace" padding="medium">
+  <Section background="cream-dark" padding="medium">
     <div class="flex flex-wrap justify-center gap-6">
       <a 
         href="/tagesessen" 
-        class="inline-block px-6 py-3 bg-[#8B4513] hover:bg-[#A0522D] text-white font-semibold rounded-md transition-all duration-300 shadow-lg hover:shadow-xl"
+        class="inline-block px-6 py-3 bg-primary hover:bg-brand-light text-white font-semibold rounded-md transition-all duration-300 shadow-lg hover:shadow-xl"
       >
         → {t.aktionskalender.links.daily}
       </a>
       <a 
         href="/impressum" 
-        class="inline-block px-6 py-3 border-2 border-[#8B4513] hover:bg-[#8B4513] hover:text-white text-[#8B4513] font-semibold rounded-md transition-all duration-300"
+        class="inline-block px-6 py-3 border-2 border-primary hover:bg-primary hover:text-white text-primary font-semibold rounded-md transition-all duration-300"
       >
         → {t.aktionskalender.links.imprint}
       </a>
       <a 
         href="/datenschutz" 
-        class="inline-block px-6 py-3 border-2 border-[#8B4513] hover:bg-[#8B4513] hover:text-white text-[#8B4513] font-semibold rounded-md transition-all duration-300"
+        class="inline-block px-6 py-3 border-2 border-primary hover:bg-primary hover:text-white text-primary font-semibold rounded-md transition-all duration-300"
       >
         → {t.aktionskalender.links.privacy}
       </a>

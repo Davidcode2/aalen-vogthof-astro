@@ -2,7 +2,7 @@
 interface Props {
   title: string;
   subtitle?: string;
-  background?: 'cream' | 'old-lace' | 'antique' | 'white' | 'transparent';
+  background?: 'cream' | 'cream-dark' | 'linen' | 'white' | 'transparent';
   padding?: 'none' | 'small' | 'medium' | 'large';
   id?: string;
 }
@@ -16,9 +16,9 @@ const {
 } = Astro.props;
 
 const backgroundClasses = {
-  cream: 'bg-[#FFF8F0]',
-  'old-lace': 'bg-[#FDF5E6]',
-  antique: 'bg-[#FAEBD7]',
+  cream: 'bg-cream',
+  'cream-dark': 'bg-cream-dark',
+  linen: 'bg-linen',
   white: 'bg-white',
   transparent: 'bg-transparent'
 };
@@ -38,18 +38,18 @@ const paddingClasses = {
   <div class="container mx-auto px-4">
     <!-- Section Header -->
     <div class="text-center mb-12">
-      <h2 class="font-['Playfair_Display',Georgia,serif] text-3xl md:text-4xl lg:text-5xl font-bold text-[#2C1810] mb-4">
+      <h2 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-text-primary mb-4">
         {title}
       </h2>
-      
+
       {subtitle && (
-        <p class="font-['Open_Sans',Arial,sans-serif] text-lg text-[#5C4033] max-w-2xl mx-auto">
+        <p class="font-body text-lg text-text-secondary max-w-2xl mx-auto">
           {subtitle}
         </p>
       )}
-      
+
       <!-- Decorative Line -->
-      <div class="w-24 h-1 bg-[#8B4513] mx-auto mt-6 rounded-full"></div>
+      <div class="w-24 h-1 bg-primary mx-auto mt-6 rounded-full"></div>
     </div>
 
     <!-- Content Slot -->

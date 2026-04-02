@@ -37,12 +37,12 @@ const navItems = [
 const homeHref = locale === 'de' ? '/' : '/en';
 ---
 
-<header class="sticky top-0 z-50 bg-[#2D5A27] shadow-lg">
+<header class="sticky top-0 z-50 bg-secondary shadow-lg">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex justify-between items-center h-16">
       <!-- Logo (links to home) -->
       <a href={homeHref} class="flex items-center">
-        <span class="font-['Playfair_Display',Georgia,serif] text-2xl font-bold text-[#F5DEB3]">
+        <span class="font-display text-2xl font-bold text-gold-light">
           Vogthof
         </span>
       </a>
@@ -52,7 +52,7 @@ const homeHref = locale === 'de' ? '/' : '/en';
         {navItems.map((item) => (
           <a
             href={item.href}
-            class="px-3 py-2 text-sm font-semibold text-[#F5DEB3] hover:text-white hover:bg-[#8B4513] rounded-md transition-colors duration-200"
+            class="px-3 py-2 text-sm font-semibold text-gold-light hover:text-white hover:bg-primary rounded-md transition-colors duration-200"
           >
             {item.label}
           </a>
@@ -61,20 +61,20 @@ const homeHref = locale === 'de' ? '/' : '/en';
         <!-- Language Toggle -->
         <a 
           href={alternatePath}
-          class="ml-4 flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-[#F5DEB3]/30 hover:bg-[#8B4513] transition-colors"
+          class="ml-4 flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-gold/30 hover:bg-primary transition-colors"
           aria-label={alternateLabel}
           title={alternateLabel}
         >
-          <span class={isGerman ? 'text-[#F5DEB3] font-bold' : 'text-[#F5DEB3]/60'}>DE</span>
-          <span class="text-[#F5DEB3]/60">/</span>
-          <span class={!isGerman ? 'text-[#F5DEB3] font-bold' : 'text-[#F5DEB3]/60'}>EN</span>
+          <span class={isGerman ? 'text-gold-light font-bold' : 'text-gold-light/60'}>DE</span>
+          <span class="text-gold-light/60">/</span>
+          <span class={!isGerman ? 'text-gold-light font-bold' : 'text-gold-light/60'}>EN</span>
         </a>
       </nav>
 
       <!-- Mobile Menu Button -->
       <button
         id="mobile-menu-button"
-        class="md:hidden p-2 rounded-md text-[#F5DEB3] hover:text-white hover:bg-[#8B4513] transition-colors"
+        class="md:hidden p-2 rounded-md text-gold-light hover:text-white hover:bg-primary transition-colors"
         aria-label="Toggle menu"
       >
         <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -85,28 +85,28 @@ const homeHref = locale === 'de' ? '/' : '/en';
   </div>
 
   <!-- Mobile Navigation -->
-  <div id="mobile-menu" class="hidden md:hidden bg-[#2D5A27] border-t border-[#8B4513]">
+  <div id="mobile-menu" class="hidden md:hidden bg-secondary border-t border-primary">
     <div class="px-2 pt-2 pb-3 space-y-1">
       {navItems.map((item) => (
         <a
           href={item.href}
-          class="block px-3 py-2 text-base font-medium text-[#F5DEB3] hover:text-white hover:bg-[#8B4513] rounded-md transition-colors duration-200"
+          class="block px-3 py-2 text-base font-medium text-gold-light hover:text-white hover:bg-primary rounded-md transition-colors duration-200"
         >
           {item.label}
         </a>
       ))}
       
       <!-- Mobile Language Toggle -->
-      <div class="pt-4 mt-4 border-t border-[#8B4513]">
+      <div class="pt-4 mt-4 border-t border-primary">
         <a 
           href={alternatePath}
-          class="flex items-center justify-between px-3 py-2 text-base font-medium text-[#F5DEB3] hover:text-white hover:bg-[#8B4513] rounded-md transition-colors"
+          class="flex items-center justify-between px-3 py-2 text-base font-medium text-gold-light hover:text-white hover:bg-primary rounded-md transition-colors"
         >
           <span>{alternateLabel}</span>
           <span class="flex items-center gap-2">
-            <span class={isGerman ? 'text-[#F5DEB3] font-bold' : 'text-[#F5DEB3]/60'}>DE</span>
-            <span class="text-[#F5DEB3]/60">|</span>
-            <span class={!isGerman ? 'text-[#F5DEB3] font-bold' : 'text-[#F5DEB3]/60'}>EN</span>
+            <span class={isGerman ? 'text-gold-light font-bold' : 'text-gold-light/60'}>DE</span>
+            <span class="text-gold-light/60">|</span>
+            <span class={!isGerman ? 'text-gold-light font-bold' : 'text-gold-light/60'}>EN</span>
           </span>
         </a>
       </div>

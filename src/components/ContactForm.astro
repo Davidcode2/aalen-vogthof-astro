@@ -2,12 +2,31 @@
 interface Props {
   submitUrl?: string;
   buttonText?: string;
+  locale?: 'de' | 'en';
 }
 
 const {
   submitUrl = '/api/contact',
-  buttonText = 'Send Message'
+  buttonText = 'Send Message',
+  locale = 'de'
 } = Astro.props;
+
+const placeholders = {
+  de: {
+    name: 'Ihr vollständiger Name',
+    email: 'ihre@email.de',
+    phone: '+49 (optional)',
+    message: 'Wie können wir Ihnen helfen?'
+  },
+  en: {
+    name: 'Your full name',
+    email: 'your@email.com',
+    phone: '+49 (optional)',
+    message: 'How can we help you?'
+  }
+};
+
+const p = placeholders[locale];
 ---
 
 <form class="bg-white shadow-lg p-6 md:p-8" action={submitUrl} method="POST">
@@ -23,7 +42,7 @@ const {
         id="name"
         name="name"
         required
-        placeholder="Your full name"
+        placeholder={p.name}
         class="w-full px-4 py-3 border border-accent-light focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent font-body transition-all duration-300"
       />
     </div>
@@ -38,7 +57,7 @@ const {
         id="email"
         name="email"
         required
-        placeholder="your@email.com"
+        placeholder={p.email}
         class="w-full px-4 py-3 border border-accent-light focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent font-body transition-all duration-300"
       />
     </div>
@@ -52,7 +71,7 @@ const {
         type="tel"
         id="phone"
         name="phone"
-        placeholder="+49 (optional)"
+        placeholder={p.phone}
         class="w-full px-4 py-3 border border-accent-light focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent font-body transition-all duration-300"
       />
     </div>
@@ -68,7 +87,7 @@ const {
       name="message"
       required
       rows="5"
-      placeholder="How can we help you?"
+      placeholder={p.message}
       class="w-full px-4 py-3 border border-accent-light focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent font-body transition-all duration-300 resize-none"
     ></textarea>
   </div>

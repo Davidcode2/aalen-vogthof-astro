@@ -17,9 +17,9 @@ const venueImages = [
 ];
 
 const capacityOptions = [
-  { key: 'restaurant', icon: '👥' },
-  { key: 'vogtstube', icon: '🪑' },
-  { key: 'braunenberg', icon: '🍽️' },
+  { key: 'restaurant', icon: '👥', image: '/images/restaurant_room_full_length.jpg' },
+  { key: 'vogtstube', icon: '🪑', image: '/images/restaurant/vogtstube.jpg' },
+  { key: 'braunenberg', icon: '🍽️', image: '/images/restaurant/braunenbergstube.jpg' },
 ] as const;
 
 const serviceFeatures = [
@@ -63,7 +63,7 @@ const serviceFeatures = [
         <Card
           title={t.events.capacity[option.key].title}
           description={`${t.events.capacity[option.key].capacity} - ${t.events.capacity[option.key].desc}`}
-          image="/images/wedding_preparations.jpg"
+          image={option.image}
           hoverEffect="lift"
         />
       ))}

@@ -61,7 +61,7 @@ const structuredData = {
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
       <!-- Contact Info -->
       <div class="space-y-8">
-        <div class="bg-white rounded-xl shadow-lg p-8">
+        <div class="bg-white shadow-lg p-8">
           <h2 class="font-display text-2xl font-bold text-primary mb-6">
             {t.contact.info.title}
           </h2>
@@ -131,7 +131,7 @@ const structuredData = {
         </div>
 
         <!-- Opening Hours -->
-        <div class="bg-white rounded-xl shadow-lg p-8">
+        <div class="bg-white shadow-lg p-8">
           <h2 class="font-display text-2xl font-bold text-primary mb-6">
             {t.contact.hours.title}
           </h2>
@@ -154,7 +154,7 @@ const structuredData = {
         <h2 class="font-display text-2xl font-bold text-primary mb-6">
           {t.contact.form.title}
         </h2>
-        <ContactForm />
+        <ContactForm locale="de" />
       </div>
     </div>
   </Section>
@@ -171,14 +171,14 @@ const structuredData = {
     </div>
     <div class="bg-white rounded-xl shadow-lg p-4 overflow-hidden">
       <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2603.6!2d10.0!3d48.8!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4799a3f0f0000001%3A0x0000000000000000!2sAalen-R%C3%B6thardt!5e0!3m2!1sde!2sde!4v1600000000000!5m2!1sde!2sde"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2666.9626767020717!2d10.0356!3d48.8436!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47990dd4c2cf59c5%3A0xa4f6c3c8e4c2f0b1!2sBergbaustra%C3%9Fe%2028%2F1%2C%2073433%20Aalen-R%C3%B6thardt!5e0!3m2!1sde!2sde!4v1700000000000!5m2!1sde!2sde"
         width="100%"
         height="450"
         style="border:0;"
         allowfullscreen=""
         loading="lazy"
         referrerpolicy="no-referrer-when-downgrade"
-        class="rounded-lg"
+        class=""
         title="Vogthof Landgasthof Location"
       ></iframe>
     </div>
@@ -187,7 +187,7 @@ const structuredData = {
         href="https://www.google.com/maps/dir/?api=1&destination=Bergbaustraße+28/1,+73433+Aalen-Röthardt"
         target="_blank"
         rel="noopener noreferrer"
-        class="inline-flex items-center gap-2 px-6 py-3 bg-primary hover:bg-secondary text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
+        class="inline-flex items-center gap-2 px-6 py-3 bg-primary hover:bg-secondary text-white font-semibold  shadow-lg hover:shadow-xl transition-all duration-300"
       >
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"></path>
@@ -196,7 +196,7 @@ const structuredData = {
       </a>
       <a
         href={`tel:${contactInfo.phone}`}
-        class="inline-flex items-center gap-2 px-6 py-3 bg-text-secondary hover:bg-primary text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
+        class="inline-flex items-center gap-2 px-6 py-3 bg-secondary hover:bg-primary text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
       >
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
@@ -218,13 +218,13 @@ const structuredData = {
       <div class="flex flex-wrap justify-center gap-4">
         <a
           href="/menus"
-          class="inline-flex items-center gap-2 px-6 py-3 border-2 border-primary text-primary hover:bg-primary hover:text-white font-semibold rounded-lg transition-all duration-300"
+          class="inline-flex items-center gap-2 px-6 py-3 border-2 border-primary text-primary hover:bg-primary hover:text-white font-semibold  transition-all duration-300"
         >
           {t.contact.events.ctaMenu}
         </a>
         <a
           href="/tagesessen"
-          class="inline-flex items-center gap-2 px-6 py-3 border-2 border-primary text-primary hover:bg-primary hover:text-white font-semibold rounded-lg transition-all duration-300"
+          class="inline-flex items-center gap-2 px-6 py-3 border-2 border-primary text-primary hover:bg-primary hover:text-white font-semibold  transition-all duration-300"
         >
           {t.contact.events.ctaDaily}
         </a>

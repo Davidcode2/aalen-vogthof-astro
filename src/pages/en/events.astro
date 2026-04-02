@@ -9,11 +9,11 @@ const locale = 'en';
 const t = getTranslations(locale);
 
 const venueImages = [
-  { src: '/images/f1.jpg', alt: 'Festive atmosphere' },
-  { src: '/images/f2.jpg', alt: 'Celebration setup' },
-  { src: '/images/f3.jpg', alt: 'Event gathering' },
-  { src: '/images/f4.jpg', alt: 'Festive decorations' },
-  { src: '/images/f5.jpg', alt: 'Celebration moments' },
+  { src: '/images/wedding_preparations.jpg', alt: 'Festive atmosphere' },
+  { src: '/images/wedding_table.jpg', alt: 'Celebration setup' },
+  { src: '/images/restaurant_room_empty_red_decoration.jpg', alt: 'Event gathering' },
+  { src: '/images/restaurant_room_full_length.jpg', alt: 'Festive decorations' },
+  { src: '/images/restaurant_empty_rose_decoration.jpg', alt: 'Celebration moments' },
 ];
 
 const capacityOptions = [
@@ -37,14 +37,14 @@ const serviceFeatures = [
   <Hero
     headline={t.events.hero.headline}
     subheadline={t.events.hero.subheadline}
-    backgroundImage="/images/f1.jpg"
+    backgroundImage="/images/wedding_preparations.jpg"
     height="large"
   />
 
   <Section
     title={t.events.intro.title}
     subtitle={t.events.intro.subtitle}
-    background="cream"
+    background="background"
   >
     <div class="max-w-4xl mx-auto">
       <p class="text-lg text-[#5C4033] leading-relaxed mb-8">
@@ -56,14 +56,14 @@ const serviceFeatures = [
   <Section
     title={t.events.capacity.title}
     subtitle={t.events.capacity.subtitle}
-    background="old-lace"
+    background="background-secondary"
   >
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
       {capacityOptions.map((option) => (
         <Card
           title={t.events.capacity[option.key].title}
           description={`${t.events.capacity[option.key].capacity} - ${t.events.capacity[option.key].desc}`}
-          image="/images/f1.jpg"
+          image="/images/wedding_preparations.jpg"
           hoverEffect="lift"
         />
       ))}
@@ -73,7 +73,7 @@ const serviceFeatures = [
   <Section
     title={t.events.services.title}
     subtitle={t.events.services.subtitle}
-    background="antique"
+    background="surface"
   >
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
       {serviceFeatures.map((feature) => (
@@ -93,7 +93,7 @@ const serviceFeatures = [
   <Section
     title={t.events.gallery.title}
     subtitle={t.events.gallery.subtitle}
-    background="cream"
+    background="background"
   >
     <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
       {venueImages.map((img) => (
@@ -112,7 +112,7 @@ const serviceFeatures = [
   <Section
     title={t.events.planning.title}
     subtitle={t.events.planning.subtitle}
-    background="old-lace"
+    background="background-secondary"
     padding="large"
   >
     <div class="max-w-3xl mx-auto text-center">

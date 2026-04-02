@@ -37,51 +37,51 @@ const structuredData = {
   locale={locale}
 >
   <!-- Hero Section -->
-  <Section background="linen" padding="medium">
+  <Section background="surface" padding="medium">
     <div class="text-center">
-      <h1 class="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-text-primary mb-4">
+      <h1 class="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-primary mb-4">
         {t.datenschutz.hero.title}
       </h1>
-      <p class="font-body text-lg text-text-secondary max-w-2xl mx-auto">
+      <p class="font-body text-lg text-secondary max-w-2xl mx-auto">
         {t.datenschutz.hero.subtitle}
       </p>
     </div>
   </Section>
 
   <!-- Legal Content -->
-  <Section background="cream" padding="large">
+  <Section background="background" padding="large">
     <div class="max-w-4xl mx-auto space-y-8">
       <!-- 1. Name und Kontaktdaten -->
       <div class="bg-white rounded-xl shadow-lg p-8">
-        <h2 class="font-display text-2xl font-bold text-text-primary mb-6">
+        <h2 class="font-display text-2xl font-bold text-primary mb-6">
           {t.datenschutz.sections.responsible.title}
         </h2>
-        <p class="font-body text-text-secondary mb-4">
+        <p class="font-body text-secondary mb-4">
           {t.datenschutz.sections.responsible.text}
         </p>
-        <div class="space-y-3 pl-4 border-l-4 border-gold">
-          <p class="font-body text-lg text-text-primary font-semibold">
+        <div class="space-y-3 pl-4 border-l-4 border-accent">
+          <p class="font-body text-lg text-primary font-semibold">
             {contactInfo.owner}
           </p>
-          <p class="font-body text-text-secondary">
+          <p class="font-body text-secondary">
             {contactInfo.address}
           </p>
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
             <div>
-              <p class="font-body text-sm text-text-secondary">E-Mail:</p>
+              <p class="font-body text-sm text-secondary">E-Mail:</p>
               <a href={`mailto:${contactInfo.email}`} class="font-body text-primary hover:text-secondary">
                 {contactInfo.email}
               </a>
             </div>
             <div>
-              <p class="font-body text-sm text-text-secondary">Telefon:</p>
+              <p class="font-body text-sm text-secondary">Telefon:</p>
               <a href={`tel:${contactInfo.phone.replace(/\D/g, '')}`} class="font-body text-primary hover:text-secondary">
                 {contactInfo.phone}
               </a>
             </div>
             <div>
-              <p class="font-body text-sm text-text-secondary">Telefax:</p>
-              <p class="font-body text-text-primary">{contactInfo.fax}</p>
+              <p class="font-body text-sm text-secondary">Telefax:</p>
+              <p class="font-body text-primary">{contactInfo.fax}</p>
             </div>
           </div>
         </div>
@@ -89,60 +89,60 @@ const structuredData = {
 
       <!-- 2. Umfang und Zweck -->
       <div class="bg-white rounded-xl shadow-lg p-8">
-        <h2 class="font-display text-2xl font-bold text-text-primary mb-6">
+        <h2 class="font-display text-2xl font-bold text-primary mb-6">
           {t.datenschutz.sections.scope.title}
         </h2>
-        <p class="font-body text-text-secondary leading-relaxed">
+        <p class="font-body text-secondary leading-relaxed">
           {t.datenschutz.sections.scope.text}
         </p>
       </div>
 
       <!-- 3. Weitergabe von Daten -->
       <div class="bg-white rounded-xl shadow-lg p-8">
-        <h2 class="font-display text-2xl font-bold text-text-primary mb-6">
+        <h2 class="font-display text-2xl font-bold text-primary mb-6">
           {t.datenschutz.sections.sharing.title}
         </h2>
-        <p class="font-body text-text-secondary leading-relaxed">
+        <p class="font-body text-secondary leading-relaxed">
           {t.datenschutz.sections.sharing.text}
         </p>
       </div>
 
       <!-- 4. Cookies -->
       <div class="bg-white rounded-xl shadow-lg p-8">
-        <h2 class="font-display text-2xl font-bold text-text-primary mb-6">
+        <h2 class="font-display text-2xl font-bold text-primary mb-6">
           {t.datenschutz.sections.cookies.title}
         </h2>
-        <p class="font-body text-text-secondary leading-relaxed">
+        <p class="font-body text-secondary leading-relaxed">
           {t.datenschutz.sections.cookies.text}
         </p>
       </div>
 
       <!-- 5. Google Maps -->
       <div class="bg-white rounded-xl shadow-lg p-8">
-        <h2 class="font-display text-2xl font-bold text-text-primary mb-6">
+        <h2 class="font-display text-2xl font-bold text-primary mb-6">
           {t.datenschutz.sections.maps.title}
         </h2>
-        <p class="font-body text-text-secondary leading-relaxed">
+        <p class="font-body text-secondary leading-relaxed">
           {t.datenschutz.sections.maps.text}
         </p>
       </div>
 
       <!-- 6. Ihre Rechte -->
       <div class="bg-white rounded-xl shadow-lg p-8">
-        <h2 class="font-display text-2xl font-bold text-text-primary mb-6">
+        <h2 class="font-display text-2xl font-bold text-primary mb-6">
           {t.datenschutz.sections.rights.title}
         </h2>
-        <p class="font-body text-text-secondary leading-relaxed">
+        <p class="font-body text-secondary leading-relaxed">
           {t.datenschutz.sections.rights.text}
         </p>
       </div>
 
       <!-- 7. Stand -->
       <div class="bg-white rounded-xl shadow-lg p-8">
-        <h2 class="font-display text-2xl font-bold text-text-primary mb-6">
+        <h2 class="font-display text-2xl font-bold text-primary mb-6">
           {t.datenschutz.sections.update.title}
         </h2>
-        <p class="font-body text-text-secondary leading-relaxed">
+        <p class="font-body text-secondary leading-relaxed">
           {t.datenschutz.sections.update.text}
         </p>
       </div>

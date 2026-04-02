@@ -15,7 +15,7 @@ const {
   <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
     <!-- Name Field -->
     <div class="space-y-2">
-      <label for="name" class="block font-body text-sm font-semibold text-text-primary">
+      <label for="name" class="block font-body text-sm font-semibold text-primary">
         Name *
       </label>
       <input
@@ -24,13 +24,13 @@ const {
         name="name"
         required
         placeholder="Your full name"
-        class="w-full px-4 py-3 border border-gold-light rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent font-body transition-all duration-300"
+        class="w-full px-4 py-3 border border-accent-light rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent font-body transition-all duration-300"
       />
     </div>
 
     <!-- Email Field -->
     <div class="space-y-2">
-      <label for="email" class="block font-body text-sm font-semibold text-text-primary">
+      <label for="email" class="block font-body text-sm font-semibold text-primary">
         Email *
       </label>
       <input
@@ -39,13 +39,13 @@ const {
         name="email"
         required
         placeholder="your@email.com"
-        class="w-full px-4 py-3 border border-gold-light rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent font-body transition-all duration-300"
+        class="w-full px-4 py-3 border border-accent-light rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent font-body transition-all duration-300"
       />
     </div>
 
     <!-- Phone Field -->
     <div class="space-y-2 md:col-span-2">
-      <label for="phone" class="block font-body text-sm font-semibold text-text-primary">
+      <label for="phone" class="block font-body text-sm font-semibold text-primary">
         Phone Number
       </label>
       <input
@@ -53,14 +53,14 @@ const {
         id="phone"
         name="phone"
         placeholder="+49 (optional)"
-        class="w-full px-4 py-3 border border-gold-light rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent font-body transition-all duration-300"
+        class="w-full px-4 py-3 border border-accent-light rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent font-body transition-all duration-300"
       />
     </div>
   </div>
 
   <!-- Message Field -->
   <div class="space-y-2 mb-6">
-    <label for="message" class="block font-body text-sm font-semibold text-text-primary">
+    <label for="message" class="block font-body text-sm font-semibold text-primary">
       Message *
     </label>
     <textarea
@@ -69,7 +69,7 @@ const {
       required
       rows="5"
       placeholder="How can we help you?"
-      class="w-full px-4 py-3 border border-gold-light rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent font-body transition-all duration-300 resize-none"
+      class="w-full px-4 py-3 border border-accent-light rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent font-body transition-all duration-300 resize-none"
     ></textarea>
   </div>
 
@@ -80,9 +80,9 @@ const {
       id="gdpr"
       name="gdpr"
       required
-      class="mt-1 w-5 h-5 text-primary border-gold-light rounded focus:ring-primary cursor-pointer"
+      class="mt-1 w-5 h-5 text-primary border-accent-light rounded focus:ring-primary cursor-pointer"
     />
-    <label for="gdpr" class="font-body text-sm text-text-secondary leading-relaxed">
+    <label for="gdpr" class="font-body text-sm text-secondary leading-relaxed">
       I agree to the processing of my personal data in accordance with the <a href="/privacy" class="text-primary hover:text-secondary underline">Privacy Policy</a>. This is required to respond to your inquiry. *
     </label>
   </div>

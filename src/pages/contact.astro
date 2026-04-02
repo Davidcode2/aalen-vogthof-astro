@@ -48,24 +48,24 @@ const structuredData = {
   locale={locale}
 >
   <!-- Hero Section -->
-  <Section background="linen" padding="medium">
+  <Section background="surface" padding="medium">
     <div class="text-center">
-      <h1 class="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-text-primary mb-4">
+      <h1 class="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-primary mb-4">
         {t.contact.hero.title}
       </h1>
-      <p class="font-body text-lg text-text-secondary max-w-2xl mx-auto">
+      <p class="font-body text-lg text-secondary max-w-2xl mx-auto">
         {t.contact.hero.subtitle}
       </p>
     </div>
   </Section>
 
   <!-- Contact Information & Form Section -->
-  <Section background="cream" padding="large">
+  <Section background="background" padding="large">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
       <!-- Contact Info -->
       <div class="space-y-8">
         <div class="bg-white rounded-xl shadow-lg p-8">
-          <h2 class="font-display text-2xl font-bold text-text-primary mb-6">
+          <h2 class="font-display text-2xl font-bold text-primary mb-6">
             {t.contact.info.title}
           </h2>
           
@@ -78,7 +78,7 @@ const structuredData = {
                 </svg>
               </div>
               <div>
-                <p class="font-body text-sm text-text-secondary mb-1">{t.contact.info.phone}</p>
+                <p class="font-body text-sm text-secondary mb-1">{t.contact.info.phone}</p>
                 <a href={`tel:${contactInfo.phone}`} class="font-body text-lg text-primary hover:text-secondary font-semibold transition-colors">
                   {contactInfo.phone}
                 </a>
@@ -93,8 +93,8 @@ const structuredData = {
                 </svg>
               </div>
               <div>
-                <p class="font-body text-sm text-text-secondary mb-1">{t.contact.info.fax}</p>
-                <p class="font-body text-lg text-text-primary">
+                <p class="font-body text-sm text-secondary mb-1">{t.contact.info.fax}</p>
+                <p class="font-body text-lg text-primary">
                   {contactInfo.fax}
                 </p>
               </div>
@@ -108,7 +108,7 @@ const structuredData = {
                 </svg>
               </div>
               <div>
-                <p class="font-body text-sm text-text-secondary mb-1">{t.contact.info.email}</p>
+                <p class="font-body text-sm text-secondary mb-1">{t.contact.info.email}</p>
                 <a href={`mailto:${contactInfo.email}`} class="font-body text-lg text-primary hover:text-secondary font-semibold transition-colors">
                   {contactInfo.email}
                 </a>
@@ -124,8 +124,8 @@ const structuredData = {
                 </svg>
               </div>
               <div>
-                <p class="font-body text-sm text-text-secondary mb-1">{t.contact.info.address}</p>
-                <p class="font-body text-lg text-text-primary">
+                <p class="font-body text-sm text-secondary mb-1">{t.contact.info.address}</p>
+                <p class="font-body text-lg text-primary">
                   {contactInfo.address}
                 </p>
               </div>
@@ -135,18 +135,18 @@ const structuredData = {
 
         <!-- Opening Hours -->
         <div class="bg-white rounded-xl shadow-lg p-8">
-          <h2 class="font-display text-2xl font-bold text-text-primary mb-6">
+          <h2 class="font-display text-2xl font-bold text-primary mb-6">
             {t.contact.hours.title}
           </h2>
           <div class="space-y-3">
             {openingHours.map((schedule) => (
-              <div class="flex justify-between items-center py-2 border-b border-gold last:border-0">
-                <span class="font-body text-text-primary">{schedule.days}</span>
+              <div class="flex justify-between items-center py-2 border-b border-accent last:border-0">
+                <span class="font-body text-primary">{schedule.days}</span>
                 <span class="font-body font-semibold text-primary">{schedule.hours}</span>
               </div>
             ))}
           </div>
-          <p class="font-body text-sm text-text-secondary mt-4 italic">
+          <p class="font-body text-sm text-secondary mt-4 italic">
             {t.contact.hours.note}
           </p>
         </div>
@@ -154,7 +154,7 @@ const structuredData = {
 
       <!-- Contact Form -->
       <div>
-        <h2 class="font-display text-2xl font-bold text-text-primary mb-6">
+        <h2 class="font-display text-2xl font-bold text-primary mb-6">
           {t.contact.form.title}
         </h2>
         <ContactForm />
@@ -163,12 +163,12 @@ const structuredData = {
   </Section>
 
   <!-- Map Section -->
-  <Section background="cream-dark" padding="large">
+  <Section background="background-secondary" padding="large">
     <div class="text-center mb-8">
-      <h2 class="font-display text-3xl font-bold text-text-primary mb-4">
+      <h2 class="font-display text-3xl font-bold text-primary mb-4">
         {t.contact.map.title}
       </h2>
-      <p class="font-body text-lg text-text-secondary">
+      <p class="font-body text-lg text-secondary">
         {contactInfo.address}
       </p>
     </div>
@@ -212,10 +212,10 @@ const structuredData = {
   <!-- Additional Info Section -->
   <Section background="white" padding="large">
     <div class="max-w-3xl mx-auto text-center">
-      <h2 class="font-display text-3xl font-bold text-text-primary mb-6">
+      <h2 class="font-display text-3xl font-bold text-primary mb-6">
         {t.contact.events.title}
       </h2>
-      <p class="font-body text-lg text-text-secondary mb-6 leading-relaxed">
+      <p class="font-body text-lg text-secondary mb-6 leading-relaxed">
         {t.contact.events.text}
       </p>
       <div class="flex flex-wrap justify-center gap-4">

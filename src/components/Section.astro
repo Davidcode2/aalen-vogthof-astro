@@ -2,7 +2,7 @@
 interface Props {
   title: string;
   subtitle?: string;
-  background?: 'cream' | 'cream-dark' | 'linen' | 'white' | 'transparent';
+  background?: 'background' | 'background-secondary' | 'surface' | 'white' | 'transparent';
   padding?: 'none' | 'small' | 'medium' | 'large';
   id?: string;
 }
@@ -10,15 +10,15 @@ interface Props {
 const {
   title,
   subtitle,
-  background = 'cream',
+  background = 'background',
   padding = 'large',
   id
 } = Astro.props;
 
 const backgroundClasses = {
-  cream: 'bg-cream',
-  'cream-dark': 'bg-cream-dark',
-  linen: 'bg-linen',
+  background: 'bg-background',
+  'background-secondary': 'bg-background-secondary',
+  surface: 'bg-surface',
   white: 'bg-white',
   transparent: 'bg-transparent'
 };
@@ -38,12 +38,12 @@ const paddingClasses = {
   <div class="container mx-auto px-4">
     <!-- Section Header -->
     <div class="text-center mb-12">
-      <h2 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-text-primary mb-4">
+      <h2 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-4">
         {title}
       </h2>
 
       {subtitle && (
-        <p class="font-body text-lg text-text-secondary max-w-2xl mx-auto">
+        <p class="font-body text-lg text-secondary max-w-2xl mx-auto">
           {subtitle}
         </p>
       )}

@@ -30,13 +30,13 @@ const t = getTranslations(locale);
   <Section
     title={t.home.welcome.title}
     subtitle={t.home.welcome.subtitle}
-    background="cream"
+    background="background"
   >
     <div class="max-w-4xl mx-auto text-center">
-      <p class="text-lg text-text-secondary leading-relaxed mb-6">
+      <p class="text-lg text-secondary leading-relaxed mb-6">
         {t.home.welcome.paragraph1}
       </p>
-      <p class="text-lg text-text-secondary leading-relaxed">
+      <p class="text-lg text-secondary leading-relaxed">
         {t.home.welcome.paragraph2}
       </p>
     </div>
@@ -46,7 +46,7 @@ const t = getTranslations(locale);
   <Section
     title={t.home.offerings.title}
     subtitle={t.home.offerings.subtitle}
-    background="cream-dark"
+    background="background-secondary"
   >
     <div class="grid md:grid-cols-3 gap-8">
       <Card
@@ -68,7 +68,7 @@ const t = getTranslations(locale);
       <Card
         title={t.home.offerings.events.title}
         description={t.home.offerings.events.description}
-        image="/images/f1.jpg"
+        image="/images/wedding_preparations.jpg"
         link="/events"
         linkText={t.home.offerings.events.linkText}
         hoverEffect="lift"
@@ -80,7 +80,7 @@ const t = getTranslations(locale);
   <Section
     title={t.home.culinary.title}
     subtitle={t.home.culinary.subtitle}
-    background="linen"
+    background="surface"
   >
     <div class="grid md:grid-cols-2 gap-12 items-center">
       <div class="relative">
@@ -90,7 +90,7 @@ const t = getTranslations(locale);
           class="rounded-lg shadow-xl w-full"
         />
       </div>
-      <div class="prose prose-lg text-text-secondary">
+      <div class="prose prose-lg text-secondary">
         <p class="mb-6">
           {t.home.culinary.paragraph1}
         </p>
@@ -100,7 +100,7 @@ const t = getTranslations(locale);
         <div class="flex flex-wrap gap-4">
           <a
             href="/menus"
-            class="inline-block px-6 py-3 bg-primary hover:bg-brand-light text-white font-semibold rounded-lg transition-all duration-300"
+            class="inline-block px-6 py-3 bg-primary hover:bg-primary-light text-white font-semibold rounded-lg transition-all duration-300"
           >
             {t.home.culinary.ctaPrimary}
           </a>
@@ -119,42 +119,42 @@ const t = getTranslations(locale);
   <Section
     title={t.home.activities.title}
     subtitle={t.home.activities.subtitle}
-    background="cream"
+    background="background"
   >
     <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
       <div class="bg-white rounded-lg p-6 shadow-md text-center">
         <div class="text-4xl mb-4">🥾</div>
-        <h3 class="font-display text-lg font-bold text-text-primary mb-2">
+        <h3 class="font-display text-lg font-bold text-primary mb-2">
           {t.home.activities.hiking.title}
         </h3>
-        <p class="text-sm text-text-secondary">
+        <p class="text-sm text-secondary">
           {t.home.activities.hiking.description}
         </p>
       </div>
       <div class="bg-white rounded-lg p-6 shadow-md text-center">
         <div class="text-4xl mb-4">🚴</div>
-        <h3 class="font-display text-lg font-bold text-text-primary mb-2">
+        <h3 class="font-display text-lg font-bold text-primary mb-2">
           {t.home.activities.cycling.title}
         </h3>
-        <p class="text-sm text-text-secondary">
+        <p class="text-sm text-secondary">
           {t.home.activities.cycling.description}
         </p>
       </div>
       <div class="bg-white rounded-lg p-6 shadow-md text-center">
         <div class="text-4xl mb-4">♨️</div>
-        <h3 class="font-display text-lg font-bold text-text-primary mb-2">
+        <h3 class="font-display text-lg font-bold text-primary mb-2">
           {t.home.activities.wellness.title}
         </h3>
-        <p class="text-sm text-text-secondary">
+        <p class="text-sm text-secondary">
           {t.home.activities.wellness.description}
         </p>
       </div>
       <div class="bg-white rounded-lg p-6 shadow-md text-center">
         <div class="text-4xl mb-4">🏛️</div>
-        <h3 class="font-display text-lg font-bold text-text-primary mb-2">
+        <h3 class="font-display text-lg font-bold text-primary mb-2">
           {t.home.activities.culture.title}
         </h3>
-        <p class="text-sm text-text-secondary">
+        <p class="text-sm text-secondary">
           {t.home.activities.culture.description}
         </p>
       </div>
@@ -162,7 +162,7 @@ const t = getTranslations(locale);
     <div class="text-center mt-8">
       <a
         href="/activities"
-        class="inline-block px-8 py-4 bg-secondary hover:bg-forest-light text-white font-semibold rounded-lg transition-all duration-300"
+        class="inline-block px-8 py-4 bg-secondary hover:bg-secondary-light text-white font-semibold rounded-lg transition-all duration-300"
       >
         {t.home.activities.cta}
       </a>
@@ -173,28 +173,28 @@ const t = getTranslations(locale);
   <Section
     title={t.home.visit.title}
     subtitle={t.home.visit.subtitle}
-    background="cream-dark"
+    background="background-secondary"
   >
     <div class="max-w-4xl mx-auto">
       <div class="grid md:grid-cols-3 gap-8 mb-8">
         <div class="bg-white p-6 rounded-lg shadow-md text-center">
-          <h3 class="font-bold text-text-primary mb-2">📍 {t.home.visit.address}</h3>
-          <p class="text-text-secondary text-sm">
+          <h3 class="font-bold text-primary mb-2">📍 {t.home.visit.address}</h3>
+          <p class="text-secondary text-sm">
             Bergbaustraße 28/1<br />
             73433 Aalen-Röthardt
           </p>
         </div>
         <div class="bg-white p-6 rounded-lg shadow-md text-center">
-          <h3 class="font-bold text-text-primary mb-2">📞 {t.home.visit.phone}</h3>
-          <p class="text-text-secondary text-sm">
+          <h3 class="font-bold text-primary mb-2">📞 {t.home.visit.phone}</h3>
+          <p class="text-secondary text-sm">
             <a href="tel:07361-73688" class="hover:text-primary">
               07361-73688
             </a>
           </p>
         </div>
         <div class="bg-white p-6 rounded-lg shadow-md text-center">
-          <h3 class="font-bold text-text-primary mb-2">✉️ {t.home.visit.email}</h3>
-          <p class="text-text-secondary text-sm">
+          <h3 class="font-bold text-primary mb-2">✉️ {t.home.visit.email}</h3>
+          <p class="text-secondary text-sm">
             <a href="mailto:info@aalen-vogthof.de" class="hover:text-primary">
               info@aalen-vogthof.de
             </a>
@@ -204,7 +204,7 @@ const t = getTranslations(locale);
       <div class="text-center">
         <a
           href="/contact"
-          class="inline-block px-8 py-4 bg-primary hover:bg-brand-light text-white font-semibold rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl"
+          class="inline-block px-8 py-4 bg-primary hover:bg-primary-light text-white font-semibold rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl"
         >
           {t.home.visit.cta}
         </a>

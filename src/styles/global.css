@@ -39,9 +39,17 @@
 
   /* Semantic Aliases for Tailwind classes */
   --color-primary: var(--color-brand);
+  --color-primary-light: var(--color-brand-light);
+  --color-primary-dark: var(--color-brand-dark);
   --color-secondary: var(--color-forest);
+  --color-secondary-light: var(--color-forest-light);
+  --color-secondary-dark: var(--color-forest-dark);
   --color-accent: var(--color-gold);
+  --color-accent-light: var(--color-gold-light);
+  --color-accent-dark: var(--color-gold-dark);
   --color-background: var(--color-cream);
+  --color-background-secondary: var(--color-cream-dark);
+  --color-surface: var(--color-linen);
   --color-text: var(--color-text-primary);
 }
 

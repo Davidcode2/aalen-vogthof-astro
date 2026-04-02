@@ -40,73 +40,73 @@ const structuredData = {
   locale={locale}
 >
   <!-- Hero Section -->
-  <Section background="linen" padding="medium">
+  <Section background="surface" padding="medium">
     <div class="text-center">
-      <h1 class="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-text-primary mb-4">
+      <h1 class="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-primary mb-4">
         {t.impressum.hero.title}
       </h1>
-      <p class="font-body text-lg text-text-secondary max-w-2xl mx-auto">
+      <p class="font-body text-lg text-secondary max-w-2xl mx-auto">
         {t.impressum.hero.subtitle}
       </p>
     </div>
   </Section>
 
   <!-- Legal Content -->
-  <Section background="cream" padding="large">
+  <Section background="background" padding="large">
     <div class="max-w-4xl mx-auto">
       <!-- Angaben gemäß § 5 TMG -->
       <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
-        <h2 class="font-display text-2xl font-bold text-text-primary mb-6">
+        <h2 class="font-display text-2xl font-bold text-primary mb-6">
           {t.impressum.info.title}
         </h2>
         
         <div class="space-y-4">
           <div>
-            <p class="font-body text-sm text-text-secondary mb-1">{t.impressum.info.owner}:</p>
-            <p class="font-body text-lg text-text-primary font-semibold">
+            <p class="font-body text-sm text-secondary mb-1">{t.impressum.info.owner}:</p>
+            <p class="font-body text-lg text-primary font-semibold">
               {legalInfo.owner}
             </p>
           </div>
           
           <div>
-            <p class="font-body text-sm text-text-secondary mb-1">{t.impressum.info.address}:</p>
-            <p class="font-body text-lg text-text-primary">
+            <p class="font-body text-sm text-secondary mb-1">{t.impressum.info.address}:</p>
+            <p class="font-body text-lg text-primary">
               {legalInfo.address}
             </p>
           </div>
           
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <p class="font-body text-sm text-text-secondary mb-1">{t.impressum.info.phone}:</p>
+              <p class="font-body text-sm text-secondary mb-1">{t.impressum.info.phone}:</p>
               <a href={`tel:${legalInfo.phone.replace(/\D/g, '')}`} class="font-body text-lg text-primary hover:text-secondary transition-colors">
                 {legalInfo.phone}
               </a>
             </div>
             <div>
-              <p class="font-body text-sm text-text-secondary mb-1">{t.impressum.info.fax}:</p>
-              <p class="font-body text-lg text-text-primary">
+              <p class="font-body text-sm text-secondary mb-1">{t.impressum.info.fax}:</p>
+              <p class="font-body text-lg text-primary">
                 {legalInfo.fax}
               </p>
             </div>
           </div>
           
           <div>
-            <p class="font-body text-sm text-text-secondary mb-1">{t.impressum.info.email}:</p>
+            <p class="font-body text-sm text-secondary mb-1">{t.impressum.info.email}:</p>
             <a href={`mailto:${legalInfo.email}`} class="font-body text-lg text-primary hover:text-secondary transition-colors">
               {legalInfo.email}
             </a>
           </div>
           
           <div>
-            <p class="font-body text-sm text-text-secondary mb-1">{t.impressum.info.website}:</p>
+            <p class="font-body text-sm text-secondary mb-1">{t.impressum.info.website}:</p>
             <a href={`https://${legalInfo.website}`} target="_blank" rel="noopener noreferrer" class="font-body text-lg text-primary hover:text-secondary transition-colors">
               {legalInfo.website}
             </a>
           </div>
           
           <div>
-            <p class="font-body text-sm text-text-secondary mb-1">{t.impressum.info.taxId}:</p>
-            <p class="font-body text-lg text-text-primary">
+            <p class="font-body text-sm text-secondary mb-1">{t.impressum.info.taxId}:</p>
+            <p class="font-body text-lg text-primary">
               {legalInfo.taxId}
             </p>
           </div>
@@ -115,11 +115,11 @@ const structuredData = {
 
       <!-- Haftung für Inhalte -->
       <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
-        <h2 class="font-display text-2xl font-bold text-text-primary mb-6">
+        <h2 class="font-display text-2xl font-bold text-primary mb-6">
           {t.impressum.content.title}
         </h2>
         <div class="prose prose-brown max-w-none">
-          <p class="font-body text-text-secondary leading-relaxed">
+          <p class="font-body text-secondary leading-relaxed">
             {t.impressum.content.text}
           </p>
         </div>
@@ -127,11 +127,11 @@ const structuredData = {
 
       <!-- Haftung für Links -->
       <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
-        <h2 class="font-display text-2xl font-bold text-text-primary mb-6">
+        <h2 class="font-display text-2xl font-bold text-primary mb-6">
           {t.impressum.links.title}
         </h2>
         <div class="prose prose-brown max-w-none">
-          <p class="font-body text-text-secondary leading-relaxed">
+          <p class="font-body text-secondary leading-relaxed">
             {t.impressum.links.text}
           </p>
         </div>
@@ -139,11 +139,11 @@ const structuredData = {
 
       <!-- Urheber- und Kennzeichenrecht -->
       <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
-        <h2 class="font-display text-2xl font-bold text-text-primary mb-6">
+        <h2 class="font-display text-2xl font-bold text-primary mb-6">
           {t.impressum.copyright.title}
         </h2>
         <div class="prose prose-brown max-w-none">
-          <p class="font-body text-text-secondary leading-relaxed">
+          <p class="font-body text-secondary leading-relaxed">
             {t.impressum.copyright.text}
           </p>
         </div>
@@ -151,11 +151,11 @@ const structuredData = {
 
       <!-- Datenschutz -->
       <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
-        <h2 class="font-display text-2xl font-bold text-text-primary mb-6">
+        <h2 class="font-display text-2xl font-bold text-primary mb-6">
           {t.impressum.privacy.title}
         </h2>
         <div class="prose prose-brown max-w-none">
-          <p class="font-body text-text-secondary leading-relaxed">
+          <p class="font-body text-secondary leading-relaxed">
             {t.impressum.privacy.text}
           </p>
         </div>

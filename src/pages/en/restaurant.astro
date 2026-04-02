@@ -11,14 +11,14 @@ const t = getTranslations(locale);
 const heroImage = '/images/restaurant/r1.jpg';
 
 const chefs = [
-  { key: 'chef1', image: '/images/e0.jpg' },
-  { key: 'chef2', image: '/images/dd.jpg' },
+  { key: 'chef1', image: '/images/chefs.jpg' },
+  { key: 'chef2', image: '/images/chefs.jpg' },
 ] as const;
 
 const privateRooms = [
-  { key: 'vogtstube', image: '/images/rooms/z1.jpg' },
-  { key: 'braunenberg', image: '/images/rooms/z2.jpg' },
-  { key: 'beerGarden', image: '/images/rooms/z4.jpg' },
+  { key: 'vogtstube', image: '/images/restaurant/r1.jpg' },
+  { key: 'braunenberg', image: '/images/restaurant/r2.jpg' },
+  { key: 'beerGarden', image: '/images/restaurant/r3.jpg' },
 ] as const;
 ---
 
@@ -43,7 +43,7 @@ const privateRooms = [
   <Section
     title={t.restaurant.heritage.title}
     subtitle={t.restaurant.heritage.subtitle}
-    background="cream"
+    background="background"
   >
     <div class="grid md:grid-cols-2 gap-12 items-center">
       <div class="prose prose-lg text-[#5C4033]">
@@ -71,7 +71,7 @@ const privateRooms = [
   <Section
     title={t.restaurant.philosophy.title}
     subtitle={t.restaurant.philosophy.subtitle}
-    background="old-lace"
+    background="background-secondary"
   >
     <div class="grid md:grid-cols-2 gap-12 items-center">
       <div class="order-2 md:order-1 relative">
@@ -99,7 +99,7 @@ const privateRooms = [
   <Section
     title={t.restaurant.chefs.title}
     subtitle={t.restaurant.chefs.subtitle}
-    background="antique"
+    background="surface"
   >
     <div class="grid md:grid-cols-2 gap-8">
       {chefs.map((chef) => (
@@ -118,7 +118,7 @@ const privateRooms = [
   <Section
     title={t.restaurant.privateRooms.title}
     subtitle={t.restaurant.privateRooms.subtitle}
-    background="cream"
+    background="background"
   >
     <div class="grid md:grid-cols-3 gap-8">
       {privateRooms.map((room) => (
@@ -149,7 +149,7 @@ const privateRooms = [
   <Section
     title={t.restaurant.beerGarden.title}
     subtitle={t.restaurant.beerGarden.subtitle}
-    background="old-lace"
+    background="background-secondary"
     id="beer-garden"
   >
     <div class="grid md:grid-cols-2 gap-12 items-center">
@@ -166,7 +166,7 @@ const privateRooms = [
       </div>
       <div class="relative">
         <img
-          src="/images/rooms/z5.jpg"
+          src="/images/restaurant/r3.jpg"
           alt="Beer garden"
           class="rounded-lg shadow-xl w-full"
         />
@@ -178,7 +178,7 @@ const privateRooms = [
   <Section
     title={t.restaurant.reserve.title}
     subtitle={t.restaurant.reserve.subtitle}
-    background="antique"
+    background="surface"
     id="contact"
   >
     <div class="text-center max-w-2xl mx-auto">

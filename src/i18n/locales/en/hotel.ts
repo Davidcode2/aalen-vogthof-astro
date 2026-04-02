@@ -59,8 +59,8 @@ export const hotel: HotelTranslations = {
   },
   contact: {
     title: 'Contact Us',
-    phone: '📞 Phone',
-    openingHours: '🕐 Opening Hours',
+    phone: 'Phone',
+    openingHours: 'Opening Hours',
     cta: 'Book Your Stay',
   },
 };

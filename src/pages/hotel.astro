@@ -45,7 +45,7 @@ const amenities = [
       </p>
       <a
         href="/rooms"
-        class="inline-block px-8 py-4 bg-primary hover:bg-secondary text-white font-semibold rounded-lg transition-colors duration-300 text-lg"
+        class="inline-block px-8 py-4 bg-primary hover:bg-secondary text-white font-semibold  transition-colors duration-300 text-lg"
       >
         {t.hotel.welcome.cta}
       </a>
@@ -66,20 +66,26 @@ const amenities = [
 
   <!-- Location Section -->
   <Section title={t.hotel.location.title} subtitle={t.hotel.location.subtitle} background="surface">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-      <div class="bg-background-secondary rounded-xl p-8">
-        <h3 class="font-display text-2xl font-bold text-primary mb-6">
-          {t.hotel.location.address.title}
-        </h3>
-        <p class="font-body text-secondary text-lg mb-4 whitespace-pre-line">
-          {t.hotel.location.address.text}
-        </p>
-        <p class="font-body text-secondary leading-relaxed">
-          {t.hotel.location.gettingHere.title}
-        </p>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+      <div class="space-y-8">
+        <div class="bg-background-secondary p-8">
+          <h3 class="font-display text-2xl font-bold text-primary mb-6">
+            {t.hotel.location.address.title}
+          </h3>
+          <p class="font-body text-secondary text-lg whitespace-pre-line">
+            {t.hotel.location.address.text}
+          </p>
+        </div>
+        <div>
+          <img
+            src="/images/vogthof-map.png"
+            alt="Anfahrt zum Vogthof"
+            class="w-full"
+          />
+        </div>
       </div>
       
-      <div class="bg-background rounded-xl p-8">
+      <div class="bg-background p-8">
         <h3 class="font-display text-2xl font-bold text-primary mb-6">
           {t.hotel.location.gettingHere.title}
         </h3>
@@ -105,12 +111,12 @@ const amenities = [
   <Section id="contact" title={t.hotel.contact.title} background="background">
     <div class="max-w-4xl mx-auto">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-        <div class="bg-white rounded-xl p-8 shadow-lg text-center">
+        <div class="bg-white p-8 shadow-lg text-center">
           <span class="text-4xl mb-4 block">📞</span>
           <h3 class="font-display text-xl font-bold text-primary mb-2">{t.hotel.contact.phone}</h3>
           <p class="font-body text-secondary text-lg">07361-73688</p>
         </div>
-        <div class="bg-white rounded-xl p-8 shadow-lg text-center">
+        <div class="bg-white p-8 shadow-lg text-center">
           <span class="text-4xl mb-4 block">🕐</span>
           <h3 class="font-display text-xl font-bold text-primary mb-2">{t.hotel.contact.openingHours}</h3>
           <p class="font-body text-secondary">
@@ -125,7 +131,7 @@ const amenities = [
       <div class="text-center">
         <a
           href="/rooms"
-          class="inline-block px-8 py-4 bg-secondary hover:bg-secondary-light text-white font-semibold rounded-lg transition-colors duration-300 text-lg"
+          class="inline-block px-8 py-4 bg-secondary hover:bg-secondary-light text-white font-semibold  transition-colors duration-300 text-lg"
         >
           {t.hotel.contact.cta}
         </a>

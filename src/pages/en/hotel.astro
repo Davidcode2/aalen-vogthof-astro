@@ -66,17 +66,23 @@ const amenities = [
 
   <!-- Location Section -->
   <Section title={t.hotel.location.title} subtitle={t.hotel.location.subtitle} background="surface">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-      <div class="bg-[#FAEBD7] rounded-xl p-8">
-        <h3 class="font-['Playfair_Display',Georgia,serif] text-2xl font-bold text-[#2C1810] mb-6">
-          {t.hotel.location.address.title}
-        </h3>
-        <p class="font-['Open_Sans',Arial,sans-serif] text-[#5C4033] text-lg mb-4 whitespace-pre-line">
-          {t.hotel.location.address.text}
-        </p>
-        <p class="font-['Open_Sans',Arial,sans-serif] text-[#5C4033] leading-relaxed">
-          {t.hotel.location.gettingHere.title}
-        </p>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+      <div class="space-y-8">
+        <div class="bg-[#FAEBD7] rounded-xl p-8">
+          <h3 class="font-['Playfair_Display',Georgia,serif] text-2xl font-bold text-[#2C1810] mb-6">
+            {t.hotel.location.address.title}
+          </h3>
+          <p class="font-['Open_Sans',Arial,sans-serif] text-[#5C4033] text-lg whitespace-pre-line">
+            {t.hotel.location.address.text}
+          </p>
+        </div>
+        <div>
+          <img
+            src="/images/vogthof-map.png"
+            alt="Directions to Vogthof"
+            class="w-full"
+          />
+        </div>
       </div>
       
       <div class="bg-[#FDF5E6] rounded-xl p-8">

@@ -5,6 +5,8 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://vogthof.jakob-lingel.dev',
+  trailingSlash: 'ignore',
   vite: {
     plugins: [tailwindcss()]
   },
@@ -13,6 +15,7 @@ export default defineConfig({
     defaultLocale: "de",
     routing: {
       prefixDefaultLocale: false,
+      redirectToDefaultLocale: false,
     },
   },
 });

@@ -10,11 +10,6 @@ const t = getTranslations(locale);
 
 const heroImage = '/images/restaurant_room_full_length.jpg';
 
-const chefs = [
-  { key: 'chef1', image: '/images/chefs.jpg' },
-  { key: 'chef2', image: '/images/chefs.jpg' },
-] as const;
-
 const privateRooms = [
   { key: 'vogtstube', image: '/images/restaurant/r1.jpg' },
   { key: 'braunenberg', image: '/images/restaurant/r2.jpg' },
@@ -61,7 +56,7 @@ const privateRooms = [
         <img
           src="/images/restaurant/r2.jpg"
           alt="Restaurant interior"
-          class="rounded-lg shadow-xl w-full"
+          class="shadow-xl w-full"
         />
       </div>
     </div>
@@ -78,7 +73,7 @@ const privateRooms = [
         <img
           src="/images/kitchen/cu.jpg"
           alt="Chef in the kitchen"
-          class="rounded-lg shadow-xl w-full"
+          class="shadow-xl w-full"
         />
       </div>
       <div class="order-1 md:order-2 prose prose-lg text-[#5C4033]">
@@ -101,16 +96,52 @@ const privateRooms = [
     subtitle={t.restaurant.chefs.subtitle}
     background="surface"
   >
-    <div class="grid md:grid-cols-2 gap-8">
-      {chefs.map((chef) => (
-        <Card
-          title={t.restaurant.chefs[chef.key].name}
-          description={t.restaurant.chefs[chef.key].description}
-          image={chef.image}
-          linkText={t.restaurant.chefs[chef.key].title}
-          hoverEffect="lift"
+    <div class="grid lg:grid-cols-2 gap-8 items-center">
+      <!-- Single Image Showing Both Chefs -->
+      <div class="relative overflow-hidden shadow-xl">
+        <img
+          src="/images/chefs.jpg"
+          alt="Reiner Ilg and Johannes Hänle"
+          class="w-full h-full object-cover"
         />
-      ))}
+      </div>
+
+      <!-- Chef Info Cards -->
+      <div class="space-y-6">
+        <!-- Reiner Ilg -->
+        <div class="bg-white p-6 shadow-md">
+          <div class="flex items-start gap-4">
+            <div class="flex-1">
+              <h3 class="font-display text-xl font-bold text-primary mb-1">
+                {t.restaurant.chefs.chef1.name}
+              </h3>
+              <p class="text-sm font-semibold text-accent-600 mb-3">
+                {t.restaurant.chefs.chef1.title}
+              </p>
+              <p class="text-secondary leading-relaxed">
+                {t.restaurant.chefs.chef1.description}
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Johannes Hänle -->
+        <div class="bg-white p-6 shadow-md">
+          <div class="flex items-start gap-4">
+            <div class="flex-1">
+              <h3 class="font-display text-xl font-bold text-primary mb-1">
+                {t.restaurant.chefs.chef2.name}
+              </h3>
+              <p class="text-sm font-semibold text-accent-600 mb-3">
+                {t.restaurant.chefs.chef2.title}
+              </p>
+              <p class="text-secondary leading-relaxed">
+                {t.restaurant.chefs.chef2.description}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </Section>
 
@@ -138,7 +169,7 @@ const privateRooms = [
       </p>
       <a
         href="tel:07361-73688"
-        class="inline-block px-8 py-4 bg-[#8B4513] hover:bg-[#A0522D] text-white font-semibold rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl"
+        class="inline-block px-8 py-4 bg-[#8B4513] hover:bg-[#A0522D] text-white font-semibold transition-all duration-300 shadow-lg hover:shadow-xl"
       >
         {t.restaurant.privateRooms.cta}
       </a>
@@ -168,7 +199,7 @@ const privateRooms = [
         <img
           src="/images/restaurant/r3.jpg"
           alt="Beer garden"
-          class="rounded-lg shadow-xl w-full"
+          class="shadow-xl w-full"
         />
       </div>
     </div>
@@ -183,11 +214,11 @@ const privateRooms = [
   >
     <div class="text-center max-w-2xl mx-auto">
       <div class="grid md:grid-cols-2 gap-8 mb-8">
-        <div class="bg-white p-6 rounded-lg shadow-md">
+        <div class="bg-white p-6 shadow-md">
           <h3 class="font-bold text-[#2C1810] mb-2">{t.restaurant.reserve.phone}</h3>
           <p class="text-[#5C4033]">07361-73688</p>
         </div>
-        <div class="bg-white p-6 rounded-lg shadow-md">
+        <div class="bg-white p-6 shadow-md">
           <h3 class="font-bold text-[#2C1810] mb-2">{t.restaurant.reserve.hours}</h3>
           <p class="text-[#5C4033]">
             Mon-Thu: 11:30-14:00 & 18:00-22:00<br />
@@ -199,7 +230,7 @@ const privateRooms = [
       </div>
       <a
         href="/en/menus"
-        class="inline-block px-8 py-4 bg-[#2D5A27] hover:bg-[#3D7A37] text-white font-semibold rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl"
+        class="inline-block px-8 py-4 bg-[#2D5A27] hover:bg-[#3D7A37] text-white font-semibold transition-all duration-300 shadow-lg hover:shadow-xl"
       >
         {t.restaurant.reserve.cta}
       </a>

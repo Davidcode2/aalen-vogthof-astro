@@ -1,0 +1,95 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout>
+  <main class="min-h-screen py-12 px-4">
+    <div class="max-w-4xl mx-auto">
+      <h1 class="text-5xl font-display font-bold text-primary mb-8 text-center">
+        TailwindCSS v4 Test
+      </h1>
+      
+      <div class="bg-white p-8 rounded-lg shadow-lg mb-8 border-l-8 border-secondary">
+        <h2 class="text-3xl font-display font-bold text-secondary mb-4">
+          Theme Colors Verification
+        </h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
+          <!-- Primary color card -->
+          <div class="bg-primary text-white p-6 rounded-lg shadow-md">
+            <h3 class="font-bold text-xl mb-2">Primary</h3>
+            <p class="text-sm opacity-90">#8B4513</p>
+            <p class="text-sm mt-2">Saddle Brown</p>
+          </div>
+          
+          <!-- Secondary color card -->
+          <div class="bg-secondary text-white p-6 rounded-lg shadow-md">
+            <h3 class="font-bold text-xl mb-2">Secondary</h3>
+            <p class="text-sm opacity-90">#2D5A27</p>
+            <p class="text-sm mt-2">Forest Green</p>
+          </div>
+          
+          <!-- Accent color card -->
+          <div class="bg-accent text-white p-6 rounded-lg shadow-md">
+            <h3 class="font-bold text-xl mb-2">Accent</h3>
+            <p class="text-sm opacity-90">#B8860B</p>
+            <p class="text-sm mt-2">Dark Goldenrod</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Background and Text test -->
+      <div class="bg-background border-2 border-text p-8 rounded-lg mb-8">
+        <h2 class="text-3xl font-display font-bold text-text mb-4">
+          Background & Text Colors
+        </h2>
+        <p class="text-text text-lg">
+          This card uses the <strong>Background</strong> (#FFF8F0) and <strong>Text</strong> (#2C1810) colors.
+          The border and headings use the text color.
+        </p>
+      </div>
+      
+      <!-- Typography test -->
+      <div class="bg-white p-8 rounded-lg shadow-lg">
+        <h2 class="text-3xl font-display font-bold text-primary mb-4">
+          Typography Test
+        </h2>
+        <p class="text-text mb-4">
+          <span class="font-display text-secondary">Playfair Display</span> is used for headings.
+        </p>
+        <p class="text-text mb-4">
+          <span class="font-body">Open Sans</span> is used for body text.
+        </p>
+        <div class="border-t border-gray-200 my-6"></div>
+        
+        <h3 class="text-2xl font-display font-bold text-secondary mb-3">Font Sizes</h3>
+        <ul class="space-y-2 text-text">
+          <li class="text-4xl">Text 4xl (Heading)</li>
+          <li class="text-3xl">Text 3xl (Subheading)</li>
+          <li class="text-2xl">Text 2xl (Section)</li>
+          <li class="text-xl">Text xl (Subsection)</li>
+          <li class="text-lg">Text lg (Body large)</li>
+          <li class="text-base">Text base (Body normal)</li>
+          <li class="text-sm">Text sm (Body small)</li>
+        </ul>
+      </div>
+      
+      <!-- Utility classes test -->
+      <div class="mt-8 bg-secondary text-white p-6 rounded-lg">
+        <h2 class="text-2xl font-display font-bold mb-4">Utility Classes Working</h2>
+        <div class="flex flex-wrap gap-4">
+          <span class="px-4 py-2 bg-primary rounded">rounded</span>
+          <span class="px-4 py-2 bg-primary shadow-lg">shadow-lg</span>
+          <span class="px-4 py-2 bg-primary border-2 border-white">border</span>
+          <span class="px-4 py-2 bg-primary hover:bg-accent transition-colors cursor-pointer">hover:bg-accent</span>
+        </div>
+      </div>
+      
+      <div class="mt-8 text-center">
+        <p class="text-text text-lg">
+          ✅ TailwindCSS v4 is working correctly with custom theme!
+        </p>
+      </div>
+    </div>
+  </main>
+</Layout>

@@ -1,0 +1,176 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import Section from '../components/Section.astro';
+import Card from '../components/Card.astro';
+
+const activitiesImages = [
+  { src: '/images/a1.jpg', alt: 'Activities at Vogthof' },
+  { src: '/images/bucher-stausee.jpg', alt: 'Bucher Stausee' },
+  { src: '/images/limes-thermen.jpg', alt: 'Limes Thermen' },
+  { src: '/images/radler-schloss.jpg', alt: 'Cycling at Castle' }
+];
+
+const fitnessHighlights = [
+  {
+    title: 'Hiking & Nordic Walking',
+    description: 'Explore our beautiful natural landscape around Braunenberg on the Ostalb.',
+    image: '/images/bucher-stausee.jpg',
+    link: '#'
+  },
+  {
+    title: 'Mountain Biking',
+    description: 'Discover the perfect trails for cycling enthusiasts of all levels.',
+    image: '/images/radler-schloss.jpg',
+    link: '#'
+  },
+  {
+    title: 'Swimming & Lakes',
+    description: 'Cool off in summer at nearby lakes and outdoor swimming pools.',
+    image: '/images/bucher-stausee.jpg',
+    link: '#'
+  },
+  {
+    title: 'Winter Sports',
+    description: 'Skiing and cross-country skiing at Aalen-Hirtenteich ski area, 15km away.',
+    image: '/images/a1.jpg',
+    link: '#'
+  }
+];
+
+const wellnessHighlights = [
+  {
+    title: 'Tiefer Stollen Visitor Mine',
+    description: 'Exciting tours and healing therapies, just 5 minutes walk away.',
+    image: '/images/limes-thermen.jpg',
+    link: '#'
+  },
+  {
+    title: 'Limes Thermen',
+    description: 'Thermal baths for relaxation, 10 minutes by car.',
+    image: '/images/limes-thermen.jpg',
+    link: '#'
+  }
+];
+
+const cultureHighlights = [
+  {
+    title: 'Aalen - 3km',
+    description: 'Medieval town center and the Limesmuseum, Germany\'s largest Roman museum.',
+    image: '/images/radler-schloss.jpg',
+    link: '#'
+  },
+  {
+    title: 'Ellwangen - 20km',
+    description: 'Baroque castle and Schönenberg pilgrimage church.',
+    image: '/images/radler-schloss.jpg',
+    link: '#'
+  },
+  {
+    title: 'Neresheim - 25km',
+    description: 'Neresheim Abbey (founded 1095) with its magnificent baroque church.',
+    image: '/images/radler-schloss.jpg',
+    link: '#'
+  },
+  {
+    title: 'Dinkelsbühl - 40km',
+    description: 'Well-preserved late medieval townscape.',
+    image: '/images/radler-schloss.jpg',
+    link: '#'
+  },
+  {
+    title: 'Rothenburg ob der Tauber - 75km',
+    description: 'World-famous medieval old town.',
+    image: '/images/radler-schloss.jpg',
+    link: '#'
+  },
+  {
+    title: 'Ulm & Stuttgart - 80km',
+    description: 'Larger cities with cultural offerings and shopping.',
+    image: '/images/radler-schloss.jpg',
+    link: '#'
+  }
+];
+---
+
+<Layout title="Activities - Landgasthof Vogthof">
+  <Hero
+    headline="Activities Around Vogthof"
+    subheadline="Discover the perfect blend of outdoor adventure, wellness, and culture surrounding our historic Landgasthof."
+    backgroundImage="/images/hero-default.jpg"
+    height="large"
+  />
+
+  <Section
+    title="For the Movement"
+    subtitle="Rund um den Landgasthof Vogthof finden Sie eine Menge an Aktivitäten für sich oder für die ganze Familie."
+    background="cream"
+  >
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      {fitnessHighlights.map(highlight => (
+        <Card
+          title={highlight.title}
+          description={highlight.description}
+          image={highlight.image}
+          link={highlight.link}
+          linkText="Learn More"
+          hoverEffect="lift"
+        />
+      ))}
+    </div>
+  </Section>
+
+  <Section
+    title="For Well-Being"
+    subtitle="Entspannen und Seele baumeln lassen in unserer wunderschönen Umgebung."
+    background="old-lace"
+  >
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {wellnessHighlights.map(highlight => (
+        <Card
+          title={highlight.title}
+          description={highlight.description}
+          image={highlight.image}
+          link={highlight.link}
+          linkText="Discover"
+          hoverEffect="lift"
+        />
+      ))}
+    </div>
+  </Section>
+
+  <Section
+    title="For Culture"
+    subtitle="Entdecken Sie die kulturellen Höhepunkte der Ostalb und darüber hinaus."
+    background="antique"
+  >
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {cultureHighlights.map(highlight => (
+        <Card
+          title={highlight.title}
+          description={highlight.description}
+          image={highlight.image}
+          link={highlight.link}
+          linkText="Explore"
+          hoverEffect="lift"
+        />
+      ))}
+    </div>
+  </Section>
+
+  <Section
+    title="Your Activities"
+    subtitle="Benötigen Sie weitere Informationen? Wir helfen Ihnen gerne weiter."
+    background="cream"
+    padding="medium"
+  >
+    <div class="flex flex-wrap justify-center gap-4">
+      <a
+        href="/contact"
+        class="inline-block px-8 py-4 bg-[#8B4513] hover:bg-[#A0522D] text-white font-semibold rounded-md transition-all duration-300 shadow-lg hover:shadow-xl"
+      >
+        Contact Us for Information
+      </a>
+    </div>
+  </Section>
+</Layout>

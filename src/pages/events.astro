@@ -1,0 +1,170 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import Section from '../components/Section.astro';
+import Card from '../components/Card.astro';
+
+const venueImages = [
+  { src: '/images/f1.jpg', alt: 'Festive atmosphere' },
+  { src: '/images/f2.jpg', alt: 'Celebration setup' },
+  { src: '/images/f3.jpg', alt: 'Event gathering' },
+  { src: '/images/f4.jpg', alt: 'Festive decorations' },
+  { src: '/images/f5.jpg', alt: 'Celebration moments' }
+];
+
+const capacityOptions = [
+  {
+    title: 'Main Restaurant',
+    capacity: 'Up to 80 persons',
+    description: 'Perfect for large celebrations and weddings',
+    icon: '👥'
+  },
+  {
+    title: 'Vogtstube',
+    capacity: 'Up to 15 persons',
+    description: 'Intimate setting for smaller gatherings',
+    icon: '🪑'
+  },
+  {
+    title: 'Braunenbergstube',
+    capacity: 'Up to 20 persons',
+    description: 'Cozy room for medium-sized parties',
+    icon: '🍽️'
+  }
+];
+
+const serviceFeatures = [
+  {
+    title: 'Menu Selection',
+    description: 'À la carte for groups up to 15, custom menus for larger parties',
+    icon: '🍴'
+  },
+  {
+    title: 'Decoration',
+    description: 'We design table and room decorations with attention to detail',
+    icon: '🎨'
+  },
+  {
+    title: 'Personal Consultation',
+    description: 'Sit down with us to plan every detail of your celebration',
+    icon: '💬'
+  }
+];
+---
+
+<Layout title="Events & Celebrations - Landgasthof Vogthof">
+  <Hero
+    headline="Celebrate at Vogthof"
+    subheadline="Man muss die Feste feiern, wie sie fallen. Whether family celebration or company party — the Vogthof is always a good choice!"
+    backgroundImage="/images/f1.jpg"
+    height="large"
+  />
+
+  <Section
+    title="Your Celebration"
+    subtitle="Ob Familienfest oder Betriebsfeier – der Vogthof ist immer eine gute Wahl!"
+    background="cream"
+  >
+    <div class="max-w-4xl mx-auto">
+      <p class="text-lg text-[#5C4033] leading-relaxed mb-8">
+        Have you planned a celebration? We're here to help! The Vogthof provides the perfect backdrop 
+        for your special occasions. Our experienced team will work with you to create an unforgettable 
+        experience tailored to your needs.
+      </p>
+    </div>
+  </Section>
+
+  <Section
+    title="Space Available"
+    subtitle="Platzangebot für Ihre Feier"
+    background="old-lace"
+  >
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {capacityOptions.map(option => (
+        <Card
+          title={option.title}
+          description={`${option.capacity} - ${option.description}`}
+          image="/images/f1.jpg"
+          hoverEffect="lift"
+        />
+      ))}
+    </div>
+  </Section>
+
+  <Section
+    title="Our Services"
+    subtitle="Everything you need for the perfect celebration"
+    background="antique"
+  >
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {serviceFeatures.map(feature => (
+        <div class="bg-white rounded-lg p-6 shadow-md text-center">
+          <div class="text-4xl mb-4">{feature.icon}</div>
+          <h3 class="font-['Playfair_Display',Georgia,serif] text-xl font-bold text-[#2C1810] mb-2">
+            {feature.title}
+          </h3>
+          <p class="font-['Open_Sans',Arial,sans-serif] text-[#5C4033]">
+            {feature.description}
+          </p>
+        </div>
+      ))}
+    </div>
+  </Section>
+
+  <Section
+    title="Gallery"
+    subtitle="Previous celebrations at Vogthof"
+    background="cream"
+  >
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+      {venueImages.map(img => (
+        <div class="relative overflow-hidden rounded-lg aspect-square group">
+          <img
+            src={img.src}
+            alt={img.alt}
+            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+          />
+          <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300"></div>
+        </div>
+      ))}
+    </div>
+  </Section>
+
+  <Section
+    title="Plan Your Event"
+    subtitle="Wir empfehlen Ihnen, sich vorab persönlich mit uns zusammenzusetzen."
+    background="old-lace"
+    padding="large"
+  >
+    <div class="max-w-3xl mx-auto text-center">
+      <p class="text-lg text-[#5C4033] leading-relaxed mb-8">
+        To ensure your celebration goes well, we recommend sitting down with us in advance 
+        to clarify the most important points: menu selection, timeframe, decoration, 
+        and any special wishes.
+      </p>
+      
+      <div class="bg-white rounded-lg p-8 shadow-lg border-t-4 border-[#8B4513]">
+        <h3 class="font-['Playfair_Display',Georgia,serif] text-2xl font-bold text-[#2C1810] mb-4">
+          Get in Touch
+        </h3>
+        <p class="text-[#5C4033] mb-6">
+          Do you have more questions? Please don't hesitate to contact us.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            href="tel:07361-73688"
+            class="inline-block px-6 py-3 bg-[#8B4513] hover:bg-[#A0522D] text-white font-semibold rounded-md transition-all duration-300"
+          >
+            📞 Call: 07361-73688
+          </a>
+          <a
+            href="mailto:info@aalen-vogthof.de"
+            class="inline-block px-6 py-3 border-2 border-[#8B4513] text-[#8B4513] hover:bg-[#8B4513] hover:text-white font-semibold rounded-md transition-all duration-300"
+          >
+            ✉️ Email Us
+          </a>
+        </div>
+      </div>
+    </div>
+  </Section>
+</Layout>

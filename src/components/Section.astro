@@ -1,0 +1,58 @@
+---
+interface Props {
+  title: string;
+  subtitle?: string;
+  background?: 'cream' | 'old-lace' | 'antique' | 'white' | 'transparent';
+  padding?: 'none' | 'small' | 'medium' | 'large';
+  id?: string;
+}
+
+const {
+  title,
+  subtitle,
+  background = 'cream',
+  padding = 'large',
+  id
+} = Astro.props;
+
+const backgroundClasses = {
+  cream: 'bg-[#FFF8F0]',
+  'old-lace': 'bg-[#FDF5E6]',
+  antique: 'bg-[#FAEBD7]',
+  white: 'bg-white',
+  transparent: 'bg-transparent'
+};
+
+const paddingClasses = {
+  none: '',
+  small: 'py-8',
+  medium: 'py-16',
+  large: 'py-20'
+};
+---
+
+<section
+  id={id}
+  class={`${backgroundClasses[background]} ${paddingClasses[padding]} w-full`}
+>
+  <div class="container mx-auto px-4">
+    <!-- Section Header -->
+    <div class="text-center mb-12">
+      <h2 class="font-['Playfair_Display',Georgia,serif] text-3xl md:text-4xl lg:text-5xl font-bold text-[#2C1810] mb-4">
+        {title}
+      </h2>
+      
+      {subtitle && (
+        <p class="font-['Open_Sans',Arial,sans-serif] text-lg text-[#5C4033] max-w-2xl mx-auto">
+          {subtitle}
+        </p>
+      )}
+      
+      <!-- Decorative Line -->
+      <div class="w-24 h-1 bg-[#8B4513] mx-auto mt-6 rounded-full"></div>
+    </div>
+
+    <!-- Content Slot -->
+    <slot />
+  </div>
+</section>

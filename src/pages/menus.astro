@@ -1,0 +1,223 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import Section from '../components/Section.astro';
+import Card from '../components/Card.astro';
+
+const heroImage = '/images/eat/k1.jpg';
+
+const menuCategories = [
+  {
+    name: 'Appetizers',
+    description: 'Start your meal with our carefully crafted starters',
+    icon: '🥗',
+    items: [
+      { name: 'Swabian Potato Salad', description: 'Traditional recipe with fresh herbs' },
+      { name: 'Mixed Salad', description: 'Seasonal greens with house dressing' },
+      { name: 'Bruschetta', description: 'Tomatoes, basil, garlic on rustic bread' }
+    ]
+  },
+  {
+    name: 'Main Courses',
+    description: 'Swabian classics and international creations',
+    icon: '🍽️',
+    items: [
+      { name: 'Maultaschen', description: 'Handmade Swabian pasta pockets' },
+      { name: 'Schnitzel', description: 'Veal or pork, breaded and fried' },
+      { name: 'Roast Duck', description: 'Served with red cabbage and knödel' }
+    ]
+  },
+  {
+    name: 'Desserts',
+    description: 'Sweet endings to your perfect meal',
+    icon: '🍰',
+    items: [
+      { name: 'Black Forest Cake', description: 'Classic German chocolate-cherry cake' },
+      { name: 'Apple Strudel', description: 'Warm apples with vanilla sauce' },
+      { name: 'Panna Cotta', description: 'Italian cream with berry compote' }
+    ]
+  },
+  {
+    name: 'Wines & Drinks',
+    description: 'Fine wines and local beverages',
+    icon: '🍷',
+    items: [
+      { name: 'Regional Wines', description: 'Württemberg and Baden varieties' },
+      { name: 'House Beers', description: 'Local brewery selections' },
+      { name: 'Soft Drinks', description: 'Various refreshments available' }
+    ]
+  }
+];
+---
+
+<Layout title="Menu | Vogthof Landgasthof">
+  <!-- Hero Section -->
+  <Hero
+    headline="Our Menu"
+    subheadline="Fresh, seasonal ingredients prepared with passion"
+    backgroundImage={heroImage}
+    ctaText="View Daily Specials"
+    ctaLink="#daily-specials"
+    ctaSecondaryText="Book a Table"
+    ctaSecondaryLink="/restaurant"
+    height="large"
+  />
+
+  <!-- Introduction from eat.md -->
+  <Section
+    title="Seasonal & Fresh"
+    subtitle="Every dish tells a story"
+    background="cream"
+  >
+    <div class="max-w-4xl mx-auto text-center">
+      <blockquote class="text-xl italic text-[#5C4033] mb-8 font-serif">
+        "Es gibt kein schöneres Gefühl als den Hunger, kurz bevor man zur Speisekarte greift."
+        <cite class="block text-sm mt-2 not-italic">— Sir Peter Ustinov</cite>
+      </blockquote>
+      
+      <div class="prose prose-lg text-[#5C4033] mx-auto">
+        <p class="mb-6">
+          When selecting our dishes, chefs Reiner Ilg and Johannes Hänle attach great importance to fresh and seasonal ingredients.
+        </p>
+        <p class="mb-6">
+          The range of our products is very varied. Our menu includes Swabian classics as well as extraordinary creations for special taste experiences.
+        </p>
+        <p>
+          When arranging the products, we pay attention to the smallest detail and prepare the food lovingly — as we all know, the eye eats too.
+        </p>
+      </div>
+    </div>
+  </Section>
+
+  <!-- Menu Categories Section -->
+  <Section
+    title="Menu Categories"
+    subtitle="A culinary journey through Swabia and beyond"
+    background="old-lace"
+  >
+    <div class="grid md:grid-cols-2 gap-8">
+      {menuCategories.map((category) => (
+        <article class="bg-white rounded-lg p-8 shadow-md hover:shadow-lg transition-shadow">
+          <div class="flex items-center mb-4">
+            <span class="text-4xl mr-4">{category.icon}</span>
+            <h3 class="text-2xl font-bold text-[#2C1810]">{category.name}</h3>
+          </div>
+          <p class="text-[#5C4033] mb-6">{category.description}</p>
+          <ul class="space-y-3">
+            {category.items.map((item) => (
+              <li class="flex justify-between items-start border-b border-[#FDF5E6] pb-2 last:border-0">
+                <div>
+                  <span class="font-semibold text-[#2C1810]">{item.name}</span>
+                  <p class="text-sm text-[#5C4033]">{item.description}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </article>
+      ))}
+    </div>
+  </Section>
+
+  <!-- Daily Specials Section -->
+  <Section
+    title="Daily Specials"
+    subtitle="Fresh creations, available Monday to Thursday"
+    background="antique"
+    id="daily-specials"
+  >
+    <div class="max-w-4xl mx-auto">
+      <div class="bg-[#FFF8F0] rounded-lg p-8 mb-8">
+        <div class="flex items-start gap-4 mb-6">
+          <span class="text-5xl">🍽️</span>
+          <div>
+            <h3 class="text-2xl font-bold text-[#2C1810]">Tagesessen</h3>
+            <p class="text-[#5C4033]">Available Mon-Thu, 12:00 - 14:00</p>
+          </div>
+        </div>
+        
+        <div class="prose prose-lg text-[#5C4033]">
+          <p class="mb-4">
+            From Monday to Thursday we offer you a selection of 3 meals of the day at lunchtime from 12:00 to 2:00 p.m., consisting of:
+          </p>
+          <ul class="list-disc list-inside space-y-2 mb-6">
+            <li>A fresh salad</li>
+            <li>A main course</li>
+            <li>Either a soup or a dessert</li>
+          </ul>
+          <p>
+            Ask our staff about today's specials!
+          </p>
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        <Card
+          title="Monday Special"
+          description="Chef's daily selection featuring seasonal ingredients"
+          image="/images/r1.jpg"
+          linkText="View Details"
+          hoverEffect="zoom"
+        />
+        <Card
+          title="Tuesday Special"
+          description="Traditional Swabian dishes with a modern twist"
+          image="/images/r2.jpg"
+          linkText="View Details"
+          hoverEffect="zoom"
+        />
+        <Card
+          title="Wednesday Special"
+          description="Fresh fish and seafood specialties"
+          image="/images/r3.jpg"
+          linkText="View Details"
+          hoverEffect="zoom"
+        />
+      </div>
+    </div>
+  </Section>
+
+  <!-- Allergen Information -->
+  <Section
+    title="Allergen Information"
+    subtitle="We're here to accommodate your dietary needs"
+    background="cream"
+  >
+    <div class="max-w-3xl mx-auto text-center">
+      <div class="bg-white rounded-lg p-8 shadow-md mb-8">
+        <p class="text-[#5C4033] text-lg mb-4">
+          Are you an allergy sufferer? Talk to us when registering your visit and we will surely find a suitable dish for you.
+        </p>
+        <p class="text-[#5C4033]">
+          Our kitchen team is experienced in preparing meals for various dietary restrictions. Please inform your server of any allergies or intolerances.
+        </p>
+      </div>
+    </div>
+  </Section>
+
+  <!-- View Full Menu CTA -->
+  <Section
+    title="Ready to Dine?"
+    subtitle="Reserve your table and experience Vogthof hospitality"
+    background="old-lace"
+  >
+    <div class="text-center">
+      <div class="flex flex-wrap justify-center gap-4 mb-8">
+        <a
+          href="/restaurant"
+          class="inline-block px-8 py-4 bg-[#8B4513] hover:bg-[#A0522D] text-white font-semibold rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl"
+        >
+          Restaurant Overview
+        </a>
+        <a
+          href="tel:07361-73688"
+          class="inline-block px-8 py-4 border-2 border-[#8B4513] text-[#8B4513] hover:bg-[#8B4513] hover:text-white font-semibold rounded-lg transition-all duration-300"
+        >
+          Call to Reserve: 07361-73688
+        </a>
+      </div>
+      <p class="text-[#5C4033]">
+        Opening Hours: Mon-Thu 11:30-14:00 & 18:00-22:00 | Sat 18:00-22:00 | Sun 11:30-14:00
+      </p>
+    </div>
+  </Section>
+</Layout>

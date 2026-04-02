@@ -1,0 +1,87 @@
+---
+const currentYear = new Date().getFullYear();
+
+const quickLinks = [
+  { label: 'Hotel', href: '/hotel' },
+  { label: 'Rooms', href: '/rooms' },
+  { label: 'Restaurant', href: '/restaurant' },
+  { label: 'Menus', href: '/menus' },
+  { label: 'Events', href: '/events' },
+  { label: 'Contact', href: '/contact' },
+];
+
+const legalLinks = [
+  { label: 'Impressum', href: '/impressum' },
+  { label: 'Datenschutz', href: '/datenschutz' },
+];
+---
+
+<footer class="bg-[#2C1810] text-[#F5DEB3]">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Contact Info -->
+      <div>
+        <h3 class="font-['Playfair_Display',Georgia,serif] text-xl font-bold text-[#DAA520] mb-4">
+          Contact
+        </h3>
+        <div class="space-y-2 text-sm">
+          <p class="font-semibold">Landgasthof Vogthof</p>
+          <p>Reiner & Bernadette Ilg</p>
+          <p>Bergbaustraße 28/1</p>
+          <p>73433 Aalen-Röthardt</p>
+          <p class="pt-2">
+            <a href="tel:07361-73688" class="hover:text-white transition-colors">
+              📞 07361-73688
+            </a>
+          </p>
+          <p>
+            <a href="mailto:info@aalen-vogthof.de" class="hover:text-white transition-colors">
+              ✉️ info@aalen-vogthof.de
+            </a>
+          </p>
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div>
+        <h3 class="font-['Playfair_Display',Georgia,serif] text-xl font-bold text-[#DAA520] mb-4">
+          Quick Links
+        </h3>
+        <ul class="space-y-2 text-sm">
+          {quickLinks.map((link) => (
+            <li>
+              <a href={link.href} class="hover:text-white transition-colors">
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Opening Hours -->
+      <div>
+        <h3 class="font-['Playfair_Display',Georgia,serif] text-xl font-bold text-[#DAA520] mb-4">
+          Opening Hours
+        </h3>
+        <div class="space-y-1 text-sm">
+          <p><span class="font-semibold">Mon-Thu:</span> 11:30-14:00 & 18:00-22:00</p>
+          <p><span class="font-semibold">Fri:</span> Closed</p>
+          <p><span class="font-semibold">Sat:</span> 18:00-22:00</p>
+          <p><span class="font-semibold">Sun:</span> 11:30-14:00</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="mt-8 pt-8 border-t border-[#5C4033] flex flex-col md:flex-row justify-between items-center text-sm">
+      <p>&copy; {currentYear} Landgasthof Vogthof. All rights reserved.</p>
+      <div class="flex space-x-4 mt-4 md:mt-0">
+        {legalLinks.map((link) => (
+          <a href={link.href} class="hover:text-white transition-colors">
+            {link.label}
+          </a>
+        ))}
+      </div>
+    </div>
+  </div>
+</footer>

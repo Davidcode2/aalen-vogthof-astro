@@ -1,0 +1,175 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import Section from '../components/Section.astro';
+import RoomCard from '../components/RoomCard.astro';
+
+const rooms = [
+  {
+    name: 'Single Room',
+    image: '/images/rooms/z1.jpg',
+    price: '82€',
+    capacity: 1,
+    description: 'Comfortable single room with all amenities for the solo traveler. Features a cozy bed, work desk, and modern bathroom.',
+    amenities: ['Bathroom with WC', 'Shower', 'Hairdryer', 'Free Wi-Fi', 'Flat-screen TV', 'Welcome water & fruit'],
+  },
+  {
+    name: 'Double Room',
+    image: '/images/rooms/z2.jpg',
+    price: '92€',
+    capacity: 2,
+    description: 'Spacious double room perfect for couples. Tastefully decorated with modern country-style furniture.',
+    amenities: ['Bathroom with WC', 'Shower', 'Hairdryer', 'Free Wi-Fi', 'Flat-screen TV', 'Welcome water & fruit'],
+  },
+  {
+    name: 'Double Room (2 Persons)',
+    image: '/images/rooms/z4.jpg',
+    price: '130€',
+    capacity: 2,
+    description: 'Comfortable double room for two guests at an excellent value. Ideal for couples or friends traveling together.',
+    amenities: ['Bathroom with WC', 'Shower', 'Hairdryer', 'Free Wi-Fi', 'Flat-screen TV', 'Welcome water & fruit'],
+  },
+  {
+    name: 'Family Room',
+    image: '/images/rooms/z5.jpg',
+    price: 'From 130€',
+    capacity: 4,
+    description: 'Larger room perfect for families. Spacious and comfortable with room for the whole family.',
+    amenities: ['Bathroom with WC', 'Shower', 'Hairdryer', 'Free Wi-Fi', 'Flat-screen TV', 'Welcome water & fruit'],
+  },
+];
+
+const childrenPricing = [
+  { age: '0-3 years', price: 'Free', note: 'No additional charge' },
+  { age: '3-12 years', price: '25€', note: 'Per night with breakfast' },
+  { age: '12-16 years', price: '35€', note: 'Per night with breakfast' },
+];
+---
+
+<Layout title="Our Rooms - Vogthof Landgasthof">
+  <Hero
+    headline="Our Rooms"
+    subheadline="Comfortable accommodation in a peaceful setting. Rooms renovated in 2014 with modern country-style charm."
+    ctaText="Book Now"
+    ctaLink="#booking"
+    height="large"
+  />
+
+  <!-- Rooms Grid -->
+  <Section title="Accommodation" subtitle="Choose your perfect room">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {rooms.map((room) => (
+        <RoomCard
+          name={room.name}
+          image={room.image}
+          price={room.price}
+          capacity={room.capacity}
+          description={room.description}
+          amenities={room.amenities}
+        />
+      ))}
+    </div>
+  </Section>
+
+  <!-- Pricing Information -->
+  <Section title="Room Rates" subtitle="All prices include breakfast buffet" background="old-lace">
+    <div class="max-w-4xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+        <div class="bg-white rounded-xl p-6 shadow-lg text-center">
+          <h3 class="font-['Playfair_Display',Georgia,serif] text-xl font-bold text-[#2C1810] mb-2">Single</h3>
+          <p class="text-3xl font-bold text-[#8B4513] mb-2">82€</p>
+          <p class="font-['Open_Sans',Arial,sans-serif] text-[#5C4033] text-sm">per night<br/>(1 person, incl. breakfast)</p>
+        </div>
+        <div class="bg-white rounded-xl p-6 shadow-lg text-center">
+          <h3 class="font-['Playfair_Display',Georgia,serif] text-xl font-bold text-[#2C1810] mb-2">Double</h3>
+          <p class="text-3xl font-bold text-[#8B4513] mb-2">92€</p>
+          <p class="font-['Open_Sans',Arial,sans-serif] text-[#5C4033] text-sm">per night<br/>(single use, incl. breakfast)</p>
+        </div>
+        <div class="bg-white rounded-xl p-6 shadow-lg text-center">
+          <h3 class="font-['Playfair_Display',Georgia,serif] text-xl font-bold text-[#2C1810] mb-2">Double</h3>
+          <p class="text-3xl font-bold text-[#8B4513] mb-2">130€</p>
+          <p class="font-['Open_Sans',Arial,sans-serif] text-[#5C4033] text-sm">per night<br/>(2 persons, incl. breakfast)</p>
+        </div>
+        <div class="bg-white rounded-xl p-6 shadow-lg text-center">
+          <h3 class="font-['Playfair_Display',Georgia,serif] text-xl font-bold text-[#2C1810] mb-2">Family</h3>
+          <p class="text-3xl font-bold text-[#8B4513] mb-2">From 130€</p>
+          <p class="font-['Open_Sans',Arial,sans-serif] text-[#5C4033] text-sm">per night<br/>(up to 4 guests)</p>
+        </div>
+      </div>
+
+      <!-- Children Pricing -->
+      <div class="bg-[#FAEBD7] rounded-xl p-8">
+        <h3 class="font-['Playfair_Display',Georgia,serif] text-2xl font-bold text-[#2C1810] mb-6 text-center">
+          👶 Children's Prices
+        </h3>
+        <p class="font-['Open_Sans',Arial,sans-serif] text-[#5C4033] text-center mb-6">
+          (Accommodated in parent's room, breakfast included)
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {childrenPricing.map((child) => (
+            <div class="text-center">
+              <p class="font-['Open_Sans',Arial,sans-serif] text-[#5C4033] text-lg mb-1">{child.age}</p>
+              <p class="text-2xl font-bold text-[#2D5A27]">{child.price}</p>
+              <p class="font-['Open_Sans',Arial,sans-serif] text-[#8B4513] text-sm">{child.note}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </Section>
+
+  <!-- Room Amenities -->
+  <Section title="Room Amenities" subtitle="Everything you need for a comfortable stay" background="cream">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {['Bathroom with WC', 'Shower', 'Hairdryer', 'Free Wi-Fi', 'Flat-screen TV', 'Welcome gift: water & fresh fruit'].map((amenity) => (
+        <div class="flex items-center bg-white rounded-lg p-4 shadow-md">
+          <span class="text-[#2D5A27] mr-3 text-xl">✓</span>
+          <span class="font-['Open_Sans',Arial,sans-serif] text-[#5C4033]">{amenity}</span>
+        </div>
+      ))}
+    </div>
+  </Section>
+
+  <!-- Check-in/Check-out -->
+  <Section title="Check-in & Check-out" background="antique">
+    <div class="max-w-3xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="bg-[#FAEBD7] rounded-xl p-8 text-center">
+          <span class="text-5xl mb-4 block"> ключ</span>
+          <h3 class="font-['Playfair_Display',Georgia,serif] text-2xl font-bold text-[#2C1810] mb-2">Check-in</h3>
+          <p class="text-xl font-bold text-[#8B4513]">14:00 - 20:00</p>
+          <p class="font-['Open_Sans',Arial,sans-serif] text-[#5C4033] mt-2">Other times available by arrangement</p>
+        </div>
+        <div class="bg-[#FDF5E6] rounded-xl p-8 text-center">
+          <span class="text-5xl mb-4 block">🚪</span>
+          <h3 class="font-['Playfair_Display',Georgia,serif] text-2xl font-bold text-[#2C1810] mb-2">Check-out</h3>
+          <p class="text-xl font-bold text-[#8B4513]">Until 10:00</p>
+          <p class="font-['Open_Sans',Arial,sans-serif] text-[#5C4033] mt-2">Please vacate rooms by this time</p>
+        </div>
+      </div>
+    </div>
+  </Section>
+
+  <!-- Booking CTA -->
+  <Section id="booking" title="Book Your Stay" subtitle="We look forward to welcoming you" background="cream">
+    <div class="max-w-2xl mx-auto text-center">
+      <p class="font-['Open_Sans',Arial,sans-serif] text-[#5C4033] text-lg mb-8">
+        Ready to experience comfort and hospitality at Vogthof Landgasthof? Contact us today to reserve your room.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a
+          href="tel:07361-73688"
+          class="inline-block px-8 py-4 bg-[#8B4513] hover:bg-[#2D5A27] text-white font-semibold rounded-lg transition-colors duration-300"
+        >
+          📞 Call: 07361-73688
+        </a>
+        <a
+          href="/"
+          class="inline-block px-8 py-4 border-2 border-[#8B4513] text-[#8B4513] hover:bg-[#8B4513] hover:text-white font-semibold rounded-lg transition-colors duration-300"
+        >
+          Back to Home
+        </a>
+      </div>
+    </div>
+  </Section>
+</Layout>

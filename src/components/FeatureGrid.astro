@@ -1,0 +1,61 @@
+---
+interface Feature {
+  icon: string;
+  title: string;
+  description?: string;
+}
+
+interface Props {
+  features: Feature[];
+  columns?: 2 | 3 | 4;
+  iconSize?: 'sm' | 'md' | 'lg';
+}
+
+const {
+  features,
+  columns = 3,
+  iconSize = 'md'
+} = Astro.props;
+
+const gridCols = {
+  2: 'grid-cols-1 md:grid-cols-2',
+  3: 'grid-cols-1 md:grid-cols-3',
+  4: 'grid-cols-1 md:grid-cols-2 lg:grid-cols-4'
+};
+
+const iconSizes = {
+  sm: 'w-8 h-8',
+  md: 'w-12 h-12',
+  lg: 'w-16 h-16'
+};
+
+const iconBgSizes = {
+  sm: 'w-12 h-12',
+  md: 'w-16 h-16',
+  lg: 'w-20 h-20'
+};
+---
+
+<div class={`grid ${gridCols[columns]} gap-8`}>
+  {features.map((feature) => (
+    <div class="flex flex-col items-center text-center group">
+      <!-- Icon Container -->
+      <div class={`${iconBgSizes[iconSize]} flex items-center justify-center rounded-full bg-[#FAEBD7] text-[#2D5A27] mb-4 transition-all duration-300 group-hover:bg-[#2D5A27] group-hover:text-white`}>
+        <span class={`${iconSizes[iconSize]} flex items-center justify-center`}>
+          {feature.icon}
+        </span>
+      </div>
+
+      <!-- Content -->
+      <h3 class="font-['Playfair_Display',Georgia,serif] text-lg font-bold text-[#2C1810] mb-2">
+        {feature.title}
+      </h3>
+      
+      {feature.description && (
+        <p class="font-['Open_Sans',Arial,sans-serif] text-[#5C4033] text-sm leading-relaxed">
+          {feature.description}
+        </p>
+      )}
+    </div>
+  ))}
+</div>

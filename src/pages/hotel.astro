@@ -1,0 +1,128 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import Section from '../components/Section.astro';
+import Card from '../components/Card.astro';
+
+const amenities = [
+  { icon: '🛏️', title: 'Comfortable Rooms', description: 'Modern country-style rooms renovated in 2014 with tasteful furnishing.' },
+  { icon: '⭐', title: '3-Star Quality', description: 'Certified three-star hotel with high standards of comfort and service.' },
+  { icon: '🌿', title: 'Peaceful Location', description: 'Relax in our quiet surroundings after a long day.' },
+  { icon: '☕', title: 'Traditional Dining', description: 'Enjoy Landgasthof cuisine at our on-site restaurant.' },
+  { icon: '📶', title: 'Free Wi-Fi', description: 'Stay connected with complimentary high-speed internet.' },
+  { icon: '🚗', title: 'Free Parking', description: 'Convenient parking available for all our guests.' },
+];
+---
+
+<Layout title="Vogthof Landgasthof - Hotel">
+  <Hero
+    headline="Vogthof Landgasthof"
+    subheadline="Your peaceful retreat in the countryside. Experience traditional hospitality with modern comfort."
+    ctaText="View Our Rooms"
+    ctaLink="/rooms"
+    ctaSecondaryText="Contact Us"
+    ctaSecondaryLink="#contact"
+    height="large"
+  />
+
+  <!-- Introduction Section -->
+  <Section title="Welcome to Vogthof" subtitle="Where tradition meets comfort">
+    <div class="max-w-3xl mx-auto text-center">
+      <p class="font-['Open_Sans',Arial,sans-serif] text-lg text-[#5C4033] leading-relaxed mb-8">
+        Lehnen Sie sich nach einem anstrengenden Tag zurück und genießen Sie die Ruhe in unseren gemütlichen Gästezimmern. 
+        Unsere Zimmer wurden im Sommer 2014 neu renoviert und laden mit ihrer geschmackvollen Einrichtung im modernen Landhaus-Stil zum Bleiben ein.
+      </p>
+      <p class="font-['Open_Sans',Arial,sans-serif] text-lg text-[#5C4033] leading-relaxed mb-8">
+        Unser Hotel ist mit drei Sternen ausgezeichnet und bietet Ihnen den perfekten Mix aus traditioneller Gastlichkeit und modernem Komfort.
+      </p>
+      <a
+        href="/rooms"
+        class="inline-block px-8 py-4 bg-[#8B4513] hover:bg-[#2D5A27] text-white font-semibold rounded-lg transition-colors duration-300 text-lg"
+      >
+        Explore Our Rooms →
+      </a>
+    </div>
+  </Section>
+
+  <!-- Amenities Grid -->
+  <Section title="Our Amenities" background="old-lace">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {amenities.map((amenity) => (
+        <Card
+          title={`${amenity.icon} ${amenity.title}`}
+          description={amenity.description}
+        />
+      ))}
+    </div>
+  </Section>
+
+  <!-- Location Section -->
+  <Section title="Our Location" subtitle="Find us in the heart of the countryside" background="antique">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div class="bg-[#FAEBD7] rounded-xl p-8">
+        <h3 class="font-['Playfair_Display',Georgia,serif] text-2xl font-bold text-[#2C1810] mb-6">
+          📍 Address
+        </h3>
+        <p class="font-['Open_Sans',Arial,sans-serif] text-[#5C4033] text-lg mb-4">
+          Vogthof Landgasthof<br />
+          Aalen, Germany
+        </p>
+        <p class="font-['Open_Sans',Arial,sans-serif] text-[#5C4033] leading-relaxed">
+          Situated in a peaceful location, yet easily accessible. Enjoy the tranquility of the countryside while being close to local attractions.
+        </p>
+      </div>
+      
+      <div class="bg-[#FDF5E6] rounded-xl p-8">
+        <h3 class="font-['Playfair_Display',Georgia,serif] text-2xl font-bold text-[#2C1810] mb-6">
+          🚗 Getting Here
+        </h3>
+        <ul class="space-y-4">
+          <li class="flex items-start">
+            <span class="text-[#2D5A27] mr-3">✈️</span>
+            <span class="font-['Open_Sans',Arial,sans-serif] text-[#5C4033]">Stuttgart Airport: ~1 hour drive</span>
+          </li>
+          <li class="flex items-start">
+            <span class="text-[#2D5A27] mr-3">🚂</span>
+            <span class="font-['Open_Sans',Arial,sans-serif] text-[#5C4033]">Aalen train station nearby</span>
+          </li>
+          <li class="flex items-start">
+            <span class="text-[#2D5A27] mr-3">🅿️</span>
+            <span class="font-['Open_Sans',Arial,sans-serif] text-[#5C4033]">Free parking on site</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </Section>
+
+  <!-- Contact Section -->
+  <Section id="contact" title="Contact Us" background="cream">
+    <div class="max-w-4xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+        <div class="bg-white rounded-xl p-8 shadow-lg text-center">
+          <span class="text-4xl mb-4 block">📞</span>
+          <h3 class="font-['Playfair_Display',Georgia,serif] text-xl font-bold text-[#2C1810] mb-2">Phone</h3>
+          <p class="font-['Open_Sans',Arial,sans-serif] text-[#5C4033] text-lg">07361-73688</p>
+        </div>
+        <div class="bg-white rounded-xl p-8 shadow-lg text-center">
+          <span class="text-4xl mb-4 block">🕐</span>
+          <h3 class="font-['Playfair_Display',Georgia,serif] text-xl font-bold text-[#2C1810] mb-2">Opening Hours</h3>
+          <p class="font-['Open_Sans',Arial,sans-serif] text-[#5C4033]">
+            Mon-Thu: 11:30-14:00 & 18:00-22:00<br />
+            Fri: Closed<br />
+            Sat: 18:00-22:00<br />
+            Sun: 11:30-14:00
+          </p>
+        </div>
+      </div>
+      
+      <div class="text-center">
+        <a
+          href="/rooms"
+          class="inline-block px-8 py-4 bg-[#2D5A27] hover:bg-[#8B4513] text-white font-semibold rounded-lg transition-colors duration-300 text-lg"
+        >
+          Book Your Stay
+        </a>
+      </div>
+    </div>
+  </Section>
+</Layout>

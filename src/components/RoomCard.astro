@@ -1,0 +1,84 @@
+---
+interface Props {
+  name: string;
+  image: string;
+  price: string;
+  capacity: number;
+  amenities?: string[];
+  description?: string;
+  detailsLink?: string;
+}
+
+const {
+  name,
+  image,
+  price,
+  capacity,
+  amenities = [],
+  description,
+  detailsLink = '#'
+} = Astro.props;
+
+const capacityLabels: Record<number, string> = {
+  1: 'Single',
+  2: 'Double',
+  4: 'Family',
+  [capacity]: capacity > 4 ? 'Up to 6 guests' : ''
+};
+---
+
+<article class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 group">
+  <!-- Image Container -->
+  <div class="relative overflow-hidden aspect-[16/10]">
+    <img
+      src={image}
+      alt={name}
+      class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+    />
+    <!-- Price Badge -->
+    <div class="absolute top-4 right-4 bg-[#8B4513] text-white px-4 py-2 rounded-lg font-bold shadow-lg">
+      {price}
+    </div>
+    <!-- Capacity Badge -->
+    <div class="absolute top-4 left-4 bg-[#2D5A27] text-white px-3 py-1 rounded-md text-sm font-medium">
+      {capacity} Guest{capacity !== 1 ? 's' : ''}
+    </div>
+  </div>
+
+  <!-- Content -->
+  <div class="p-6">
+    <h3 class="font-['Playfair_Display',Georgia,serif] text-2xl font-bold text-[#2C1810] mb-2">
+      {name}
+    </h3>
+
+    {description && (
+      <p class="font-['Open_Sans',Arial,sans-serif] text-[#5C4033] text-sm leading-relaxed mb-4 line-clamp-2">
+        {description}
+      </p>
+    )}
+
+    <!-- Amenities -->
+    {amenities.length > 0 && (
+      <div class="flex flex-wrap gap-2 mb-4">
+        {amenities.slice(0, 4).map((amenity) => (
+          <span class="inline-block px-2 py-1 bg-[#FDF5E6] text-[#5C4033] text-xs rounded-md">
+            {amenity}
+          </span>
+        ))}
+        {amenities.length > 4 && (
+          <span class="inline-block px-2 py-1 bg-[#FAEBD7] text-[#5C4033] text-xs rounded-md">
+            +{amenities.length - 4} more
+          </span>
+        )}
+      </div>
+    )}
+
+    <!-- CTA Button -->
+    <a
+      href={detailsLink}
+      class="block w-full text-center py-3 bg-[#8B4513] hover:bg-[#2D5A27] text-white font-semibold rounded-lg transition-colors duration-300"
+    >
+      View Details
+    </a>
+  </div>
+</article>

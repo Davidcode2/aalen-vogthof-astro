@@ -1,0 +1,225 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import Section from '../components/Section.astro';
+import Card from '../components/Card.astro';
+
+const heroImage = '/images/restaurant/r1.jpg';
+
+const chefs = [
+  {
+    name: 'Reiner Ilg',
+    title: 'Küchenchef / Head Chef',
+    image: '/images/e0.jpg',
+    description: 'Since 2012, Reiner Ilg has been continuing his parents\' legacy with passion and innovation. He combines traditional Swabian cuisine with international accents, focusing on regional ingredients and exceptional flavors.'
+  },
+  {
+    name: 'Johannes Hänle',
+    title: 'Küchenchef / Executive Chef',
+    image: '/images/dd.jpg',
+    description: 'Johannes Hänle brings creative energy to the Vogthof kitchen. Together with Reiner, he creates extraordinary dishes that delight guests with fresh, seasonal ingredients and meticulous presentation.'
+  }
+];
+
+const privateRooms = [
+  {
+    name: 'Vogtstube',
+    description: 'Our traditional Vogtstube offers an intimate setting for special occasions. With its rustic charm and warm atmosphere, it\'s perfect for family gatherings and celebrations.',
+    image: '/images/rooms/z1.jpg',
+    capacity: 'Up to 20 guests'
+  },
+  {
+    name: 'Braunenbergstube',
+    description: 'Named after the nearby Braunenberg hill, this room features beautiful views and elegant decor. Ideal for business dinners and larger groups.',
+    image: '/images/rooms/z2.jpg',
+    capacity: 'Up to 30 guests'
+  },
+  {
+    name: 'Beer Garden',
+    description: 'Enjoy Swabian hospitality al fresco in our charming beer garden. Under old Linden trees, experience regional specialties in a relaxed outdoor setting.',
+    image: '/images/rooms/z4.jpg',
+    capacity: 'Up to 60 guests'
+  }
+];
+---
+
+<Layout title="Restaurant | Vogthof Landgasthof">
+  <!-- Hero Section -->
+  <Hero
+    headline="Restaurant Vogthof"
+    subheadline="Traditional Swabian hospitality meets elegant cuisine"
+    backgroundImage={heroImage}
+    ctaText="View Menu"
+    ctaLink="/menus"
+    ctaSecondaryText="Reserve a Table"
+    ctaSecondaryLink="#contact"
+    height="large"
+  />
+
+  <!-- Introduction Section -->
+  <Section
+    title="Our Culinary Heritage"
+    subtitle="Since 1983, the Ilg family has been welcoming guests with warmth and excellence"
+    background="cream"
+  >
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+      <div class="prose prose-lg text-[#5C4033]">
+        <p class="mb-6">
+          The Landgasthof Vogthof was opened in 1983 by Hans and Theresia Ilg and has been run by their son Reiner and his wife Bernadette since 2012.
+        </p>
+        <p class="mb-6">
+          True to the motto "The guest is king", the Ilg family and their team will spoil you with first-class dishes and fine wines.
+        </p>
+        <p>
+          Every dish is prepared with care, attention to detail, and a passion for creating memorable dining experiences.
+        </p>
+      </div>
+      <div class="relative">
+        <img
+          src="/images/restaurant/r2.jpg"
+          alt="Restaurant interior"
+          class="rounded-lg shadow-xl w-full"
+        />
+      </div>
+    </div>
+  </Section>
+
+  <!-- Kitchen Philosophy Section -->
+  <Section
+    title="Our Kitchen Philosophy"
+    subtitle="Elegant Swabian cuisine with international accents"
+    background="old-lace"
+  >
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+      <div class="order-2 md:order-1 relative">
+        <img
+          src="/images/kitchen/cu.jpg"
+          alt="Chef in the kitchen"
+          class="rounded-lg shadow-xl w-full"
+        />
+      </div>
+      <div class="order-1 md:order-2 prose prose-lg text-[#5C4033]">
+        <p class="mb-6">
+          Küchenchef Reiner Ilg and his team serve you elegant Swabian cuisine with international accents. When preparing dishes, he attaches great importance to ingredients from the region and refines them with exceptional flavors for your culinary experience.
+        </p>
+        <p class="mb-6">
+          At the Vogthof you can be pampered with warm service and enjoy new creations every day.
+        </p>
+        <p class="mb-4">
+          Are you an allergy sufferer? Talk to us when registering your visit and we will surely find a suitable dish for you.
+        </p>
+      </div>
+    </div>
+  </Section>
+
+  <!-- Chef Information -->
+  <Section
+    title="Our Chefs"
+    subtitle="The creative minds behind Vogthof's culinary excellence"
+    background="antique"
+  >
+    <div class="grid md:grid-cols-2 gap-8">
+      {chefs.map((chef) => (
+        <Card
+          title={chef.name}
+          description={chef.description}
+          image={chef.image}
+          linkText={chef.title}
+          hoverEffect="lift"
+        />
+      ))}
+    </div>
+  </Section>
+
+  <!-- Private Rooms Section -->
+  <Section
+    title="Private Rooms & Events"
+    subtitle="Perfect spaces for your special occasions"
+    background="cream"
+  >
+    <div class="grid md:grid-cols-3 gap-8">
+      {privateRooms.map((room) => (
+        <Card
+          title={room.name}
+          description={room.description}
+          image={room.image}
+          linkText={`Capacity: ${room.capacity}`}
+          hoverEffect="lift"
+        />
+      ))}
+    </div>
+
+    <div class="text-center mt-12">
+      <p class="text-[#5C4033] text-lg mb-6">
+        For group reservations and private events, please contact us directly.
+      </p>
+      <a
+        href="tel:07361-73688"
+        class="inline-block px-8 py-4 bg-[#8B4513] hover:bg-[#A0522D] text-white font-semibold rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl"
+      >
+        Call: 07361-73688
+      </a>
+    </div>
+  </Section>
+
+  <!-- Beer Garden Highlight -->
+  <Section
+    title="Beer Garden"
+    subtitle="Traditional Swabian hospitality under the linden trees"
+    background="old-lace"
+    id="beer-garden"
+  >
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+      <div class="prose prose-lg text-[#5C4033]">
+        <p class="mb-6">
+          Experience authentic Swabian hospitality in our traditional beer garden. Surrounded by old linden trees, enjoy regional specialties, house-brewed beers, and fine wines in a relaxed atmosphere.
+        </p>
+        <p class="mb-6">
+          The beer garden is the perfect place for casual dining, family celebrations, or simply enjoying the beautiful weather with friends.
+        </p>
+        <p>
+          Open during the summer months for outdoor dining and special events.
+        </p>
+      </div>
+      <div class="relative">
+        <img
+          src="/images/rooms/z5.jpg"
+          alt="Beer garden"
+          class="rounded-lg shadow-xl w-full"
+        />
+      </div>
+    </div>
+  </Section>
+
+  <!-- Contact/CTA Section -->
+  <Section
+    title="Reserve Your Table"
+    subtitle="We look forward to welcoming you"
+    background="antique"
+    id="contact"
+  >
+    <div class="text-center max-w-2xl mx-auto">
+      <div class="grid md:grid-cols-2 gap-8 mb-8">
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <h3 class="font-bold text-[#2C1810] mb-2">Phone</h3>
+          <p class="text-[#5C4033]">07361-73688</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <h3 class="font-bold text-[#2C1810] mb-2">Opening Hours</h3>
+          <p class="text-[#5C4033]">
+            Mon-Thu: 11:30-14:00 & 18:00-22:00<br />
+            Fri: Closed<br />
+            Sat: 18:00-22:00<br />
+            Sun: 11:30-14:00
+          </p>
+        </div>
+      </div>
+      <a
+        href="/menus"
+        class="inline-block px-8 py-4 bg-[#2D5A27] hover:bg-[#3D7A37] text-white font-semibold rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl"
+      >
+        Explore Our Menu
+      </a>
+    </div>
+  </Section>
+</Layout>

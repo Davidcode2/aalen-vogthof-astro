@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #8B4513;
+  --color-secondary: #2D5A27;
+  --color-background: #FFF8F0;
+  --color-text: #2C1810;
+  --color-accent: #B8860B;
+  
+  --font-display: "Playfair Display", serif;
+  --font-body: "Open Sans", sans-serif;
+}
+
+/* Google Fonts imports are handled in Layout.astro */
+
+/* Base styles using the theme variables */
+body {
+  background-color: var(--color-background);
+  color: var(--color-text);
+  font-family: var(--font-body);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+}

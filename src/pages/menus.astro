@@ -2,7 +2,6 @@
 import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero.astro';
 import Section from '../components/Section.astro';
-import Card from '../components/Card.astro';
 import { getTranslations } from '../i18n/translations';
 
 const locale = 'de';
@@ -19,7 +18,7 @@ const menuCategories = [
 ---
 
 <Layout 
-  title="Speisekarte | Vogthof Landgasthof"
+  title="Speisekarte | Landgasthof Vogthof"
   description="Frische, saisonale Zutaten mit Leidenschaft zubereitet."
   locale={locale}
 >
@@ -33,21 +32,23 @@ const menuCategories = [
     ctaSecondaryText={t.menus.hero.ctaSecondary}
     ctaSecondaryLink="/restaurant"
     height="large"
+    overlayType="gradient"
   />
 
-  <!-- Introduction from eat.md -->
+  <!-- Introduction -->
   <Section
     title={t.menus.seasonal.title}
     subtitle={t.menus.seasonal.subtitle}
-    background="background"
+    background="base"
+    padding="xlarge"
   >
     <div class="max-w-4xl mx-auto text-center">
-      <blockquote class="text-xl italic text-secondary mb-8 font-serif">
+      <blockquote class="text-xl italic text-secondary mb-8 font-body">
         "{t.menus.seasonal.quote}"
-        <cite class="block text-sm mt-2 not-italic">— {t.menus.seasonal.quoteAuthor}</cite>
+        <cite class="block text-sm mt-2 not-italic text-muted">— {t.menus.seasonal.quoteAuthor}</cite>
       </blockquote>
       
-      <div class="prose prose-lg text-secondary mx-auto">
+      <div class="font-body text-lg text-secondary leading-relaxed">
         <p class="mb-6">
           {t.menus.seasonal.paragraph1}
         </p>
@@ -65,22 +66,23 @@ const menuCategories = [
   <Section
     title={t.menus.categories.title}
     subtitle={t.menus.categories.subtitle}
-    background="background-secondary"
+    background="cream"
+    padding="xlarge"
   >
     <div class="grid md:grid-cols-2 gap-8">
       {menuCategories.map((category) => (
-        <article class="bg-white rounded-lg p-8 shadow-md hover:shadow-lg transition-shadow">
-          <div class="flex items-center mb-4">
+        <article class="bg-paper p-8 shadow-subtle border border-light hover:shadow-soft transition-all duration-500">
+          <div class="flex items-center mb-6">
             <span class="text-4xl mr-4">{category.icon}</span>
-            <h3 class="font-display break-words text-2xl font-bold text-primary">{t.menus.categories[category.key].name}</h3>
+            <h3 class="font-display text-2xl font-semibold text-dark">{t.menus.categories[category.key].name}</h3>
           </div>
           <p class="text-secondary mb-6">{t.menus.categories[category.key].description}</p>
-          <ul class="space-y-3">
+          <ul class="space-y-4">
             {t.menus.categories[category.key].items.map((item) => (
-              <li class="flex justify-between items-start border-b border-cream pb-2 last:border-0">
+              <li class="flex justify-between items-start border-b border-light pb-3 last:border-0">
                 <div>
-                  <span class="font-semibold text-primary">{item.name}</span>
-                  <p class="text-sm text-secondary">{item.desc}</p>
+                  <span class="font-semibold text-dark">{item.name}</span>
+                  <p class="text-sm text-muted">{item.desc}</p>
                 </div>
               </li>
             ))}
@@ -94,24 +96,25 @@ const menuCategories = [
   <Section
     title={t.menus.dailySpecials.title}
     subtitle={t.menus.dailySpecials.availability}
-    background="surface"
+    background="paper"
+    padding="xlarge"
     id="daily-specials"
   >
     <div class="max-w-4xl mx-auto">
-      <div class="bg-background rounded-lg p-8 mb-8">
-        <div class="flex items-start gap-4 mb-6">
+      <div class="bg-cream p-8 lg:p-10 border border-light shadow-soft">
+        <div class="flex items-start gap-4 mb-8">
           <span class="text-5xl">🍽️</span>
           <div>
-            <h3 class="font-display break-words text-2xl font-bold text-primary">{t.menus.dailySpecials.title}</h3>
+            <h3 class="font-display text-2xl font-semibold text-dark">{t.menus.dailySpecials.title}</h3>
             <p class="text-secondary">{t.menus.dailySpecials.availability}</p>
           </div>
         </div>
         
-        <div class="prose prose-lg text-secondary">
+        <div class="font-body text-secondary">
           <p class="mb-4">
             {t.menus.dailySpecials.description}
           </p>
-          <ul class="list-disc list-inside space-y-2 mb-6">
+          <ul class="list-disc list-inside space-y-2 mb-6 ml-4">
             {t.menus.dailySpecials.includes.map((item) => (
               <li>{item}</li>
             ))}
@@ -128,10 +131,11 @@ const menuCategories = [
   <Section
     title={t.menus.allergen.title}
     subtitle={t.menus.allergen.subtitle}
-    background="background"
+    background="base"
+    padding="xlarge"
   >
     <div class="max-w-3xl mx-auto text-center">
-      <div class="bg-white rounded-lg p-8 shadow-md mb-8">
+      <div class="bg-paper p-8 shadow-soft border border-light mb-8">
         <p class="text-secondary text-lg mb-4">
           {t.menus.allergen.text1}
         </p>
@@ -146,20 +150,15 @@ const menuCategories = [
   <Section
     title={t.menus.cta.title}
     subtitle={t.menus.cta.subtitle}
-    background="background-secondary"
+    background="cream"
+    padding="xlarge"
   >
     <div class="text-center">
       <div class="flex flex-wrap justify-center gap-4 mb-8">
-        <a
-          href="/restaurant"
-          class="inline-block px-8 py-4 bg-primary hover:bg-primary-light text-white font-semibold rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl"
-        >
+        <a href="/restaurant" class="btn-primary">
           {t.menus.cta.ctaRestaurant}
         </a>
-        <a
-          href="tel:07361-73688"
-          class="inline-block px-8 py-4 border-2 border-primary text-primary hover:bg-primary hover:text-white font-semibold rounded-lg transition-all duration-300"
-        >
+        <a href="tel:07361-73688" class="btn-secondary">
           {t.menus.cta.ctaCall}
         </a>
       </div>

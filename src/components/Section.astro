@@ -2,54 +2,81 @@
 interface Props {
   title: string;
   subtitle?: string;
-  background?: 'background' | 'background-secondary' | 'surface' | 'white' | 'transparent';
-  padding?: 'none' | 'small' | 'medium' | 'large';
+  background?: 'base' | 'cream' | 'paper' | 'surface' | 'dark' | 'transparent';
+  padding?: 'none' | 'small' | 'medium' | 'large' | 'xlarge';
   id?: string;
+  align?: 'center' | 'left';
+  showDecorations?: boolean;
 }
 
 const {
   title,
   subtitle,
-  background = 'background',
+  background = 'base',
   padding = 'large',
-  id
+  id,
+  align = 'center',
+  showDecorations = true
 } = Astro.props;
 
 const backgroundClasses = {
-  background: 'bg-background',
-  'background-secondary': 'bg-background-secondary',
+  base: 'bg-base',
+  cream: 'bg-cream',
+  paper: 'bg-paper',
   surface: 'bg-surface',
-  white: 'bg-white',
+  dark: 'bg-primary-900 text-white',
   transparent: 'bg-transparent'
 };
 
 const paddingClasses = {
   none: '',
-  small: 'py-8',
-  medium: 'py-16',
-  large: 'py-20'
+  small: 'py-12',
+  medium: 'py-16 lg:py-20',
+  large: 'py-20 lg:py-28',
+  xlarge: 'py-28 lg:py-36'
 };
 ---
 
 <section
   id={id}
-  class={`${backgroundClasses[background]} ${paddingClasses[padding]} w-full`}
+  class={`${backgroundClasses[background]} ${paddingClasses[padding]} w-full relative overflow-hidden`}
 >
-  <div class="container mx-auto px-4">
+  {/* Subtle decorative elements */}
+  {showDecorations && background !== 'dark' && (
+    <>
+      <div class="absolute top-0 left-0 w-px h-32 bg-gradient-to-b from-transparent via-secondary-300/30 to-transparent"></div>
+      <div class="absolute top-0 right-0 w-px h-32 bg-gradient-to-b from-transparent via-secondary-300/30 to-transparent"></div>
+    </>
+  )}
+
+  <div class="container mx-auto px-6 lg:px-8 relative z-10">
     <!-- Section Header -->
-    <div class="text-center mb-12">
-      <h2 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-4 break-words">
+    <div class={`mb-16 lg:mb-20 ${align === 'center' ? 'text-center' : 'text-left'}`}>
+      {/* Decorative top element */}
+      {showDecorations && (
+        <div class={`flex items-center gap-4 mb-6 ${align === 'center' ? 'justify-center' : 'justify-start'}`}>
+          <span class="w-8 h-[1px] bg-secondary-400/60"></span>
+          <span class="text-secondary-500 text-xs tracking-[0.3em] uppercase">✦</span>
+          <span class="w-8 h-[1px] bg-secondary-400/60"></span>
+        </div>
+      )}
+
+      <h2 class={`font-display text-3xl md:text-4xl lg:text-5xl font-semibold mb-6 leading-tight ${background === 'dark' ? 'text-white' : 'text-dark'}`}>
         {title}
       </h2>
 
       {subtitle && (
-        <p class="font-body text-lg text-secondary max-w-2xl mx-auto">
+        <p class={`font-body text-lg lg:text-xl max-w-2xl leading-relaxed ${background === 'dark' ? 'text-secondary-200/80' : 'text-secondary'} ${align === 'center' ? 'mx-auto' : ''}`}>
           {subtitle}
         </p>
       )}
 
-      <!-- Decorative Line -->
-      <div class="w-24 h-1 bg-primary mx-auto mt-6 rounded-full"></div>
+      {/* Decorative divider */}
+      {showDecorations && (
+        <div class={`mt-8 flex items-center gap-3 ${align === 'center' ? 'justify-center' : 'justify-start'}`}>
+          <div class="w-16 h-[2px] bg-gradient-to-r from-transparent via-secondary-400 to-transparent"></div>
+        </div>
+      )}
     </div>
 
     <!-- Content Slot -->

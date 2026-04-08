@@ -23,7 +23,7 @@ const childrenAges = [
 ---
 
 <Layout 
-  title="Unsere Zimmer - Vogthof Landgasthof"
+  title="Unsere Zimmer | Landgasthof Vogthof"
   description="Komfortable Unterkünfte in ruhiger Lage. Zimmer renoviert 2014 mit modernem Landhaus-Charme."
   locale={locale}
 >
@@ -34,11 +34,12 @@ const childrenAges = [
     ctaText={t.rooms.hero.cta}
     ctaLink="#booking"
     height="large"
+    overlayType="gradient"
   />
 
   <!-- Rooms Grid -->
-  <Section title={t.rooms.accommodation.title} subtitle={t.rooms.accommodation.subtitle}>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+  <Section title={t.rooms.accommodation.title} subtitle={t.rooms.accommodation.subtitle} padding="xlarge">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
       {rooms.map((room) => (
         <RoomCard
           name={t.rooms.accommodation.rooms[room.key].name}
@@ -46,7 +47,7 @@ const childrenAges = [
           price={room.price}
           capacity={room.capacity}
           description={t.rooms.accommodation.rooms[room.key].description}
-          amenities={t.rooms.amenities.items}
+          amenities={t.rooms.amenities.items.slice(0, 4)}
           detailsLink="/contact"
           detailsText={t.rooms.cardButton}
         />
@@ -55,45 +56,50 @@ const childrenAges = [
   </Section>
 
   <!-- Pricing Information -->
-  <Section title={t.rooms.pricing.title} subtitle={t.rooms.pricing.subtitle} background="background-secondary">
-    <div class="max-w-5xl mx-auto">
+  <Section title={t.rooms.pricing.title} subtitle={t.rooms.pricing.subtitle} background="cream" padding="xlarge">
+    <div class="max-w-6xl mx-auto">
+      {/* Room Prices */}
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-        <div class="bg-white p-8 shadow-lg text-center">
-          <h3 class="font-display break-words text-xl font-bold text-primary mb-4">{t.rooms.pricing.single.label}</h3>
-          <p class="text-4xl font-bold text-primary mb-4">{t.rooms.pricing.single.price}</p>
-          <p class="font-body text-secondary whitespace-pre-line">{t.rooms.pricing.single.note}</p>
+        <div class="bg-paper p-8 shadow-subtle border-t-4 border-secondary-400 text-center group hover:shadow-soft transition-all duration-500">
+          <p class="text-muted text-sm tracking-wider uppercase mb-3">Einzelzimmer</p>
+          <p class="font-display text-4xl font-semibold text-primary-700 mb-2">{t.rooms.pricing.single.price}</p>
+          <p class="text-sm text-secondary">{t.rooms.pricing.single.note}</p>
         </div>
-        <div class="bg-white p-8 shadow-lg text-center">
-          <h3 class="font-display break-words text-xl font-bold text-primary mb-4">{t.rooms.pricing.double1.label}</h3>
-          <p class="text-4xl font-bold text-primary mb-4">{t.rooms.pricing.double1.price}</p>
-          <p class="font-body text-secondary whitespace-pre-line">{t.rooms.pricing.double1.note}</p>
+        <div class="bg-paper p-8 shadow-subtle border-t-4 border-secondary-400 text-center group hover:shadow-soft transition-all duration-500">
+          <p class="text-muted text-sm tracking-wider uppercase mb-3">Doppelzimmer I</p>
+          <p class="font-display text-4xl font-semibold text-primary-700 mb-2">{t.rooms.pricing.double1.price}</p>
+          <p class="text-sm text-secondary">{t.rooms.pricing.double1.note}</p>
         </div>
-        <div class="bg-white p-8 shadow-lg text-center">
-          <h3 class="font-display break-words text-xl font-bold text-primary mb-4">{t.rooms.pricing.double2.label}</h3>
-          <p class="text-4xl font-bold text-primary mb-4">{t.rooms.pricing.double2.price}</p>
-          <p class="font-body text-secondary whitespace-pre-line">{t.rooms.pricing.double2.note}</p>
+        <div class="bg-paper p-8 shadow-subtle border-t-4 border-secondary-400 text-center group hover:shadow-soft transition-all duration-500">
+          <p class="text-muted text-sm tracking-wider uppercase mb-3">Doppelzimmer II</p>
+          <p class="font-display text-4xl font-semibold text-primary-700 mb-2">{t.rooms.pricing.double2.price}</p>
+          <p class="text-sm text-secondary">{t.rooms.pricing.double2.note}</p>
         </div>
-        <div class="bg-white p-8 shadow-lg text-center">
-          <h3 class="font-display break-words text-xl font-bold text-primary mb-4">{t.rooms.pricing.family.label}</h3>
-          <p class="text-4xl font-bold text-primary mb-4">{t.rooms.pricing.family.price}</p>
-          <p class="font-body text-secondary whitespace-pre-line">{t.rooms.pricing.family.note}</p>
+        <div class="bg-paper p-8 shadow-subtle border-t-4 border-secondary-400 text-center group hover:shadow-soft transition-all duration-500">
+          <p class="text-muted text-sm tracking-wider uppercase mb-3">Familienzimmer</p>
+          <p class="font-display text-4xl font-semibold text-primary-700 mb-2">{t.rooms.pricing.family.price}</p>
+          <p class="text-sm text-secondary">{t.rooms.pricing.family.note}</p>
         </div>
       </div>
 
-      <!-- Children Pricing -->
-      <div class="bg-background-secondary p-8">
-        <h3 class="font-display break-words text-2xl font-bold text-primary mb-6 text-center">
-          👶 {t.rooms.pricing.children.title}
-        </h3>
-        <p class="font-body text-secondary text-center mb-6">
-          {t.rooms.pricing.children.note}
-        </p>
+      {/* Children Pricing */}
+      <div class="bg-paper p-8 lg:p-12 shadow-soft border border-light">
+        <div class="text-center mb-8">
+          <span class="text-4xl mb-4 block">👶</span>
+          <h3 class="font-display text-2xl font-semibold text-dark mb-2">
+            {t.rooms.pricing.children.title}
+          </h3>
+          <p class="text-secondary">
+            {t.rooms.pricing.children.note}
+          </p>
+        </div>
+        
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           {childrenAges.map((age) => (
-            <div class="text-center">
-              <p class="font-body text-secondary text-lg mb-1">{t.rooms.pricing.children[age.key].age}</p>
-              <p class="text-2xl font-bold text-secondary">{t.rooms.pricing.children[age.key].price}</p>
-              <p class="font-body text-primary text-sm">{t.rooms.pricing.children[age.key].note}</p>
+            <div class="text-center p-6 bg-cream border border-light">
+              <p class="text-secondary text-sm mb-2">{t.rooms.pricing.children[age.key].age}</p>
+              <p class="font-display text-3xl font-semibold text-secondary-600 mb-2">{t.rooms.pricing.children[age.key].price}</p>
+              <p class="text-primary-600 text-sm">{t.rooms.pricing.children[age.key].note}</p>
             </div>
           ))}
         </div>
@@ -102,11 +108,15 @@ const childrenAges = [
   </Section>
 
   <!-- Room Amenities -->
-  <Section title={t.rooms.amenities.title} subtitle={t.rooms.amenities.subtitle} background="background">
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+  <Section title={t.rooms.amenities.title} subtitle={t.rooms.amenities.subtitle} padding="xlarge">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
       {t.rooms.amenities.items.map((amenity) => (
-        <div class="flex items-center bg-white p-4 shadow-md">
-          <span class="text-secondary mr-3 text-xl">✓</span>
+        <div class="flex items-center bg-paper p-5 shadow-subtle group hover:shadow-soft transition-all duration-300">
+          <span class="w-10 h-10 rounded-full bg-secondary-100 flex items-center justify-center text-secondary-600 mr-4 group-hover:bg-secondary-200 transition-colors">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+            </svg>
+          </span>
           <span class="font-body text-secondary">{amenity}</span>
         </div>
       ))}
@@ -114,45 +124,66 @@ const childrenAges = [
   </Section>
 
   <!-- Check-in/Check-out -->
-  <Section title={t.rooms.checkInOut.title} background="surface">
-    <div class="max-w-3xl mx-auto">
+  <Section title={t.rooms.checkInOut.title} background="paper" padding="xlarge">
+    <div class="max-w-4xl mx-auto">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div class="bg-background-secondary p-8 text-center">
-          <span class="text-5xl mb-4 block">🗝️</span>
-          <h3 class="font-display break-words text-2xl font-bold text-primary mb-2">{t.rooms.checkInOut.checkIn.title}</h3>
-          <p class="text-xl font-bold text-primary">{t.rooms.checkInOut.checkIn.time}</p>
-          <p class="font-body text-secondary mt-2">{t.rooms.checkInOut.checkIn.note}</p>
+        <div class="bg-paper p-10 text-center shadow-soft border-t-4 border-secondary-400">
+          <div class="w-16 h-16 mx-auto mb-6 rounded-full bg-secondary-100 flex items-center justify-center">
+            <svg class="w-8 h-8 text-secondary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+            </svg>
+          </div>
+          <h3 class="font-display text-2xl font-semibold text-dark mb-3">{t.rooms.checkInOut.checkIn.title}</h3>
+          <p class="font-display text-3xl text-primary-700 mb-2">{t.rooms.checkInOut.checkIn.time}</p>
+          <p class="text-secondary">{t.rooms.checkInOut.checkIn.note}</p>
         </div>
-        <div class="bg-background p-8 text-center">
-          <span class="text-5xl mb-4 block">🚪</span>
-          <h3 class="font-display break-words text-2xl font-bold text-primary mb-2">{t.rooms.checkInOut.checkOut.title}</h3>
-          <p class="text-xl font-bold text-primary">{t.rooms.checkInOut.checkOut.time}</p>
-          <p class="font-body text-secondary mt-2">{t.rooms.checkInOut.checkOut.note}</p>
+        
+        <div class="bg-paper p-10 text-center shadow-soft border-t-4 border-primary-600">
+          <div class="w-16 h-16 mx-auto mb-6 rounded-full bg-primary-100 flex items-center justify-center">
+            <svg class="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/>
+            </svg>
+          </div>
+          <h3 class="font-display text-2xl font-semibold text-dark mb-3">{t.rooms.checkInOut.checkOut.title}</h3>
+          <p class="font-display text-3xl text-primary-700 mb-2">{t.rooms.checkInOut.checkOut.time}</p>
+          <p class="text-secondary">{t.rooms.checkInOut.checkOut.note}</p>
         </div>
       </div>
     </div>
   </Section>
 
-  <!-- Booking CTA -->
-  <Section id="booking" title={t.rooms.booking.title} subtitle={t.rooms.booking.subtitle} background="background">
-    <div class="max-w-2xl mx-auto text-center">
-      <p class="font-body text-secondary text-lg mb-8">
-        {t.rooms.booking.description}
-      </p>
-      <div class="flex flex-wrap justify-center gap-4">
-        <a
-          href="tel:07361-73688"
-          class="inline-block px-8 py-4 bg-primary hover:bg-secondary text-white font-semibold transition-colors duration-300"
-        >
-          {t.rooms.booking.ctaCall}
-        </a>
-        <a
-          href="/"
-          class="inline-block px-8 py-4 border-2 border-primary text-primary hover:bg-primary hover:text-white font-semibold transition-colors duration-300"
-        >
-          {t.rooms.booking.ctaBack}
-        </a>
+  {/* Booking CTA */}
+  <section id="booking" class="relative py-24 lg:py-32 overflow-hidden">
+    <div class="absolute inset-0">
+      <img src="/images/hotel1.jpg" alt="" class="w-full h-full object-cover"/>
+      <div class="absolute inset-0 bg-primary-900/90"></div>
+    </div>
+    
+    <div class="relative container mx-auto px-6 lg:px-8">
+      <div class="max-w-3xl mx-auto text-center">
+        <div class="flex items-center justify-center gap-4 mb-6">
+          <span class="w-12 h-[1px] bg-secondary-400/60"></span>
+          <span class="text-secondary-300 text-xs tracking-[0.3em] uppercase">✦</span>
+          <span class="w-12 h-[1px] bg-secondary-400/60"></span>
+        </div>
+        
+        <h2 class="font-display text-3xl md:text-4xl lg:text-5xl font-semibold text-white mb-6">
+          {t.rooms.booking.title}
+        </h2>
+        
+        <p class="font-body text-lg lg:text-xl text-secondary-200/80 mb-10">
+          {t.rooms.booking.description}
+        </p>
+        
+        <div class="flex flex-wrap justify-center gap-4">
+          <a href="tel:07361-73688" class="btn-accent">
+            {t.rooms.booking.ctaCall}
+          </a>
+          <a href="/contact" class="btn-secondary text-white border-white/60 hover:bg-white hover:text-primary-900">
+            {t.rooms.booking.ctaBack}
+          </a>
+        </div>
       </div>
     </div>
-  </Section>
+  </section>
 </Layout>

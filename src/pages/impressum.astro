@@ -19,7 +19,7 @@ const legalInfo = {
 const structuredData = {
   '@context': 'https://schema.org',
   '@type': 'LegalService',
-  name: 'Vogthof Landgasthof - Impressum',
+  name: 'Landgasthof Vogthof - Impressum',
   owner: legalInfo.owner,
   address: {
     '@type': 'PostalAddress',
@@ -35,14 +35,14 @@ const structuredData = {
 ---
 
 <Layout 
-  title="Impressum | Vogthof Landgasthof"
-  description="Impressum und rechtliche Informationen des Vogthof Landgasthof in Aalen-Röthardt."
+  title="Impressum | Landgasthof Vogthof"
+  description="Impressum und rechtliche Informationen des Landgasthof Vogthof in Aalen-Röthardt."
   locale={locale}
 >
   <!-- Hero Section -->
-  <Section background="surface" padding="medium">
+  <Section background="paper" padding="medium">
     <div class="text-center">
-      <h1 class="font-display break-words text-4xl md:text-5xl lg:text-6xl font-bold text-primary mb-4">
+      <h1 class="font-display text-4xl md:text-5xl lg:text-6xl font-semibold text-dark mb-4">
         {t.impressum.hero.title}
       </h1>
       <p class="font-body text-lg text-secondary max-w-2xl mx-auto">
@@ -52,61 +52,61 @@ const structuredData = {
   </Section>
 
   <!-- Legal Content -->
-  <Section background="background" padding="large">
+  <Section background="base" padding="xlarge">
     <div class="max-w-4xl mx-auto">
       <!-- Angaben gemäß § 5 TMG -->
-      <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
-        <h2 class="font-display break-words text-2xl font-bold text-primary mb-6">
+      <div class="bg-paper shadow-soft border border-light p-8 mb-8">
+        <h2 class="font-display text-2xl font-semibold text-dark mb-6">
           {t.impressum.info.title}
         </h2>
         
         <div class="space-y-4">
           <div>
-            <p class="font-body text-sm text-secondary mb-1">{t.impressum.info.owner}:</p>
-            <p class="font-body text-lg text-primary font-semibold">
+            <p class="text-sm text-muted mb-1">{t.impressum.info.owner}:</p>
+            <p class="font-display text-lg text-dark font-medium">
               {legalInfo.owner}
             </p>
           </div>
           
           <div>
-            <p class="font-body text-sm text-secondary mb-1">{t.impressum.info.address}:</p>
-            <p class="font-body text-lg text-primary">
+            <p class="text-sm text-muted mb-1">{t.impressum.info.address}:</p>
+            <p class="font-body text-lg text-dark">
               {legalInfo.address}
             </p>
           </div>
           
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <p class="font-body text-sm text-secondary mb-1">{t.impressum.info.phone}:</p>
-              <a href={`tel:${legalInfo.phone.replace(/\D/g, '')}`} class="font-body text-lg text-primary hover:text-secondary transition-colors">
+              <p class="text-sm text-muted mb-1">{t.impressum.info.phone}:</p>
+              <a href={`tel:${legalInfo.phone.replace(/\D/g, '')}`} class="font-body text-lg text-primary-600 hover:text-primary-700 transition-colors">
                 {legalInfo.phone}
               </a>
             </div>
             <div>
-              <p class="font-body text-sm text-secondary mb-1">{t.impressum.info.fax}:</p>
-              <p class="font-body text-lg text-primary">
+              <p class="text-sm text-muted mb-1">{t.impressum.info.fax}:</p>
+              <p class="font-body text-lg text-dark">
                 {legalInfo.fax}
               </p>
             </div>
           </div>
           
           <div>
-            <p class="font-body text-sm text-secondary mb-1">{t.impressum.info.email}:</p>
-            <a href={`mailto:${legalInfo.email}`} class="font-body text-lg text-primary hover:text-secondary transition-colors">
+            <p class="text-sm text-muted mb-1">{t.impressum.info.email}:</p>
+            <a href={`mailto:${legalInfo.email}`} class="font-body text-lg text-primary-600 hover:text-primary-700 transition-colors">
               {legalInfo.email}
             </a>
           </div>
           
           <div>
-            <p class="font-body text-sm text-secondary mb-1">{t.impressum.info.website}:</p>
-            <a href={`https://${legalInfo.website}`} target="_blank" rel="noopener noreferrer" class="font-body text-lg text-primary hover:text-secondary transition-colors">
+            <p class="text-sm text-muted mb-1">{t.impressum.info.website}:</p>
+            <a href={`https://${legalInfo.website}`} target="_blank" rel="noopener noreferrer" class="font-body text-lg text-primary-600 hover:text-primary-700 transition-colors">
               {legalInfo.website}
             </a>
           </div>
           
           <div>
-            <p class="font-body text-sm text-secondary mb-1">{t.impressum.info.taxId}:</p>
-            <p class="font-body text-lg text-primary">
+            <p class="text-sm text-muted mb-1">{t.impressum.info.taxId}:</p>
+            <p class="font-body text-lg text-dark">
               {legalInfo.taxId}
             </p>
           </div>
@@ -114,48 +114,48 @@ const structuredData = {
       </div>
 
       <!-- Haftung für Inhalte -->
-      <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
-        <h2 class="font-display break-words text-2xl font-bold text-primary mb-6">
+      <div class="bg-paper shadow-soft border border-light p-8 mb-8">
+        <h2 class="font-display text-2xl font-semibold text-dark mb-6">
           {t.impressum.content.title}
         </h2>
-        <div class="prose prose-brown max-w-none">
-          <p class="font-body text-secondary leading-relaxed">
+        <div class="font-body text-secondary leading-relaxed">
+          <p>
             {t.impressum.content.text}
           </p>
         </div>
       </div>
 
       <!-- Haftung für Links -->
-      <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
-        <h2 class="font-display break-words text-2xl font-bold text-primary mb-6">
+      <div class="bg-paper shadow-soft border border-light p-8 mb-8">
+        <h2 class="font-display text-2xl font-semibold text-dark mb-6">
           {t.impressum.links.title}
         </h2>
-        <div class="prose prose-brown max-w-none">
-          <p class="font-body text-secondary leading-relaxed">
+        <div class="font-body text-secondary leading-relaxed">
+          <p>
             {t.impressum.links.text}
           </p>
         </div>
       </div>
 
       <!-- Urheber- und Kennzeichenrecht -->
-      <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
-        <h2 class="font-display break-words text-2xl font-bold text-primary mb-6">
+      <div class="bg-paper shadow-soft border border-light p-8 mb-8">
+        <h2 class="font-display text-2xl font-semibold text-dark mb-6">
           {t.impressum.copyright.title}
         </h2>
-        <div class="prose prose-brown max-w-none">
-          <p class="font-body text-secondary leading-relaxed">
+        <div class="font-body text-secondary leading-relaxed">
+          <p>
             {t.impressum.copyright.text}
           </p>
         </div>
       </div>
 
       <!-- Datenschutz -->
-      <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
-        <h2 class="font-display break-words text-2xl font-bold text-primary mb-6">
+      <div class="bg-paper shadow-soft border border-light p-8 mb-8">
+        <h2 class="font-display text-2xl font-semibold text-dark mb-6">
           {t.impressum.privacy.title}
         </h2>
-        <div class="prose prose-brown max-w-none">
-          <p class="font-body text-secondary leading-relaxed">
+        <div class="font-body text-secondary leading-relaxed">
+          <p>
             {t.impressum.privacy.text}
           </p>
         </div>
@@ -163,22 +163,13 @@ const structuredData = {
 
       <!-- Quick Links -->
       <div class="flex flex-wrap justify-center gap-4">
-        <a
-          href="/datenschutz"
-          class="inline-flex items-center gap-2 px-6 py-3 bg-primary hover:bg-secondary text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
-        >
+        <a href="/datenschutz" class="btn-primary">
           {t.common.footer.privacy}
         </a>
-        <a
-          href="/menus"
-          class="inline-flex items-center gap-2 px-6 py-3 border-2 border-primary text-primary hover:bg-primary hover:text-white font-semibold rounded-lg transition-all duration-300"
-        >
+        <a href="/menus" class="btn-secondary">
           {t.common.nav.menus}
         </a>
-        <a
-          href="/tagesessen"
-          class="inline-flex items-center gap-2 px-6 py-3 border-2 border-primary text-primary hover:bg-primary hover:text-white font-semibold rounded-lg transition-all duration-300"
-        >
+        <a href="/tagesessen" class="btn-secondary">
           Tagesessen
         </a>
       </div>

@@ -7,6 +7,13 @@ import { getTranslations } from '../../i18n/translations';
 
 const locale = 'en';
 const t = getTranslations(locale);
+
+const activities = [
+  { key: 'hiking', icon: '🥾' },
+  { key: 'cycling', icon: '🚴' },
+  { key: 'wellness', icon: '♨️' },
+  { key: 'culture', icon: '🏛️' },
+] as const;
 ---
 
 <Layout 
@@ -18,28 +25,39 @@ const t = getTranslations(locale);
   <Hero
     showLogo={true}
     subheadline={t.home.hero.subheadline}
-    backgroundImage="/images/restaurant_room_full_length.jpg"
+    backgroundImage="/images/eat/desert_tray.jpg"
     ctaText={t.home.hero.ctaPrimary}
     ctaLink="/en/rooms"
     ctaSecondaryText={t.home.hero.ctaSecondary}
     ctaSecondaryLink="/en/menus"
     height="large"
-    overlayType="dark"
+    overlayType="gradient"
   />
 
   <!-- Introduction Section -->
   <Section
     title={t.home.welcome.title}
     subtitle={t.home.welcome.subtitle}
-    background="background"
+    background="base"
+    padding="xlarge"
   >
-    <div class="max-w-4xl mx-auto text-center">
-      <p class="text-lg text-[#5C4033] leading-relaxed mb-6">
+    <div class="max-w-3xl mx-auto text-center">
+      <p class="font-body text-lg lg:text-xl text-secondary leading-relaxed mb-8">
         {t.home.welcome.paragraph1}
       </p>
-      <p class="text-lg text-[#5C4033] leading-relaxed">
+      <p class="font-body text-lg text-secondary leading-relaxed">
         {t.home.welcome.paragraph2}
       </p>
+      
+      <div class="mt-12">
+        <div class="inline-flex items-center gap-4 px-8 py-4 bg-paper border border-light rounded-sm shadow-soft">
+          <span class="text-4xl">🏔️</span>
+          <div class="text-left">
+            <p class="font-display text-primary-600 font-medium">Since 1983</p>
+            <p class="text-sm text-muted">Family-run hospitality</p>
+          </div>
+        </div>
+      </div>
     </div>
   </Section>
 
@@ -47,9 +65,10 @@ const t = getTranslations(locale);
   <Section
     title={t.home.offerings.title}
     subtitle={t.home.offerings.subtitle}
-    background="background-secondary"
+    background="cream"
+    padding="xlarge"
   >
-    <div class="grid md:grid-cols-3 gap-8">
+    <div class="grid md:grid-cols-3 gap-8 lg:gap-10">
       <Card
         title={t.home.offerings.rooms.title}
         description={t.home.offerings.rooms.description}
@@ -61,7 +80,7 @@ const t = getTranslations(locale);
       <Card
         title={t.home.offerings.cuisine.title}
         description={t.home.offerings.cuisine.description}
-        image="/images/eat/k1.jpg"
+        image="/images/eat/mushroom_main_course.jpg"
         link="/en/restaurant"
         linkText={t.home.offerings.cuisine.linkText}
         hoverEffect="lift"
@@ -69,7 +88,7 @@ const t = getTranslations(locale);
       <Card
         title={t.home.offerings.events.title}
         description={t.home.offerings.events.description}
-        image="/images/wedding_preparations.jpg"
+        image="/images/eat/tray_donut_desert.jpg"
         link="/en/events"
         linkText={t.home.offerings.events.linkText}
         hoverEffect="lift"
@@ -81,34 +100,63 @@ const t = getTranslations(locale);
   <Section
     title={t.home.culinary.title}
     subtitle={t.home.culinary.subtitle}
-    background="surface"
+    background="paper"
+    padding="xlarge"
   >
-    <div class="grid md:grid-cols-2 gap-12 items-center">
-      <div class="relative">
+    <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+      <div class="relative group">
+        <div class="absolute -inset-4 bg-secondary-200/30 rounded-sm transform rotate-1 transition-transform duration-500 group-hover:rotate-2"></div>
         <img
           src="/images/restaurant/vogtstube.jpg"
           alt="Restaurant Vogthof"
-          class="shadow-xl w-full"
+          class="relative shadow-medium w-full rounded-sm"
         />
+        {/* Decorative badge */}
+        <div class="absolute -bottom-6 -right-6 bg-primary-900 text-white px-6 py-4 shadow-strong">
+          <p class="font-display text-sm tracking-wider">TRADITION</p>
+          <p class="text-3xl font-display font-semibold">40+</p>
+          <p class="text-sm text-secondary-300">Years</p>
+        </div>
       </div>
-      <div class="prose prose-lg text-[#5C4033]">
-        <p class="mb-6">
+      
+      <div>
+        <div class="flex items-center gap-4 mb-6">
+          <span class="w-12 h-[1px] bg-secondary-400"></span>
+          <span class="text-muted text-sm tracking-widest uppercase">Culinary</span>
+        </div>
+        
+        <p class="font-body text-lg text-secondary leading-relaxed mb-6">
           {t.home.culinary.paragraph1}
         </p>
-        <p class="mb-6">
+        <p class="font-body text-lg text-secondary leading-relaxed mb-8">
           {t.home.culinary.paragraph2}
         </p>
+        
+        {/* Feature list */}
+        <div class="grid grid-cols-2 gap-4 mb-10">
+          <div class="flex items-center gap-3">
+            <span class="w-8 h-8 rounded-full bg-secondary-100 flex items-center justify-center text-secondary-600">✓</span>
+            <span class="text-secondary text-sm">Regional ingredients</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="w-8 h-8 rounded-full bg-secondary-100 flex items-center justify-center text-secondary-600">✓</span>
+            <span class="text-secondary text-sm">Seasonal cuisine</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="w-8 h-8 rounded-full bg-secondary-100 flex items-center justify-center text-secondary-600">✓</span>
+            <span class="text-secondary text-sm">Handcrafted preparation</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="w-8 h-8 rounded-full bg-secondary-100 flex items-center justify-center text-secondary-600">✓</span>
+            <span class="text-secondary text-sm">Swabian specialties</span>
+          </div>
+        </div>
+        
         <div class="flex flex-wrap gap-4">
-          <a
-            href="/en/menus"
-            class="inline-block px-6 py-3 bg-[#8B4513] hover:bg-[#A0522D] text-white font-semibold transition-all duration-300"
-          >
+          <a href="/en/menus" class="btn-primary">
             {t.home.culinary.ctaPrimary}
           </a>
-          <a
-            href="/en/restaurant"
-            class="inline-block px-6 py-3 border-2 border-[#8B4513] text-[#8B4513] hover:bg-[#8B4513] hover:text-white font-semibold transition-all duration-300"
-          >
+          <a href="/en/restaurant" class="btn-secondary">
             {t.home.culinary.ctaSecondary}
           </a>
         </div>
@@ -120,96 +168,112 @@ const t = getTranslations(locale);
   <Section
     title={t.home.activities.title}
     subtitle={t.home.activities.subtitle}
-    background="background"
+    background="base"
+    padding="xlarge"
   >
-    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-      <div class="bg-white p-6 shadow-md text-center">
-        <div class="text-4xl mb-4">🥾</div>
-        <h3 class="font-['Playfair_Display',Georgia,serif] text-lg font-bold text-[#2C1810] mb-2">
-          {t.home.activities.hiking.title}
-        </h3>
-        <p class="text-sm text-[#5C4033]">
-          {t.home.activities.hiking.description}
-        </p>
-      </div>
-      <div class="bg-white p-6 shadow-md text-center">
-        <div class="text-4xl mb-4">🚴</div>
-        <h3 class="font-['Playfair_Display',Georgia,serif] text-lg font-bold text-[#2C1810] mb-2">
-          {t.home.activities.cycling.title}
-        </h3>
-        <p class="text-sm text-[#5C4033]">
-          {t.home.activities.cycling.description}
-        </p>
-      </div>
-      <div class="bg-white p-6 shadow-md text-center">
-        <div class="text-4xl mb-4">♨️</div>
-        <h3 class="font-['Playfair_Display',Georgia,serif] text-lg font-bold text-[#2C1810] mb-2">
-          {t.home.activities.wellness.title}
-        </h3>
-        <p class="text-sm text-[#5C4033]">
-          {t.home.activities.wellness.description}
-        </p>
-      </div>
-      <div class="bg-white p-6 shadow-md text-center">
-        <div class="text-4xl mb-4">🏛️</div>
-        <h3 class="font-['Playfair_Display',Georgia,serif] text-lg font-bold text-[#2C1810] mb-2">
-          {t.home.activities.culture.title}
-        </h3>
-        <p class="text-sm text-[#5C4033]">
-          {t.home.activities.culture.description}
-        </p>
-      </div>
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+      {activities.map((activity) => (
+        <div class="group bg-paper p-8 shadow-subtle hover:shadow-soft transition-all duration-500 hover:-translate-y-1 text-center">
+          <div class="text-5xl mb-5 transform group-hover:scale-110 transition-transform duration-300">{activity.icon}</div>
+          <h3 class="font-display text-lg font-semibold text-dark mb-2">
+            {t.home.activities[activity.key].title}
+          </h3>
+          <p class="text-sm text-secondary leading-relaxed">
+            {t.home.activities[activity.key].description}
+          </p>
+        </div>
+      ))}
     </div>
-    <div class="text-center mt-8">
-      <a
-        href="/en/activities"
-        class="inline-block px-8 py-4 bg-[#2D5A27] hover:bg-[#3D7A37] text-white font-semibold transition-all duration-300"
-      >
+    
+    <div class="text-center mt-12">
+      <a href="/en/activities" class="btn-secondary">
         {t.home.activities.cta}
       </a>
     </div>
   </Section>
 
-  <!-- Contact CTA -->
-  <Section
-    title={t.home.visit.title}
-    subtitle={t.home.visit.subtitle}
-    background="background-secondary"
-  >
-    <div class="max-w-4xl mx-auto">
-      <div class="grid md:grid-cols-3 gap-8 mb-8">
-        <div class="bg-white p-6 shadow-md text-center">
-          <h3 class="font-bold text-[#2C1810] mb-2">📍 {t.home.visit.address}</h3>
-          <p class="text-[#5C4033] text-sm">
-            Bergbaustraße 28/1<br />
-            73433 Aalen-Röthardt
-          </p>
+  <!-- Contact CTA Section -->
+  <section class="relative py-24 lg:py-32 overflow-hidden">
+    {/* Background image */}
+    <div class="absolute inset-0">
+      <img 
+        src="/images/room_with_dark_wooden_beams.jpg" 
+        alt="" 
+        class="w-full h-full object-cover"
+      />
+      <div class="absolute inset-0 bg-primary-900/85"></div>
+    </div>
+    
+    {/* Decorative corners */}
+    <div class="absolute top-8 left-8 w-24 h-24 border-l border-t border-secondary-400/30 hidden lg:block"></div>
+    <div class="absolute top-8 right-8 w-24 h-24 border-r border-t border-secondary-400/30 hidden lg:block"></div>
+    <div class="absolute bottom-8 left-8 w-24 h-24 border-l border-b border-secondary-400/30 hidden lg:block"></div>
+    <div class="absolute bottom-8 right-8 w-24 h-24 border-r border-b border-secondary-400/30 hidden lg:block"></div>
+    
+    <div class="relative container mx-auto px-6 lg:px-8">
+      <div class="max-w-4xl mx-auto text-center">
+        <div class="flex items-center justify-center gap-4 mb-6">
+          <span class="w-12 h-[1px] bg-secondary-400/60"></span>
+          <span class="text-secondary-300 text-xs tracking-[0.3em] uppercase">✦</span>
+          <span class="w-12 h-[1px] bg-secondary-400/60"></span>
         </div>
-        <div class="bg-white p-6 shadow-md text-center">
-          <h3 class="font-bold text-[#2C1810] mb-2">📞 {t.home.visit.phone}</h3>
-          <p class="text-[#5C4033] text-sm">
-            <a href="tel:07361-73688" class="hover:text-[#8B4513]">
-              07361-73688
-            </a>
-          </p>
+        
+        <h2 class="font-display text-3xl md:text-4xl lg:text-5xl font-semibold text-white mb-6">
+          {t.home.visit.title}
+        </h2>
+        
+        <p class="font-body text-lg lg:text-xl text-secondary-200/80 mb-12 max-w-2xl mx-auto">
+          {t.home.visit.subtitle}
+        </p>
+        
+        <div class="grid md:grid-cols-3 gap-6 mb-12">
+          <div class="bg-white/10 backdrop-blur-sm border border-white/20 p-6 text-center">
+            <div class="w-12 h-12 mx-auto mb-4 rounded-full bg-secondary-500/30 flex items-center justify-center">
+              <svg class="w-5 h-5 text-secondary-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+              </svg>
+            </div>
+            <h3 class="font-display text-secondary-200 text-sm tracking-wider uppercase mb-2">{t.home.visit.address}</h3>
+            <p class="text-secondary-300 text-sm">
+              Bergbaustraße 28/1<br/>
+              73433 Aalen-Röthardt
+            </p>
+          </div>
+          
+          <div class="bg-white/10 backdrop-blur-sm border border-white/20 p-6 text-center">
+            <div class="w-12 h-12 mx-auto mb-4 rounded-full bg-secondary-500/30 flex items-center justify-center">
+              <svg class="w-5 h-5 text-secondary-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+              </svg>
+            </div>
+            <h3 class="font-display text-secondary-200 text-sm tracking-wider uppercase mb-2">{t.home.visit.phone}</h3>
+            <p class="text-secondary-300 text-sm">
+              <a href="tel:07361-73688" class="hover:text-white transition-colors">
+                07361-73688
+              </a>
+            </p>
+          </div>
+          
+          <div class="bg-white/10 backdrop-blur-sm border border-white/20 p-6 text-center">
+            <div class="w-12 h-12 mx-auto mb-4 rounded-full bg-secondary-500/30 flex items-center justify-center">
+              <svg class="w-5 h-5 text-secondary-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+              </svg>
+            </div>
+            <h3 class="font-display text-secondary-200 text-sm tracking-wider uppercase mb-2">{t.home.visit.email}</h3>
+            <p class="text-secondary-300 text-sm">
+              <a href="mailto:info@aalen-vogthof.de" class="hover:text-white transition-colors">
+                info@aalen-vogthof.de
+              </a>
+            </p>
+          </div>
         </div>
-        <div class="bg-white p-6 shadow-md text-center">
-          <h3 class="font-bold text-[#2C1810] mb-2">✉️ {t.home.visit.email}</h3>
-          <p class="text-[#5C4033] text-sm">
-            <a href="mailto:info@aalen-vogthof.de" class="hover:text-[#8B4513]">
-              info@aalen-vogthof.de
-            </a>
-          </p>
-        </div>
-      </div>
-      <div class="text-center">
-        <a
-          href="/en/contact"
-          class="inline-block px-8 py-4 bg-[#8B4513] hover:bg-[#A0522D] text-white font-semibold transition-all duration-300 shadow-lg hover:shadow-xl"
-        >
+        
+        <a href="/en/contact" class="btn-accent">
           {t.home.visit.cta}
         </a>
       </div>
     </div>
-  </Section>
+  </section>
 </Layout>

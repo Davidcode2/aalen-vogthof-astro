@@ -8,8 +8,9 @@ interface Props {
   ctaLink?: string;
   ctaSecondaryText?: string;
   ctaSecondaryLink?: string;
-  height?: 'full' | 'large' | 'medium';
-  overlayType?: 'default' | 'radial' | 'dark';
+  height?: 'full' | 'large' | 'medium' | 'small';
+  overlayType?: 'default' | 'light' | 'dark' | 'gradient';
+  align?: 'center' | 'left' | 'right';
 }
 
 const {
@@ -22,88 +23,171 @@ const {
   ctaSecondaryText,
   ctaSecondaryLink,
   height = 'large',
-  overlayType = 'default'
+  overlayType = 'gradient',
+  align = 'center'
 } = Astro.props;
 
 const heightClasses = {
   full: 'min-h-screen',
-  large: 'min-h-[70vh]',
-  medium: 'min-h-[50vh]'
+  large: 'min-h-[85vh]',
+  medium: 'min-h-[65vh]',
+  small: 'min-h-[50vh]'
+};
+
+const alignClasses = {
+  center: 'text-center items-center',
+  left: 'text-left items-start',
+  right: 'text-right items-end'
 };
 ---
 
-<section class={`relative ${heightClasses[height]} flex items-center justify-center overflow-hidden`}>
-  <!-- Background Image -->
+<section class={`relative ${heightClasses[height]} flex ${alignClasses[align]} justify-center overflow-hidden`}>
+  <!-- Background Image with Parallax -->
   <div class="absolute inset-0 z-0">
     {backgroundImage ? (
       <img
         src={backgroundImage}
         alt=""
-        class="w-full h-full object-cover"
+        class="w-full h-full object-cover scale-105"
+        id="hero-bg"
       />
     ) : (
-      <div class="w-full h-full bg-gradient-to-br from-secondary to-primary"></div>
+      <div class="w-full h-full bg-gradient-to-br from-primary-800 via-primary-700 to-primary-900"></div>
     )}
   </div>
 
-  <!-- Dark Overlay -->
-  {overlayType === 'radial' ? (
-    <div class="absolute inset-0 z-10 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.3)_50%,rgba(0,0,0,0.6)_100%)]"></div>
+  <!-- Overlay -->
+  {overlayType === 'light' ? (
+    <div class="absolute inset-0 z-10 bg-gradient-to-b from-black/30 via-black/20 to-black/40"></div>
   ) : overlayType === 'dark' ? (
-    <div class="absolute inset-0 z-10 bg-gradient-to-b from-black/60 via-black/50 to-black/70"></div>
+    <div class="absolute inset-0 z-10 bg-gradient-to-b from-black/70 via-black/50 to-black/80"></div>
+  ) : overlayType === 'gradient' ? (
+    <div class="absolute inset-0 z-10 bg-gradient-to-t from-primary-900/90 via-primary-900/50 to-primary-900/70"></div>
   ) : (
-    <div class="absolute inset-0 z-10 bg-gradient-to-b from-black/50 via-black/40 to-black/60"></div>
+    <div class="absolute inset-0 z-10 bg-primary-900/50"></div>
   )}
 
+  <!-- Decorative corner elements -->
+  <div class="absolute top-8 left-8 w-16 h-16 border-l-2 border-t-2 border-secondary-400/40 z-20 hidden lg:block"></div>
+  <div class="absolute top-8 right-8 w-16 h-16 border-r-2 border-t-2 border-secondary-400/40 z-20 hidden lg:block"></div>
+  <div class="absolute bottom-8 left-8 w-16 h-16 border-l-2 border-b-2 border-secondary-400/40 z-20 hidden lg:block"></div>
+  <div class="absolute bottom-8 right-8 w-16 h-16 border-r-2 border-b-2 border-secondary-400/40 z-20 hidden lg:block"></div>
+
   <!-- Content -->
-  <div class="relative z-20 container mx-auto px-4 text-center text-white">
-    {showLogo ? (
-      <div class="mb-6 relative">
-        <!-- Dark blob behind logo for contrast -->
-        <div class="absolute inset-0 -m-8 md:-m-12 bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.8)_0%,rgba(0,0,0,0.5)_40%,rgba(0,0,0,0.2)_60%,transparent_80%)] blur-xl"></div>
-        <img
-          src="/images/logo.png"
-          alt="Landgasthof Vogthof"
-          class="relative w-48 md:w-64 lg:w-80 mx-auto drop-shadow-2xl"
-        />
+  <div class={`relative z-20 container mx-auto px-6 lg:px-8 flex flex-col justify-center ${alignClasses[align]}`}>
+    
+    <!-- Content Backdrop for readability -->
+    <div class="relative inline-block">
+      {/* Dark glow backdrop for text readability */}
+      <div class="absolute inset-0 -m-8 lg:-m-16 bg-gradient-radial from-black/70 via-black/40 to-transparent blur-2xl rounded-full"></div>
+      
+      <div class="relative">
+        {showLogo ? (
+          <div class="mb-8 animate-fade-in-up">
+            {/* Subtle glow behind logo for contrast */}
+            <div class="absolute inset-0 -m-12 bg-gradient-radial from-secondary-400/30 via-secondary-400/10 to-transparent blur-3xl"></div>
+            <img
+              src="/images/logo.png"
+              alt="Landgasthof Vogthof"
+              class="relative w-56 md:w-72 lg:w-96 mx-auto drop-shadow-2xl"
+            />
+          </div>
+        ) : headline ? (
+          <h1 class="font-display text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-semibold mb-6 leading-tight text-white text-glow animate-fade-in-up">
+            {headline}
+          </h1>
+        ) : null}
+
+        {subheadline && (
+          <p class="font-body text-lg md:text-xl lg:text-2xl mb-10 max-w-2xl text-secondary-100 leading-relaxed text-shadow-strong animate-fade-in-up" style="animation-delay: 150ms">
+            {subheadline}
+          </p>
+        )}
+
+        {/* Decorative divider */}
+        {(showLogo || headline) && (
+          <div class="flex items-center gap-4 mb-10 animate-fade-in-up" style="animation-delay: 200ms">
+            <span class="w-12 h-[1px] bg-secondary-400/80"></span>
+            <span class="text-secondary-300 text-sm tracking-[0.3em] uppercase drop-shadow-lg">✦</span>
+            <span class="w-12 h-[1px] bg-secondary-400/80"></span>
+          </div>
+        )}
+
+        <div class={`flex flex-wrap gap-4 animate-fade-in-up ${align === 'center' ? 'justify-center' : align === 'right' ? 'justify-end' : 'justify-start'}`} style="animation-delay: 300ms">
+          {ctaText && ctaLink && (
+            <a href={ctaLink} class="btn-accent">
+              {ctaText}
+            </a>
+          )}
+
+          {ctaSecondaryText && ctaSecondaryLink && (
+            <a href={ctaSecondaryLink} class="btn-outline-light">
+              {ctaSecondaryText}
+            </a>
+          )}
+        </div>
       </div>
-    ) : headline ? (
-      <h1 class="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight break-words">
-        {headline}
-      </h1>
-    ) : null}
-
-    {subheadline && (
-      <p class="font-body text-lg md:text-xl mb-8 max-w-2xl mx-auto opacity-90">
-        {subheadline}
-      </p>
-    )}
-
-    <div class="flex flex-wrap justify-center gap-4">
-      {ctaText && ctaLink && (
-        <a
-          href={ctaLink}
-          class="inline-block px-6 py-3 md:px-8 md:py-3 bg-primary hover:bg-primary-light text-white font-semibold transition-all duration-300 shadow-lg hover:shadow-xl"
-        >
-          {ctaText}
-        </a>
-      )}
-
-      {ctaSecondaryText && ctaSecondaryLink && (
-        <a
-          href={ctaSecondaryLink}
-          class="inline-block px-6 py-3 md:px-8 md:py-3 border-2 border-white hover:bg-white hover:text-secondary text-white font-semibold transition-all duration-300"
-        >
-          {ctaSecondaryText}
-        </a>
-      )}
     </div>
   </div>
 
-  <!-- Decorative Element -->
+  <!-- Bottom wave decoration -->
   <div class="absolute bottom-0 left-0 right-0 z-20">
-    <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto">
-      <path d="M0 60V45C240 30 480 15 720 15C960 15 1200 30 1440 45V60H0Z" fill="#FDFBF7"/>
+    <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto" preserveAspectRatio="none">
+      <path d="M0 80V50C240 70 480 20 720 35C960 50 1200 20 1440 40V80H0Z" fill="var(--bg-base)"/>
+    </svg>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="absolute bottom-24 left-1/2 -translate-x-1/2 z-20 hidden lg:flex flex-col items-center gap-2 animate-bounce-slow">
+    <span class="text-white/70 text-xs tracking-widest uppercase drop-shadow-lg">Scroll</span>
+    <svg class="w-5 h-5 text-white/70 drop-shadow-lg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
     </svg>
   </div>
 </section>
+
+<style>
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes bounce-slow {
+    0%, 100% {
+      transform: translateX(-50%) translateY(0);
+    }
+    50% {
+      transform: translateX(-50%) translateY(8px);
+    }
+  }
+
+  .animate-fade-in-up {
+    opacity: 0;
+    animation: fade-in-up 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+
+  .animate-bounce-slow {
+    animation: bounce-slow 2s ease-in-out infinite;
+  }
+
+  .bg-gradient-radial {
+    background: radial-gradient(circle, var(--tw-gradient-stops));
+  }
+</style>
+
+<script>
+  // Subtle parallax effect on scroll
+  const heroBg = document.getElementById('hero-bg');
+  if (heroBg) {
+    window.addEventListener('scroll', () => {
+      const scrolled = window.pageYOffset;
+      heroBg.style.transform = `translateY(${scrolled * 0.3}px) scale(1.05)`;
+    });
+  }
+</script>

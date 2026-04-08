@@ -17,7 +17,7 @@ const contactInfo = {
 const structuredData = {
   '@context': 'https://schema.org',
   '@type': 'PrivacyPolicy',
-  name: 'Vogthof Landgasthof - Datenschutzerklärung',
+  name: 'Landgasthof Vogthof - Datenschutzerklärung',
   owner: contactInfo.owner,
   address: {
     '@type': 'PostalAddress',
@@ -32,14 +32,14 @@ const structuredData = {
 ---
 
 <Layout 
-  title="Datenschutz | Vogthof Landgasthof"
-  description="Datenschutzerklärung des Vogthof Landgasthof. Information über die Verarbeitung personenbezogener Daten."
+  title="Datenschutz | Landgasthof Vogthof"
+  description="Datenschutzerklärung des Landgasthof Vogthof. Information über die Verarbeitung personenbezogener Daten."
   locale={locale}
 >
   <!-- Hero Section -->
-  <Section background="surface" padding="medium">
+  <Section background="paper" padding="medium">
     <div class="text-center">
-      <h1 class="font-display break-words text-4xl md:text-5xl lg:text-6xl font-bold text-primary mb-4">
+      <h1 class="font-display text-4xl md:text-5xl lg:text-6xl font-semibold text-dark mb-4">
         {t.datenschutz.hero.title}
       </h1>
       <p class="font-body text-lg text-secondary max-w-2xl mx-auto">
@@ -49,18 +49,18 @@ const structuredData = {
   </Section>
 
   <!-- Legal Content -->
-  <Section background="background" padding="large">
+  <Section background="base" padding="xlarge">
     <div class="max-w-4xl mx-auto space-y-8">
       <!-- 1. Name und Kontaktdaten -->
-      <div class="bg-white rounded-xl shadow-lg p-8">
-        <h2 class="font-display break-words text-2xl font-bold text-primary mb-6">
+      <div class="bg-paper shadow-soft border border-light p-8">
+        <h2 class="font-display text-2xl font-semibold text-dark mb-6">
           {t.datenschutz.sections.responsible.title}
         </h2>
         <p class="font-body text-secondary mb-4">
           {t.datenschutz.sections.responsible.text}
         </p>
-        <div class="space-y-3 pl-4 border-l-4 border-accent">
-          <p class="font-body text-lg text-primary font-semibold">
+        <div class="space-y-3 pl-4 border-l-4 border-secondary-400">
+          <p class="font-display text-lg text-dark font-medium">
             {contactInfo.owner}
           </p>
           <p class="font-body text-secondary">
@@ -68,28 +68,28 @@ const structuredData = {
           </p>
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
             <div>
-              <p class="font-body text-sm text-secondary">E-Mail:</p>
-              <a href={`mailto:${contactInfo.email}`} class="font-body text-primary hover:text-secondary">
+              <p class="text-sm text-muted">E-Mail:</p>
+              <a href={`mailto:${contactInfo.email}`} class="font-body text-primary-600 hover:text-primary-700">
                 {contactInfo.email}
               </a>
             </div>
             <div>
-              <p class="font-body text-sm text-secondary">Telefon:</p>
-              <a href={`tel:${contactInfo.phone.replace(/\D/g, '')}`} class="font-body text-primary hover:text-secondary">
+              <p class="text-sm text-muted">Telefon:</p>
+              <a href={`tel:${contactInfo.phone.replace(/\D/g, '')}`} class="font-body text-primary-600 hover:text-primary-700">
                 {contactInfo.phone}
               </a>
             </div>
             <div>
-              <p class="font-body text-sm text-secondary">Telefax:</p>
-              <p class="font-body text-primary">{contactInfo.fax}</p>
+              <p class="text-sm text-muted">Telefax:</p>
+              <p class="font-body text-dark">{contactInfo.fax}</p>
             </div>
           </div>
         </div>
       </div>
 
       <!-- 2. Umfang und Zweck -->
-      <div class="bg-white rounded-xl shadow-lg p-8">
-        <h2 class="font-display break-words text-2xl font-bold text-primary mb-6">
+      <div class="bg-paper shadow-soft border border-light p-8">
+        <h2 class="font-display text-2xl font-semibold text-dark mb-6">
           {t.datenschutz.sections.scope.title}
         </h2>
         <p class="font-body text-secondary leading-relaxed">
@@ -98,8 +98,8 @@ const structuredData = {
       </div>
 
       <!-- 3. Weitergabe von Daten -->
-      <div class="bg-white rounded-xl shadow-lg p-8">
-        <h2 class="font-display break-words text-2xl font-bold text-primary mb-6">
+      <div class="bg-paper shadow-soft border border-light p-8">
+        <h2 class="font-display text-2xl font-semibold text-dark mb-6">
           {t.datenschutz.sections.sharing.title}
         </h2>
         <p class="font-body text-secondary leading-relaxed">
@@ -108,8 +108,8 @@ const structuredData = {
       </div>
 
       <!-- 4. Cookies -->
-      <div class="bg-white rounded-xl shadow-lg p-8">
-        <h2 class="font-display break-words text-2xl font-bold text-primary mb-6">
+      <div class="bg-paper shadow-soft border border-light p-8">
+        <h2 class="font-display text-2xl font-semibold text-dark mb-6">
           {t.datenschutz.sections.cookies.title}
         </h2>
         <p class="font-body text-secondary leading-relaxed">
@@ -118,8 +118,8 @@ const structuredData = {
       </div>
 
       <!-- 5. Google Maps -->
-      <div class="bg-white rounded-xl shadow-lg p-8">
-        <h2 class="font-display break-words text-2xl font-bold text-primary mb-6">
+      <div class="bg-paper shadow-soft border border-light p-8">
+        <h2 class="font-display text-2xl font-semibold text-dark mb-6">
           {t.datenschutz.sections.maps.title}
         </h2>
         <p class="font-body text-secondary leading-relaxed">
@@ -128,8 +128,8 @@ const structuredData = {
       </div>
 
       <!-- 6. Ihre Rechte -->
-      <div class="bg-white rounded-xl shadow-lg p-8">
-        <h2 class="font-display break-words text-2xl font-bold text-primary mb-6">
+      <div class="bg-paper shadow-soft border border-light p-8">
+        <h2 class="font-display text-2xl font-semibold text-dark mb-6">
           {t.datenschutz.sections.rights.title}
         </h2>
         <p class="font-body text-secondary leading-relaxed">
@@ -138,8 +138,8 @@ const structuredData = {
       </div>
 
       <!-- 7. Stand -->
-      <div class="bg-white rounded-xl shadow-lg p-8">
-        <h2 class="font-display break-words text-2xl font-bold text-primary mb-6">
+      <div class="bg-paper shadow-soft border border-light p-8">
+        <h2 class="font-display text-2xl font-semibold text-dark mb-6">
           {t.datenschutz.sections.update.title}
         </h2>
         <p class="font-body text-secondary leading-relaxed">
@@ -149,16 +149,10 @@ const structuredData = {
 
       <!-- Quick Links -->
       <div class="flex flex-wrap justify-center gap-4">
-        <a
-          href="/contact"
-          class="inline-flex items-center gap-2 px-6 py-3 bg-primary hover:bg-secondary text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
-        >
+        <a href="/contact" class="btn-primary">
           {t.common.nav.contact}
         </a>
-        <a
-          href="/impressum"
-          class="inline-flex items-center gap-2 px-6 py-3 border-2 border-primary text-primary hover:bg-primary hover:text-white font-semibold rounded-lg transition-all duration-300"
-        >
+        <a href="/impressum" class="btn-secondary">
           {t.common.footer.imprint}
         </a>
       </div>

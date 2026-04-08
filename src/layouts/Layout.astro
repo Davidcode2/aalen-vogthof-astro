@@ -20,7 +20,7 @@ const htmlLang = locale === 'de' ? 'de' : 'en';
 ---
 
 <!doctype html>
-<html lang={htmlLang}>
+<html lang={htmlLang} class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -29,9 +29,13 @@ const htmlLang = locale === 'de' ? 'de' : 'en';
     <link rel="icon" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
 
+    <!-- Preconnect to font sources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
     <title>{title}</title>
   </head>
-  <body class="bg-background text-text antialiased min-h-screen flex flex-col">
+  <body class="bg-base text-primary antialiased min-h-screen flex flex-col">
     <Header locale={locale} />
     <main class="flex-grow">
       <slot />

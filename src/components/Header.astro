@@ -1,6 +1,6 @@
 ---
 import type { Locale } from '../i18n/types';
-import { getTranslations, getAlternatePath, getCurrentLocale } from '../i18n/translations';
+import { getTranslations, getCurrentLocale } from '../i18n/translations';
 
 interface Props {
   locale?: Locale;
@@ -20,7 +20,7 @@ const alternatePath = isGerman
   : currentPath.replace(/^\/en/, '') || '/';
 
 const alternateLocale = isGerman ? 'en' : 'de';
-const alternateLabel = isGerman ? 'Switch to English' : 'Zu Deutsch wechseln';
+const alternateLabel = isGerman ? 'English' : 'Deutsch';
 
 // Navigation items using translations
 const navItems = [
@@ -37,92 +37,181 @@ const navItems = [
 const homeHref = locale === 'de' ? '/' : '/en';
 ---
 
-<header class="sticky top-0 z-50 bg-secondary shadow-lg">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex justify-between items-center h-16">
+<header class="fixed top-0 left-0 right-0 z-50 transition-all duration-500" id="main-header">
+  <div class="absolute inset-0 bg-primary-900/95 backdrop-blur-md border-b border-secondary-400/20 transition-all duration-500" id="header-bg"></div>
+  
+  <div class="relative max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="flex justify-between items-center h-20 lg:h-24">
       <!-- Logo (links to home) -->
-      <a href={homeHref} class="flex items-center">
-        <img 
-          src="/images/logo.png" 
-          alt="Vogthof Landgasthof" 
-          class="h-12 w-auto object-contain"
-        />
+      <a href={homeHref} class="flex items-center group relative z-10">
+        <div class="relative overflow-hidden">
+          <img 
+            src="/images/logo.png" 
+            alt="Vogthof Landgasthof" 
+            class="h-14 lg:h-16 w-auto object-contain transition-transform duration-500 group-hover:scale-105"
+          />
+        </div>
       </a>
 
       <!-- Desktop Navigation -->
-      <nav class="hidden md:flex items-center space-x-1">
-        {navItems.map((item) => (
+      <nav class="hidden lg:flex items-center gap-1">
+        {navItems.map((item, index) => (
           <a
             href={item.href}
-            class="px-3 py-2 text-sm text-accent hover:text-white transition-discrete rounded-md transition-colors duration-200"
+            class="relative px-4 py-2 text-sm tracking-wider uppercase font-medium text-secondary-200 hover:text-white transition-colors duration-300 group"
+            style={`animation-delay: ${index * 50}ms`}
           >
-            {item.label}
+            <span class="relative z-10">{item.label}</span>
+            <span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[1px] bg-secondary-400 transition-all duration-300 group-hover:w-4/5"></span>
           </a>
         ))}
         
         <!-- Language Toggle -->
-        <a 
-          href={alternatePath}
-          class="ml-4 flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-accent/30 hover:bg-primary transition-colors"
-          aria-label={alternateLabel}
-          title={alternateLabel}
-        >
-          <span class={isGerman ? 'text-accent font-bold' : 'text-accent/60'}>DE</span>
-          <span class="text-accent/60">/</span>
-          <span class={!isGerman ? 'text-accent font-bold' : 'text-accent/60'}>EN</span>
-        </a>
+        <div class="ml-6 pl-6 border-l border-secondary-400/30">
+          <a 
+            href={alternatePath}
+            class="flex items-center gap-2 text-sm tracking-wider text-secondary-300 hover:text-white transition-colors duration-300"
+            aria-label={alternateLabel}
+            title={alternateLabel}
+          >
+            <span class={`transition-all duration-300 ${isGerman ? 'text-secondary-400 font-medium' : 'text-secondary-500'}`}>DE</span>
+            <span class="text-secondary-500 text-xs">/</span>
+            <span class={`transition-all duration-300 ${!isGerman ? 'text-secondary-400 font-medium' : 'text-secondary-500'}`}>EN</span>
+          </a>
+        </div>
       </nav>
 
       <!-- Mobile Menu Button -->
       <button
         id="mobile-menu-button"
-        class="md:hidden p-2 rounded-md text-accent hover:text-white hover:bg-primary transition-colors"
+        class="lg:hidden relative z-10 p-2 text-secondary-200 hover:text-white transition-colors"
         aria-label="Toggle menu"
+        aria-expanded="false"
       >
-        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-        </svg>
+        <div class="w-6 h-5 relative flex flex-col justify-between">
+          <span class="w-full h-[2px] bg-current transition-all duration-300 origin-left" id="menu-line-1"></span>
+          <span class="w-full h-[2px] bg-current transition-all duration-300" id="menu-line-2"></span>
+          <span class="w-full h-[2px] bg-current transition-all duration-300 origin-left" id="menu-line-3"></span>
+        </div>
       </button>
     </div>
   </div>
 
   <!-- Mobile Navigation -->
-  <div id="mobile-menu" class="hidden md:hidden bg-secondary border-t border-primary">
-    <div class="px-2 pt-2 pb-3 space-y-1">
-      {navItems.map((item) => (
+  <div id="mobile-menu" class="lg:hidden fixed inset-0 top-20 bg-primary-900/98 backdrop-blur-lg opacity-0 invisible transition-all duration-500">
+    <div class="flex flex-col items-center justify-center h-full gap-6 px-6">
+      {navItems.map((item, index) => (
         <a
           href={item.href}
-          class="block px-3 py-2 text-base font-medium text-accent hover:text-white hover:bg-primary rounded-md transition-colors duration-200"
+          class="text-2xl tracking-widest uppercase font-medium text-secondary-200 hover:text-white transition-all duration-300 mobile-nav-link"
+          style={`transform: translateY(20px); opacity: 0; transition-delay: ${index * 50}ms`}
         >
           {item.label}
         </a>
       ))}
       
       <!-- Mobile Language Toggle -->
-      <div class="pt-4 mt-4 border-t border-primary">
+      <div class="mt-8 pt-8 border-t border-secondary-400/30 w-full max-w-xs">
         <a 
           href={alternatePath}
-          class="flex items-center justify-between px-3 py-2 text-base font-medium text-accent hover:text-white hover:bg-primary rounded-md transition-colors"
+          class="flex items-center justify-center gap-4 text-lg tracking-wider text-secondary-300 hover:text-white transition-colors"
         >
-          <span>{alternateLabel}</span>
-          <span class="flex items-center gap-2">
-            <span class={isGerman ? 'text-accent font-bold' : 'text-accent/60'}>DE</span>
-            <span class="text-accent/60">|</span>
-            <span class={!isGerman ? 'text-accent font-bold' : 'text-accent/60'}>EN</span>
-          </span>
+          <span class={isGerman ? 'text-secondary-400 font-medium' : 'text-secondary-500'}>Deutsch</span>
+          <span class="text-secondary-500">|</span>
+          <span class={!isGerman ? 'text-secondary-400 font-medium' : 'text-secondary-500'}>English</span>
         </a>
       </div>
     </div>
   </div>
 </header>
 
+<!-- Spacer for fixed header -->
+<div class="h-20 lg:h-24"></div>
+
 <script>
   const mobileMenuButton = document.getElementById('mobile-menu-button');
   const mobileMenu = document.getElementById('mobile-menu');
+  const menuLine1 = document.getElementById('menu-line-1');
+  const menuLine2 = document.getElementById('menu-line-2');
+  const menuLine3 = document.getElementById('menu-line-3');
+  const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+  const header = document.getElementById('main-header');
+  const headerBg = document.getElementById('header-bg');
 
+  let isMenuOpen = false;
+  let lastScroll = 0;
+
+  // Mobile menu toggle
   if (mobileMenuButton && mobileMenu) {
     mobileMenuButton.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
+      isMenuOpen = !isMenuOpen;
+      
+      // Animate hamburger
+      if (menuLine1 && menuLine2 && menuLine3) {
+        if (isMenuOpen) {
+          menuLine1.style.transform = 'rotate(45deg) translateY(-2px)';
+          menuLine2.style.opacity = '0';
+          menuLine3.style.transform = 'rotate(-45deg) translateY(2px)';
+        } else {
+          menuLine1.style.transform = 'none';
+          menuLine2.style.opacity = '1';
+          menuLine3.style.transform = 'none';
+        }
+      }
+      
+      // Toggle menu
+      if (isMenuOpen) {
+        mobileMenu.classList.remove('opacity-0', 'invisible');
+        mobileMenu.classList.add('opacity-100', 'visible');
+        mobileMenuButton.setAttribute('aria-expanded', 'true');
+        document.body.style.overflow = 'hidden';
+        
+        // Animate links
+        mobileNavLinks.forEach((link, index) => {
+          setTimeout(() => {
+            (link as HTMLElement).style.transform = 'translateY(0)';
+            (link as HTMLElement).style.opacity = '1';
+          }, 100 + index * 50);
+        });
+      } else {
+        mobileMenu.classList.add('opacity-0', 'invisible');
+        mobileMenu.classList.remove('opacity-100', 'visible');
+        mobileMenuButton.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+        
+        mobileNavLinks.forEach((link) => {
+          (link as HTMLElement).style.transform = 'translateY(20px)';
+          (link as HTMLElement).style.opacity = '0';
+        });
+      }
+    });
+
+    // Close menu on link click
+    mobileNavLinks.forEach((link) => {
+      link.addEventListener('click', () => {
+        if (isMenuOpen) {
+          mobileMenuButton.click();
+        }
+      });
+    });
+  }
+
+  // Header scroll behavior
+  if (header && headerBg) {
+    window.addEventListener('scroll', () => {
+      const currentScroll = window.pageYOffset;
+      
+      if (currentScroll > 50) {
+        header.classList.add('shadow-lg');
+        headerBg.classList.add('bg-primary-900/98');
+        headerBg.classList.remove('bg-primary-900/95');
+      } else {
+        header.classList.remove('shadow-lg');
+        headerBg.classList.remove('bg-primary-900/98');
+        headerBg.classList.add('bg-primary-900/95');
+      }
+      
+      lastScroll = currentScroll;
     });
   }
 </script>

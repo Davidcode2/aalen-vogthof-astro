@@ -18,58 +18,68 @@ const {
   amenities = [],
   description,
   detailsLink = '/contact',
-  detailsText = 'Book'
+  detailsText = 'Anfragen'
 } = Astro.props;
 
 const capacityLabels: Record<number, string> = {
-  1: 'Single',
-  2: 'Double',
-  4: 'Family',
-  [capacity]: capacity > 4 ? 'Up to 6 guests' : ''
+  1: 'Einzelzimmer',
+  2: 'Doppelzimmer',
+  4: 'Familienzimmer',
 };
 ---
 
-<article class="bg-white overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 group">
+<article class="group bg-paper overflow-hidden shadow-subtle hover:shadow-medium transition-all duration-500">
   <!-- Image Container -->
   <div class="relative overflow-hidden aspect-[16/10]">
     <img
       src={image}
       alt={name}
-      class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+      class="w-full h-full object-cover transition-all duration-700 group-hover:scale-110"
     />
-    <!-- Price Badge -->
-    <div class="absolute top-4 right-4 bg-primary text-white px-4 py-2 font-bold shadow-lg">
-      {price}
+    
+    {/* Gradient overlay */}
+    <div class="absolute inset-0 bg-gradient-to-t from-primary-900/60 via-transparent to-transparent"></div>
+    
+    {/* Price Badge */}
+    <div class="absolute bottom-4 right-4 bg-white/95 backdrop-blur-sm px-4 py-2 shadow-lg">
+      <span class="font-display text-lg font-semibold text-primary-700">{price}</span>
+      <span class="text-xs text-muted block">pro Nacht</span>
     </div>
-    <!-- Capacity Badge -->
-    <div class="absolute top-4 left-4 bg-secondary text-white px-3 py-1 text-sm font-medium">
-      {capacity} Guest{capacity !== 1 ? 's' : ''}
+    
+    {/* Capacity Badge */}
+    <div class="absolute top-4 left-4 bg-primary-900/90 backdrop-blur-sm text-white px-3 py-1.5 text-xs font-medium tracking-wider uppercase">
+      {capacity} {capacity > 1 ? 'Personen' : 'Person'}
     </div>
   </div>
 
   <!-- Content -->
-  <div class="p-6">
-    <h3 class="font-display text-2xl font-bold text-primary mb-2 break-words">
+  <div class="p-6 lg:p-8">
+    {/* Decorative line */}
+    <div class="w-8 h-[2px] bg-secondary-400 mb-4 transition-all duration-300 group-hover:w-12"></div>
+    
+    <h3 class="font-display text-xl lg:text-2xl font-semibold text-dark mb-2">
       {name}
     </h3>
+    
+    <p class="text-sm text-muted mb-4 tracking-wide uppercase">{capacityLabels[capacity] || 'Zimmer'}</p>
 
     {description && (
-      <p class="font-body text-secondary text-sm leading-relaxed mb-4 line-clamp-2">
+      <p class="font-body text-secondary leading-relaxed mb-6 line-clamp-2">
         {description}
       </p>
     )}
 
     <!-- Amenities -->
     {amenities.length > 0 && (
-      <div class="flex flex-wrap gap-2 mb-4">
-        {amenities.slice(0, 4).map((amenity) => (
-          <span class="inline-block px-2 py-1 bg-background-secondary text-secondary text-xs">
+      <div class="flex flex-wrap gap-2 mb-6">
+        {amenities.slice(0, 3).map((amenity) => (
+          <span class="inline-block px-3 py-1 bg-surface text-secondary text-xs border border-light">
             {amenity}
           </span>
         ))}
-        {amenities.length > 4 && (
-          <span class="inline-block px-2 py-1 bg-surface text-secondary text-xs">
-            +{amenities.length - 4} more
+        {amenities.length > 3 && (
+          <span class="inline-block px-3 py-1 bg-surface text-muted text-xs border border-light">
+            +{amenities.length - 3}
           </span>
         )}
       </div>
@@ -78,7 +88,7 @@ const capacityLabels: Record<number, string> = {
     <!-- CTA Button -->
     <a
       href={detailsLink}
-      class="block w-full text-center py-3 bg-primary hover:bg-secondary text-white font-semibold transition-colors duration-300"
+      class="block w-full text-center py-3.5 bg-primary-700 hover:bg-primary-800 text-white font-medium tracking-wider uppercase text-sm transition-all duration-300"
     >
       {detailsText}
     </a>
